@@ -1,7 +1,7 @@
 {
-  "name": "eulith-web3js-simple-kms-sample",
+  "name": "eulith-web3js-flash-sample",
   "version": "0.2.9",
-  "description": "Simple sample using eulith-web3js with KMS signing",
+  "description": "Sample use of Flash (loan/swap) eulith-web3js",
   "main": "index.js",
   "files": [
     "/dist"
@@ -16,9 +16,8 @@
   "author": "Eulith Support <support@eulith.com>",
   "license": "CC BY-NC-ND 4.0",
   "dependencies": {
-    "@aws-sdk/client-kms": "^3.279.0",
     "eulith-web3js": "^0.2.9",
-    "web3-eth": "^1.8.2"
+    "web3": "^1.8.2"
   },
   "devDependencies": {
     "@types/node": "^18.6.1",

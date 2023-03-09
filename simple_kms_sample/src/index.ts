@@ -18,8 +18,8 @@ const main = async () => {
     console.log(`AWS-KMS KeyID:      ${config.awsKMSKeyID}`);
 
     const kmsSigner = new Eulith.KMSSigner(client, config.awsKMSKeyID);
-    console.log(`AWS-KMS Public key: ${await kmsSigner.getPublicKey()}`); // informational, no need to call
-    console.log(`Ethereum Address:   ${await kmsSigner.getAddress()}`); // ''
+    console.log(`AWS-KMS Public key: ${await kmsSigner.publicKey}`); // informational, no need to call
+    console.log(`Ethereum Address:   ${await kmsSigner.address}`); // ''
 
     // Now try sending a transaction from an existing predefined wallet
     const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
@@ -47,21 +47,21 @@ const main = async () => {
     // Now try creating an account, doing a transfer (with regular signing), and then use the
     // kms signer to send the money back
     {
-        await ew3.ensureToolkitContract(await acct.getAddress());
+        await ew3.ensureToolkitContract(await acct.address);
         console.log(
             `B4 kms bal:         ${await ew3.eth.getBalance(
-                await kmsSigner.getAddress()
+                await kmsSigner.address
             )}`
         );
         let txReceiptHash = await ew3.eulith_send_and_sign_transaction({
-            from: await acct.getAddress(),
-            to: await kmsSigner.getAddress(),
+            from: await acct.address,
+            to: await kmsSigner.address,
             value: 1213141500000000,
         });
         await ew3.eth.getTransactionReceipt(txReceiptHash); // NOTE Pyhon code doesn't do this, but I think its logically needed
         console.log(
             `AFTER kms bal:      ${await ew3.eth.getBalance(
-                await kmsSigner.getAddress()
+                await kmsSigner.address
             )}`
         );
 
@@ -74,16 +74,16 @@ const main = async () => {
             signer: kmsSigner,
         });
 
-        // Now final trnasfer using the kmsSigner (inside kmsEW3)
+        // Now final transfer using the kmsSigner (inside kmsEW3)
         txReceiptHash = await kmsEW3.eulith_send_and_sign_transaction({
-            from: await kmsSigner.getAddress(),
-            to: await acct.getAddress(),
+            from: await kmsSigner.address,
+            to: await acct.address,
             value: 12131415,
         });
         await ew3.eth.getTransactionReceipt(txReceiptHash);
         console.log(
             `At end: KMS bal:    ${await ew3.eth.getBalance(
-                await kmsSigner.getAddress()
+                await kmsSigner.address
             )}`
         );
     }

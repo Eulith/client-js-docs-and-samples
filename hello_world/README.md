@@ -6,16 +6,15 @@ Hello world, from scratch.
 - Trivial to integrate into your existing web3js - based application. 
 - Not opinionated
 - Typescript typings
-- Minimal dependencies
 
 ### Getting started
 
 ~~~
 mkdir hello; cd hello
 npm init -y
-npm install typescript --save-dev
+npm install typescript @types/node --save-dev
 npx tsc --init
-npm i eulith-web3js
+npm i eulith-web3js web3
 cp {below-index.ts} index.ts
 npx tsc && node index.js
 ~~~
