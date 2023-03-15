@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Browser Sample</title>
+
+    <script>
+        const modernBrowser = 'fetch' in window && 'assign' in Object;
+  
+        if (!modernBrowser) {
+          const scriptElement = document.createElement('script');
+  
+          scriptElement.async = false;
+          scriptElement.src = '/polyfills.bundle.js';
+          document.head.appendChild(scriptElement);
+        }
+      </script>
+  </head>
+  <body>
+    <div>
+      <label for="serverURL">Server URL</label> <input type="text" id="serverURL" name="serverURL" value="https://eth-goerli.eulithrpc.com">
+    </div>
+    <div>
+      <label for="refreshToken">refreshToken</label> <input type="text" id="refreshToken" name="refreshToken" value="<<get token from https://docs.eulith.com/public/sign-ups>>">
+    </div>
+    <div>
+      <label for="chainID">chainID</label> <span type="text"  id="chainID" >NONE YET</span>
+      <input type="button" value="fetchChainID" onclick="window.doFetchChainID()"/>
+    </div>
+  </body>
+</html>

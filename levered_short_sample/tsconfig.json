@@ -1,17 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["es6"],
+    "module": "Node16",
+    "target": "ES6",
+    "lib": [
+      "es6"
+    ],
     "allowJs": true,
     "outDir": "dist",
     "rootDir": "src",
     "sourceMap": true,
     "strict": true,
     "esModuleInterop": true,
-    "types": ["node",],
+    "types": [
+      "node",
+    ],
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["src/**/*.spec.ts"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ]
 }
