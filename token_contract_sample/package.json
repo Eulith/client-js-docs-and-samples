@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-token-contract-sample",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "Sample use of smart wrapper on token contracts with eulith-web3js",
   "main": "index.js",
   "files": [
@@ -16,8 +16,8 @@
   "author": "Eulith Support <support@eulith.com>",
   "license": "CC BY-NC-ND 4.0",
   "dependencies": {
-    "eulith-web3js": "^0.2.15",
-    "web3": "^1.8.2"
+    "eulith-web3js": "^0.2.16",
+    "web3": "1.8.2"
   },
   "devDependencies": {
     "@types/node": "^18.6.1",

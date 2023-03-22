@@ -17,31 +17,31 @@ async function exampleAtomicTransaction() {
         signer: acct,
     });
 
-    await ew3.ensureToolkitContract(await acct.address);
+    await ew3.ensureToolkitContract(acct.address);
 
     // Start Atomic Tx
     const atomicTransaction = new Eulith.AtomicTx({
         web3: ew3,
-        accountAddress: await acct.address,
+        accountAddress: acct.address,
     });
 
     // Append
     await atomicTransaction.addTransaction({
-        from: await acct.address,
+        from: acct.address,
         to: "0x8Ef090678C0B80F6F4aD8B5300Ccd41d22940968",
         value: 12131415, // Value in WEI
     });
 
     // Append
     await atomicTransaction.addTransaction({
-        from: await acct.address,
+        from: acct.address,
         to: "0x646F39db3e04b2d356ca1B3F387d94b60FE6bB1A",
         value: 22131415, // Value in WEI
     });
 
     // Append
     await atomicTransaction.addTransaction({
-        from: await acct.address,
+        from: acct.address,
         to: "0x7321E1AD2fECeD81E5ED1E5122CCf1D981c325b2",
         value: 32131415, // Value in WEI
     });
@@ -53,8 +53,9 @@ async function exampleAtomicTransaction() {
         const combinedTransactionAsTxParams = await atomicTransaction.commit();
 
         // Sign and send
-        const txHash: string = await ew3.eulith_send_and_sign_transaction(
-            combinedTransactionAsTxParams
+        const txHash: string = await provider.signAndSendTransaction(
+            combinedTransactionAsTxParams,
+            acct
         );
 
         // Get tx hash

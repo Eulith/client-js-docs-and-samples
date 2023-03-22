@@ -1,5 +1,5 @@
 import Web3 from "web3";
-import * as Eulith from "eulith-web3js";        // could use 'eulith-web3js-core' to reduce dependencies
+import * as Eulith from "eulith-web3js"; // could use 'eulith-web3js-core' to reduce dependencies
 
 async function usingWindowFetch_(a1: any, a2: any) {
     return await window.fetch(a1, a2);

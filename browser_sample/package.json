@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-browser-sample",
-  "version": "1.0.0",
+  "version": "0.2.16",
   "description": "",
   "private": true,
   "scripts": {
@@ -10,14 +10,13 @@
     "clobber": "rimraf dist node_modules package-lock.json",
     "format": "prettier 'src/**/*.ts' '*.js' --write"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Eulith Support <support@eulith.com>",
   "license": "ISC",
   "dependencies": {
     "assert": "^2.0.0",
     "babel-polyfill": "^6.26.0",
     "crypto-browserify": "^3.12.0",
-    "eulith-web3js": "^0.2.15",
+    "eulith-web3js": "^0.2.16",
     "prettier": "^2.8.4",
     "stream-browserify": "^3.0.0",
     "web3": "^1.8.2",

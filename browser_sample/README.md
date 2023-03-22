@@ -41,5 +41,5 @@ You can run your client through a cors-enabling revsere proxy
 
 [https://www.npmjs.com/package/local-cors-proxy](https://www.npmjs.com/package/local-cors-proxy)
 ~~~
-    npx lcp --proxyUrl http://localhost:7777 ??? SOMETHING LIKE THIS MUST PLAY/DONT RECALL
+    npx lcp --proxyUrl http://localhost:7777
 ~~~

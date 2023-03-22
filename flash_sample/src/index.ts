@@ -18,7 +18,7 @@ async function exampleFlash() {
         signer: acct,
     });
 
-    await ew3.ensureToolkitContract(await acct.address);
+    await ew3.ensureToolkitContract(acct.address);
 
     // We're going to PAY USDC
     const payToken = await Eulith.tokens.getTokenContract({
@@ -37,7 +37,7 @@ async function exampleFlash() {
 
     const atomicTx = new Eulith.AtomicTx({
         web3: ew3,
-        accountAddress: await acct.address,
+        accountAddress: acct.address,
     });
 
     const flashPay: Eulith.FlashLiquidity = await Eulith.FlashLiquidity.start({
@@ -46,7 +46,7 @@ async function exampleFlash() {
             take: takeToken,
             pay: payToken,
             takeAmount: takeAmount,
-            payTransferFrom: Web3.utils.toChecksumAddress(await acct.address),
+            payTransferFrom: Web3.utils.toChecksumAddress(acct.address),
         },
     });
 

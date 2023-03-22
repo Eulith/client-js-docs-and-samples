@@ -18,7 +18,7 @@ async function setupLeveredShort() {
         signer: acct,
     });
 
-    await ew3.ensureToolkitContract(await acct.address);
+    await ew3.ensureToolkitContract(acct.address);
 
     const collateralToken = await Eulith.tokens.getTokenContract({
         provider: provider,
@@ -35,7 +35,7 @@ async function setupLeveredShort() {
     // Start atomic tx
     const atomicTx = new Eulith.AtomicTx({
         web3: ew3,
-        accountAddress: await acct.address,
+        accountAddress: acct.address,
     });
 
     // Get short quote (leverage)
@@ -60,7 +60,7 @@ async function removeLeveredShort() {
         signer: acct,
     });
 
-    await ew3.ensureToolkitContract(await acct.address);
+    await ew3.ensureToolkitContract(acct.address);
 
     const collateralToken = await Eulith.tokens.getTokenContract({
         provider: provider,
@@ -74,7 +74,7 @@ async function removeLeveredShort() {
 
     const atomicTx = new Eulith.AtomicTx({
         web3: ew3,
-        accountAddress: await acct.address,
+        accountAddress: acct.address,
     });
 
     const eulithShortAPI = new Eulith.Shorts({ atomicTx: atomicTx });
