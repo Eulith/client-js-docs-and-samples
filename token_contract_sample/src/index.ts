@@ -16,7 +16,7 @@ function closeTo(a: number, b: number, errorMargin: number) {
 }
 
 async function tokenContractSimplerEulithAPI() {
-    const web3 = new Eulith.Web3({ provider: provider, signer: acct });
+    const web3 = new Eulith.Web3({ provider, signer: acct });
 
     /*
      *  Create a smart proxy to the WETH contract. Pass in copy of our signer, so that
@@ -24,7 +24,7 @@ async function tokenContractSimplerEulithAPI() {
      *  but then you must sign and send some (deposit, for example) transactions manually.
      */
     const wethContract = (await Eulith.tokens.getTokenContract({
-        provider: provider,
+        provider,
         symbol: Eulith.tokens.Symbols.WETH,
     })) as Eulith.contracts.WethTokenContract;
 
@@ -40,9 +40,7 @@ async function tokenContractSimplerEulithAPI() {
      *  signAndSendAndWait (or otherwise signed and sent along).
      */
     await wethContract
-        .deposit(new Eulith.tokens.value.ETH(1.0), {
-            from: acct.address,
-        })
+        .deposit(new Eulith.tokens.value.ETH(1.0), { from: acct.address })
         .signAndSendAndWait(acct, provider); // NB: no need to check result - throws on failure
 
     // By this point, we've INCREASED our WETH balance, and correspondingly DECREASED our ETH balance associated with accnt.
@@ -54,20 +52,14 @@ async function tokenContractSimplerEulithAPI() {
         );
     }
 
-    const beforeWithdrawETHBal = new Eulith.tokens.value.ETH(
-        await web3.eth.getBalance(acct.address)
-    );
+    const beforeWithdrawETHBal = new Eulith.tokens.value.ETH(await web3.eth.getBalance(acct.address));
     /*
      *  withdraw() UNWRAPS the WETH, putting it back into our ETH account, and removing it from the WETH contract.
      */
     await wethContract
-        .withdraw(new Eulith.tokens.value.ETH(1.0), {
-            from: await acct.address,
-        })
+        .withdraw(new Eulith.tokens.value.ETH(1.0), { from: acct.address })
         .signAndSendAndWait(acct, provider); // NB: no need to check result - throws on failure
-    const afterWithdrawETHBal = new Eulith.tokens.value.ETH(
-        await web3.eth.getBalance(acct.address)
-    );
+    const afterWithdrawETHBal = new Eulith.tokens.value.ETH(await web3.eth.getBalance(acct.address));
     const afterWithdrawBalance = await wethContract.balanceOf(acct.address);
 
     // Note at this point, our WETH balanace should EXACTLY match our original balance, but the ETH balance will be off by a tiny
@@ -77,13 +69,7 @@ async function tokenContractSimplerEulithAPI() {
             `oops, expected afterWithdrawBalance to EQUAL startingBalance, but got: afterDepositBalance=${afterWithdrawBalance.asFloat}, startingBalance=${startingBalance.asFloat} `
         );
     }
-    if (
-        !closeTo(
-            afterWithdrawETHBal.asFloat - beforeWithdrawETHBal.asFloat,
-            1.0,
-            0.001
-        )
-    ) {
+    if (!closeTo(afterWithdrawETHBal.asFloat - beforeWithdrawETHBal.asFloat, 1.0, 0.001)) {
         console.log(
             `oops, expected afterWithdrawETHBal - beforeWithdrawETHBal to be close to 1, but got: afterWithdrawETHBal=${afterWithdrawETHBal.asFloat}, beforeWithdrawETHBal=${beforeWithdrawETHBal.asFloat} `
         );
@@ -94,9 +80,9 @@ async function tokenContractSimplerEulithAPI() {
 async function tokenContractWithWeb3JSAPI() {
     // todo write... ONLY 1/8 done using OLD WS API
     // const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
-    // const web3 = new Eulith.Web3({ provider: provider, signer: acct });
+    // const web3 = new Eulith.Web3({ provider, signer: acct });
     // const wethContract = (await Eulith.tokens.getTokenContract({
-    //     provider: provider,
+    //     provider,
     //     symbol: Eulith.tokens.Symbols.WETH,
     //     signer: acct
     // })) as Eulith.contracts.WethTokenContract;

@@ -37,16 +37,13 @@ const provider = new Eulith.Provider({
 });
 
 async function createContract() {
-    const ew3 = new Eulith.Web3({ provider: provider });
     const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
-    const contractAddress1: string = await ew3.ensureToolkitContract(
-        acct.address
-    );
+    const contractAddress1: string = await Eulith.ToolkitContract.proxyAddress({ provider, signer: acct });
     logger.info(`acct.address: ${acct.address}`);
 }
 
 async function helloWorld() {
-    const ew3 = new Eulith.Web3({ provider: provider });
+    const ew3 = new Eulith.Web3({ provider });
     logger.info(`chainID: ${await ew3.eth.getChainId()}`);
 }
 

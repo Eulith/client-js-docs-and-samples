@@ -3,27 +3,16 @@ import * as Eulith from "eulith-web3js";
 
 import config from "./common-configuration";
 
-const provider = new Eulith.Provider({
-    serverURL: config.serverURL,
-    refreshToken: config.refreshToken,
-});
+const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
 
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
 
 async function exampleAtomicTransaction() {
-    const ew3 = new Eulith.Web3({
-        provider: provider,
-        signer: acct,
-    });
+    const ew3 = new Eulith.Web3({ provider, signer: acct }); // generally not needed
 
-    await ew3.ensureToolkitContract(acct.address);
-
-    // Start Atomic Tx
-    const atomicTransaction = new Eulith.AtomicTx({
-        web3: ew3,
-        accountAddress: acct.address,
-    });
+    // Start Atomic Tx (or could pass CTOR {web3: ew3, accountAddress: acct.address})
+    const atomicTransaction = new Eulith.AtomicTx({ provider, signer: acct });
 
     // Append
     await atomicTransaction.addTransaction({
@@ -53,18 +42,14 @@ async function exampleAtomicTransaction() {
         const combinedTransactionAsTxParams = await atomicTransaction.commit();
 
         // Sign and send
-        const txHash: string = await provider.signAndSendTransaction(
-            combinedTransactionAsTxParams,
-            acct
-        );
+        const txHash: string = await provider.signAndSendTransaction(combinedTransactionAsTxParams, acct);
 
         // Get tx hash
-        const txReceipt: TransactionReceipt =
-            await ew3.eth.getTransactionReceipt(txHash);
+        const txReceipt: TransactionReceipt = await ew3.eth.getTransactionReceipt(txHash);
     } else {
         console.log("Using commitAndSendAndWait");
         // Sign and send and wait for txReceipt
-        await atomicTransaction.commitAndSendAndWait({ timeoutMS: 10 * 1000 });
+        await atomicTransaction.commitAndSendAndWait({ timeoutMS: 10 * 1000 }); // timeout optional
     }
     console.log("SUCCESS");
 }

@@ -12,7 +12,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "src/index.html",
         }),
-        // Work around for Buffer is undefined in etherium-js-tx
+        // Work around for Buffer is undefined in ethereum-js-tx
         // https://stackoverflow.com/questions/68707553/uncaught-referenceerror-buffer-is-not-defined
         new webpack.ProvidePlugin({
             Buffer: ["buffer", "Buffer"],

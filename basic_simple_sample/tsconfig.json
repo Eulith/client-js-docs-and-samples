@@ -8,7 +8,8 @@
     "allowJs": true,
     "outDir": "dist",
     "rootDir": "src",
-    "sourceMap": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
     "strict": true,
     "esModuleInterop": true,
     "types": [

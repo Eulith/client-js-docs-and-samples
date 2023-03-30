@@ -12,25 +12,35 @@ const provider = new Eulith.Provider({
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
 
+// @todo REVIEW FLASH SAMPLE AND CLEAN UP THIS CODE BASED ON THAT
+
 async function setupLeveredShort() {
     const ew3 = new Eulith.Web3({
-        provider: provider,
+        provider,
         signer: acct,
     });
 
-    await ew3.ensureToolkitContract(acct.address);
+    /*
+     *  Frequently you can ingore the proxy address used by the AtomicTx code, but you need to know the
+     *  address when you must 'approve' of transactions (spending) done by that proxy
+     */
+    const proxyContractAddress = await Eulith.ToolkitContract.proxyAddress({ provider, signer: acct });
 
     const collateralToken = await Eulith.tokens.getTokenContract({
-        provider: provider,
+        provider,
         symbol: Eulith.tokens.Symbols.USDC,
     });
 
     const shortToken = await Eulith.tokens.getTokenContract({
-        provider: provider,
+        provider,
         symbol: Eulith.tokens.Symbols.WETH,
     });
 
     const collateralAmount = 1000;
+
+    await collateralToken
+        .transfer(proxyContractAddress, collateralToken.asTokenValue(collateralAmount * 1.2), { from: acct.address })
+        .signAndSendAndWait(acct, provider);
 
     // Start atomic tx
     const atomicTx = new Eulith.AtomicTx({
@@ -55,27 +65,12 @@ async function setupLeveredShort() {
 }
 
 async function removeLeveredShort() {
-    const ew3 = new Eulith.Web3({
-        provider: provider,
-        signer: acct,
-    });
+    const ew3 = new Eulith.Web3({ provider, signer: acct });
 
-    await ew3.ensureToolkitContract(acct.address);
+    const collateralToken = await Eulith.tokens.getTokenContract({ provider, symbol: Eulith.tokens.Symbols.USDC });
+    const shortToken = await Eulith.tokens.getTokenContract({ provider, symbol: Eulith.tokens.Symbols.WETH });
 
-    const collateralToken = await Eulith.tokens.getTokenContract({
-        provider: provider,
-        symbol: Eulith.tokens.Symbols.USDC,
-    });
-
-    const shortToken = await Eulith.tokens.getTokenContract({
-        provider: provider,
-        symbol: Eulith.tokens.Symbols.WETH,
-    });
-
-    const atomicTx = new Eulith.AtomicTx({
-        web3: ew3,
-        accountAddress: acct.address,
-    });
+    const atomicTx = new Eulith.AtomicTx({ web3: ew3, accountAddress: acct.address });
 
     const eulithShortAPI = new Eulith.Shorts({ atomicTx: atomicTx });
     const releasedCollateral = await eulithShortAPI.shortOff({

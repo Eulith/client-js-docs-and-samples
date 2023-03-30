@@ -28,7 +28,7 @@ const main = async () => {
         refreshToken: config.refreshToken,
     });
     const ew3 = new Eulith.Web3({
-        provider: provider,
+        provider,
         signer: acct,
     });
 
@@ -48,12 +48,7 @@ const main = async () => {
     // Now try creating an account, doing a transfer (with regular signing), and then use the
     // kms signer to send the money back
     {
-        await ew3.ensureToolkitContract(acct.address);
-        console.log(
-            `B4 kms bal:         ${await ew3.eth.getBalance(
-                await kmsSigner.address
-            )}`
-        );
+        console.log(`B4 kms bal:         ${await ew3.eth.getBalance(await kmsSigner.address)}`);
         let txReceiptHash = await provider.signAndSendTransaction(
             {
                 from: acct.address,
@@ -63,15 +58,11 @@ const main = async () => {
             acct
         );
         await ew3.eth.getTransactionReceipt(txReceiptHash); // NOTE Pyhon code doesn't do this, but I think its logically needed
-        console.log(
-            `AFTER kms bal:      ${await ew3.eth.getBalance(
-                await kmsSigner.address
-            )}`
-        );
+        console.log(`AFTER kms bal:      ${await ew3.eth.getBalance(await kmsSigner.address)}`);
 
         // // Now sign and send with KMS signer
         // const kmsEW3 = new Eulith.Web3({
-        //     provider: provider,
+        //     provider,
         //     signer: kmsSigner,
         // });
 
@@ -85,9 +76,7 @@ const main = async () => {
             kmsSigner
         );
         await ew3.eth.getTransactionReceipt(txReceiptHash);
-        console.log(
-            `At end: KMS bal:    ${await ew3.eth.getBalance(kmsSigner.address)}`
-        );
+        console.log(`At end: KMS bal:    ${await ew3.eth.getBalance(kmsSigner.address)}`);
     }
 };
 
