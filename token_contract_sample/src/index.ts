@@ -3,10 +3,9 @@ import * as Eulith from "eulith-web3js";
 
 import config from "./common-configuration";
 
-const provider = new Eulith.Provider({
-    serverURL: config.serverURL,
-    refreshToken: config.refreshToken,
-});
+// Start creating a Eulith provider (like web3js provider) object, which can be used with web3js (and
+// Eulith APIs to communicate with the ethereum network. This handles authentication, and networking
+const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
 
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
@@ -19,9 +18,7 @@ async function tokenContractSimplerEulithAPI() {
     const web3 = new Eulith.Web3({ provider, signer: acct });
 
     /*
-     *  Create a smart proxy to the WETH contract. Pass in copy of our signer, so that
-     *  signing of 'send' transactions can be handled automatically. That signer CAN be omitted,
-     *  but then you must sign and send some (deposit, for example) transactions manually.
+     *  Create a smart proxy to the WETH contract.
      */
     const wethContract = (await Eulith.tokens.getTokenContract({
         provider,
@@ -38,6 +35,10 @@ async function tokenContractSimplerEulithAPI() {
      *
      *  WARNING: contract.deposit does NOT initiate the deposit. It must be chained together with
      *  signAndSendAndWait (or otherwise signed and sent along).
+     *
+     *  \note also, this contract.deposit API DIFFERS from the web3js approach, in that there is no
+     *        .method level, and it operates on 'tokenvalue' objects that are smart about
+     *        precision and format conversions.
      */
     await wethContract
         .deposit(new Eulith.tokens.value.ETH(1.0), { from: acct.address })

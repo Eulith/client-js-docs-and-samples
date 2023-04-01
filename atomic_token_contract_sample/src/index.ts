@@ -168,7 +168,7 @@ async function tokenContractWithAtomics() {
     const startingContractBalance = await tokenContract.balanceOf(acct.address);
 
     // precompute proxyContractAddress, so we can 'approve' that address for later transfers
-    const proxyContractAddress = await Eulith.ToolkitContract.proxyAddress({ provider, signer: acct });
+    const proxyContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
 
     const approveAmt = tokenContract.asTokenValue(1.0); // one dollar
 

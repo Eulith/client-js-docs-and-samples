@@ -7,12 +7,20 @@ are lumped here.
 This changlog also contains changes to samples, even thought they are published
 in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/clients-samples-web3js)
 
+## 0.3.1-beta.3
+
+- Documentation and sample improvements (modest)
+- deprecated Eulith.ToolkitContract.proxyAddress, use Eulith.ToolkitContract.address instead
+- workaround react/cryto lib issue with AtomicTx (still must root cause analysis/fix)
+- internal work preparing for new UnsignedTransaction APIs (no real changes)
+- other internal changes, regression test etc
+
 ## 0.3.1-beta.2
 
 - Documentation improvements
 - New location/handling of CHANGELOG.md
 - new Eulith.ToolkitContract class
-  - deprecate Eulith.Web3.ensureToolkitContract: use use Eulith.ToolkitContract.proxyAddress instead
+  - deprecate Eulith.Web3.ensureToolkitContract: use Eulith.ToolkitContract.proxyAddress instead
   - deprecate Eulith.Web3.getProxyAddress and Eulith.Web3.createProxy (migrate to use of ToolkitContract object)
 - Eulith.AtomicTx
   - fixed atomictx issue with addTransaction - must wait on toolkit contract creation internally

@@ -1,13 +1,12 @@
 import Web3 from "web3";
-import { TransactionConfig, TransactionReceipt } from "web3-core";
+import { TransactionReceipt } from "web3-core";
 import * as Eulith from "eulith-web3js";
 
 import config from "./common-configuration";
 
-const provider = new Eulith.Provider({
-    serverURL: config.serverURL,
-    refreshToken: config.refreshToken,
-});
+// Start creating a Eulith provider (like web3js provider) object, which can be used with web3js (and
+// Eulith APIs to communicate with the ethereum network. This handles authentication, and networking
+const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
 
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
@@ -22,13 +21,10 @@ async function exampleFlash() {
      *  Frequently you can ingore the proxy address used by the AtomicTx code, but you need to know the
      *  address when you must 'approve' of transactions (spending) done by that proxy
      */
-    const proxyContractAddress = await Eulith.ToolkitContract.proxyAddress({ provider, signer: acct });
+    const proxyContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
 
     // We're going to PAY USDC
-    const payTokenContract = await Eulith.tokens.getTokenContract({
-        provider,
-        symbol: Eulith.tokens.Symbols.USDC,
-    });
+    const payTokenContract = await Eulith.tokens.getTokenContract({ provider, symbol: Eulith.tokens.Symbols.USDC });
 
     // We're going to TAKE WETH
     const takeTokenContract = (await Eulith.tokens.getTokenContract({
@@ -36,12 +32,15 @@ async function exampleFlash() {
         symbol: Eulith.tokens.Symbols.WETH,
     })) as Eulith.contracts.WethTokenContract;
 
+    // @todo rewrite using new TOKENVALUE
     // TAKE 2 whole WETH
     const takeAmount = 2;
 
     // @todo figure out how to clean this logic up!!!
     // # magic number math to cover enough USDC to pay back the ETH and max $1,500 per.
     const payAmount = takeAmount * 1500 * 1.2;
+
+    // @todo - this from: acct.address sb AUTOMATIC?? DISCUSS WITH @Kristain/Moh
 
     // The x 1.2 here is so we pre-approve a bit more than we expect to take, so the
     // loan request succeeds (gas/fee).

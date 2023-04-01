@@ -24,7 +24,7 @@ async function setupLeveredShort() {
      *  Frequently you can ingore the proxy address used by the AtomicTx code, but you need to know the
      *  address when you must 'approve' of transactions (spending) done by that proxy
      */
-    const proxyContractAddress = await Eulith.ToolkitContract.proxyAddress({ provider, signer: acct });
+    const proxyContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
 
     const collateralToken = await Eulith.tokens.getTokenContract({
         provider,

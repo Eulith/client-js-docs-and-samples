@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-levered-short-sample",
-  "version": "0.3.1-beta.2",
+  "version": "0.3.1-beta.3",
   "description": "Sample use of levered shorts with eulith-web3js",
   "main": "index.js",
   "files": [
@@ -16,7 +16,7 @@
   "author": "Eulith Support <support@eulith.com>",
   "license": "CC BY-NC-ND 4.0",
   "dependencies": {
-    "eulith-web3js": "^0.3.1-beta.2",
+    "eulith-web3js": "^0.3.1-beta.3",
     "web3": "^1.8.2"
   },
   "devDependencies": {
