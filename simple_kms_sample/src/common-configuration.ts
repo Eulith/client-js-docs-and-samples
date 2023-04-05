@@ -11,8 +11,8 @@ const kmsClientConfig: KMSClientConfig = {
     region: process.env.EULITH_TEST_KMS_AWS_REGION ?? "us-east-1",
     credentials: {
         accessKeyId: process.env.EULITH_TEST_KMS_AWS_ACCESS_KEYID ?? "<access_key_id>", // '', // credentials for your IAM user with KMS access
-        secretAccessKey: process.env.EULITH_TEST_KMS_AWS_SECRET_ACCESS_KEY ?? "<access_secret>", // '', // credentials for your IAM user with KMS access
-    },
+        secretAccessKey: process.env.EULITH_TEST_KMS_AWS_SECRET_ACCESS_KEY ?? "<access_secret>" // '', // credentials for your IAM user with KMS access
+    }
 };
 
 export default {
@@ -20,5 +20,5 @@ export default {
     refreshToken,
     Wallet1,
     awsKMSKeyID,
-    kmsClientConfig,
+    kmsClientConfig
 };

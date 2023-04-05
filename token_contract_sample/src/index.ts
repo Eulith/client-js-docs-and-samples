@@ -22,7 +22,7 @@ async function tokenContractSimplerEulithAPI() {
      */
     const wethContract = (await Eulith.tokens.getTokenContract({
         provider,
-        symbol: Eulith.tokens.Symbols.WETH,
+        symbol: Eulith.tokens.Symbols.WETH
     })) as Eulith.contracts.WethTokenContract;
 
     /*
@@ -49,7 +49,7 @@ async function tokenContractSimplerEulithAPI() {
     const afterDepositBalance = await wethContract.balanceOf(acct.address);
     if (afterDepositBalance.asFloat - startingBalance.asFloat != 1.0) {
         console.log(
-            `oops, expected balance change of 1, but got: afterDepositBalance=${afterDepositBalance.asFloat}, startingBalance=${startingBalance.asFloat} `
+            `  oops, expected balance change of 1, but got: afterDepositBalance=${afterDepositBalance.asFloat}, startingBalance=${startingBalance.asFloat} `
         );
     }
 
@@ -67,12 +67,12 @@ async function tokenContractSimplerEulithAPI() {
     // amount, due to gas costs.
     if (afterWithdrawBalance.asFloat != startingBalance.asFloat) {
         console.log(
-            `oops, expected afterWithdrawBalance to EQUAL startingBalance, but got: afterDepositBalance=${afterWithdrawBalance.asFloat}, startingBalance=${startingBalance.asFloat} `
+            `  oops, expected afterWithdrawBalance to EQUAL startingBalance, but got: afterDepositBalance=${afterWithdrawBalance.asDisplayString}, startingBalance=${startingBalance.asDisplayString} `
         );
     }
     if (!closeTo(afterWithdrawETHBal.asFloat - beforeWithdrawETHBal.asFloat, 1.0, 0.001)) {
         console.log(
-            `oops, expected afterWithdrawETHBal - beforeWithdrawETHBal to be close to 1, but got: afterWithdrawETHBal=${afterWithdrawETHBal.asFloat}, beforeWithdrawETHBal=${beforeWithdrawETHBal.asFloat} `
+            `  oops, expected afterWithdrawETHBal - beforeWithdrawETHBal to be close to 1, but got: afterWithdrawETHBal=${afterWithdrawETHBal.asDisplayString}, beforeWithdrawETHBal=${beforeWithdrawETHBal.asDisplayString} `
         );
     }
     console.log("token Contract Simpler EulithAPI SUCCESS");

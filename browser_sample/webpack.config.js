@@ -5,30 +5,30 @@ const webpack = require("webpack");
 module.exports = {
     entry: {
         polyfills: "./src/polyfills.ts",
-        index: "./src/index.ts",
+        index: "./src/index.ts"
     },
     devtool: "inline-source-map",
     plugins: [
         new HtmlWebpackPlugin({
-            template: "src/index.html",
+            template: "src/index.html"
         }),
         // Work around for Buffer is undefined in ethereum-js-tx
         // https://stackoverflow.com/questions/68707553/uncaught-referenceerror-buffer-is-not-defined
         new webpack.ProvidePlugin({
-            Buffer: ["buffer", "Buffer"],
+            Buffer: ["buffer", "Buffer"]
         }),
         new webpack.ProvidePlugin({
-            process: "process/browser",
-        }),
+            process: "process/browser"
+        })
     ],
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 use: "ts-loader",
-                exclude: /node_modules/,
-            },
-        ],
+                exclude: /node_modules/
+            }
+        ]
     },
     resolve: {
         extensions: [".tsx", ".ts", ".js"],
@@ -41,10 +41,11 @@ module.exports = {
             // Fallbacks required to use web3-js, and therefore Eulith-web3js
             assert: require.resolve("assert/"),
             buffer: require.resolve("buffer/"),
-        },
+            events: require.resolve("events/")
+        }
     },
     output: {
         filename: "[name].bundle.js",
-        path: path.resolve(__dirname, "dist"),
-    },
+        path: path.resolve(__dirname, "dist")
+    }
 };

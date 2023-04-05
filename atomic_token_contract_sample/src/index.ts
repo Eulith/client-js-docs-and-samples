@@ -11,20 +11,20 @@ const logger = pino.pino({
                 // Can be helpful to debug - see details on tracelog.txt, including each message and response as they go over the wire
                 target: "pino/file",
                 options: { destination: "tracelog.txt" },
-                level: "trace",
+                level: "trace"
             },
             {
                 target: "pino-pretty",
                 options: { destination: 1 },
-                level: "info",
-            },
-        ],
-    },
+                level: "info"
+            }
+        ]
+    }
 });
 const provider = new Eulith.Provider({
     serverURL: config.serverURL,
     refreshToken: config.refreshToken,
-    logger: new Eulith.logging.PinoLogger(logger),
+    logger: new Eulith.logging.PinoLogger(logger)
 });
 
 function walletPrivateKey2Address_(w: string) {
@@ -42,7 +42,7 @@ function closeTo(a: number, b: number, errorMargin: number) {
 const recipients = [
     walletPrivateKey2Address_(config.Wallet2),
     walletPrivateKey2Address_(config.Wallet3),
-    walletPrivateKey2Address_(config.Wallet4),
+    walletPrivateKey2Address_(config.Wallet4)
 ];
 logger.info(`Recipients: ${JSON.stringify(recipients)}`);
 
@@ -57,7 +57,7 @@ async function tokenContractWithoutAtomics() {
      */
     const tokenContract = await Eulith.tokens.getTokenContract({
         provider,
-        symbol: Eulith.tokens.Symbols.USDC,
+        symbol: Eulith.tokens.Symbols.USDC
     });
 
     // Just to test/report
@@ -161,27 +161,32 @@ async function tokenContractWithAtomics() {
      */
     const tokenContract = await Eulith.tokens.getTokenContract({
         provider,
-        symbol: Eulith.tokens.Symbols.USDC,
+        symbol: Eulith.tokens.Symbols.USDC
     });
 
     // Just to test/report
     const startingContractBalance = await tokenContract.balanceOf(acct.address);
 
-    // precompute proxyContractAddress, so we can 'approve' that address for later transfers
-    const proxyContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
+    /*
+     *  Frequently you can ingore the toolkit contract used by the AtomicTx code, but you need to know the
+     *  address when you must 'approve' of transactions (spending) done by that contract.
+     *
+     *  Here we must 'approve' that address for later transfers
+     */
+    const toolkitContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
 
     const approveAmt = tokenContract.asTokenValue(1.0); // one dollar
 
     // Pre-approve an amount to be used in the atomic transaction
     await tokenContract
-        .approve(proxyContractAddress, approveAmt, { from: acct.address })
+        .approve(toolkitContractAddress, approveAmt, { from: acct.address })
         .signAndSendAndWait(acct, provider);
-    logger.info(`APPROVED: ${approveAmt.asFloat} for proxyContractAddress: ${proxyContractAddress})`);
+    logger.info(`APPROVED: ${approveAmt.asFloat} for toolkitContractAddress: ${toolkitContractAddress})`);
 
-    // begin the transaction (proxyContractAddress parameter optional, but we happen to have it handy, so why recompute)
-    let atomicTx = new Eulith.AtomicTx({ provider, signer: acct, proxyContractAddress });
+    // begin the transaction (toolkitContractAddress parameter optional, but we happen to have it handy, so why recompute)
+    let atomicTx = new Eulith.AtomicTx({ provider, signer: acct });
     logger.trace(
-        `tokenContract.allowance: ${(await tokenContract.allowance(acct.address, proxyContractAddress)).asFloat}`
+        `tokenContract.allowance: ${(await tokenContract.allowance(acct.address, toolkitContractAddress)).asFloat}`
     );
 
     let preTransactionRecipientBalances: { [index: string]: number } = {};
@@ -196,7 +201,7 @@ async function tokenContractWithAtomics() {
             tokenContract.transferFrom(acct.address, recipients[recip], tokenContract.asTokenValue(amt), {
                 from: acct.address,
                 to: tokenContract.address,
-                gas: 1,
+                gas: 1
             })
         );
     }
@@ -225,7 +230,7 @@ async function tokenContractWithAtomics() {
 
     logger.info(
         `AFTER-COMMIT: tokenContract.allowance=${
-            (await tokenContract.allowance(acct.address, proxyContractAddress)).asFloat
+            (await tokenContract.allowance(acct.address, toolkitContractAddress)).asFloat
         }`
     );
     logger.info(

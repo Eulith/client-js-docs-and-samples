@@ -7,6 +7,39 @@ are lumped here.
 This changlog also contains changes to samples, even thought they are published
 in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/clients-samples-web3js)
 
+## 0.3.1-beta.4 {2023-04-05}
+
+- ToolkitContract
+  - more thorough renaming of use/comments to use this terminology (toolkitContractAddress vs proxyContractAddress)
+- AtomicTx
+  - change atomicID bug workaround (crypt/math.random) to lose the period in number
+- Tokens
+  - new optional address parameter to getTokenContract
+  - ERC20 Token contract
+    - new symbol accessor
+  - ERC20 Token Value
+    - new read-only properties
+      - symbol
+      - asDisplayString
+- Uniswap support
+  - major cleanups and docs for this module
+    - getSwapPool takes tokenContracts array
+      - instead of parentTx takes provider
+      - now REQUIRES fee parameter (before erroneously optional)
+    - Uniswap CTOR deprecated along with getBestPriceQuote instance method, replacing it with static Eulith.Uniswap.getBestPriceQuote method
+    - Added experimental Unitswap.PriceQuote instance feeAmt property - ask Kristian/Moh if better - see example use in direct_uniswap sample
+- Build System
+  - saved package-lock-dist.json and scripted save
+  - changed prettier trailingComma to none
+  - update to use web3js 1.9.0 (^ in version) 
+- Samples
+  - General code/comment cleanups
+    - leverged short
+    - atomic token contract
+  - New direct_uniswap_sample
+  - Browser sample
+    - need one more polyfill
+
 ## 0.3.1-beta.3
 
 - Documentation and sample improvements (modest)

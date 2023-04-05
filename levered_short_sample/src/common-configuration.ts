@@ -7,5 +7,5 @@ const Wallet1: string = process.env.EULITH_TEST_WALLET1 ?? "<<NEED ACCT ID IN HE
 export default {
     serverURL,
     refreshToken,
-    Wallet1,
+    Wallet1
 };

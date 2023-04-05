@@ -19,6 +19,10 @@
 
     Show how to use smarter contract/conversion utilities [token_contract_sample/README.md](token_contract_sample/README.md)
 
+- Uniswap support
+
+    Start with the [direct_uniswap_sample/README.md](direct_uniswap_sample/README.md)
+
 - Flash (loan/swap)
 
     Start with the [flash_sample/README.md](flash_sample/README.md)

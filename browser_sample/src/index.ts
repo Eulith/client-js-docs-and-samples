@@ -8,7 +8,7 @@ async function usingWindowFetch_(a1: any, a2: any) {
 async function doFetchChainID() {
     const providerArgs = {
         serverURL: (document.getElementById("serverURL") as any).value,
-        refreshToken: (document.getElementById("refreshToken") as any).value,
+        refreshToken: (document.getElementById("refreshToken") as any).value
         // fetcherInstance: usingWindowFetch_           // defaults to axios, but do this to use fetch
     };
 

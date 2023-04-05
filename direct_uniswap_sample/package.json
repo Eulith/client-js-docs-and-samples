@@ -1,7 +1,7 @@
 {
-  "name": "eulith-web3js-atomic-sample",
+  "name": "eulith-web3js-direct-uniswap-sample",
   "version": "0.3.1-beta.4",
-  "description": "Sample use of Atomic Transactions with eulith-web3js",
+  "description": "Sample use of using UNISWAP directly (without flash) eulith-web3js",
   "main": "index.js",
   "files": [
     "/dist"

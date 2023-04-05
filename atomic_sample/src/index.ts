@@ -22,21 +22,21 @@ async function exampleAtomicTransaction() {
     await atomicTransaction.addTransaction({
         from: acct.address,
         to: "0x8Ef090678C0B80F6F4aD8B5300Ccd41d22940968",
-        value: 12131415, // Value in WEI (but see token samples for a better API/way)
+        value: 12131415 // Value in WEI (but see token samples for a better API/way)
     });
 
     // Append
     await atomicTransaction.addTransaction({
         from: acct.address,
         to: "0x646F39db3e04b2d356ca1B3F387d94b60FE6bB1A",
-        value: 22131415,
+        value: 22131415
     });
 
     // Append
     await atomicTransaction.addTransaction({
         from: acct.address,
         to: "0x7321E1AD2fECeD81E5ED1E5122CCf1D981c325b2",
-        value: 32131415,
+        value: 32131415
     });
 
     // Commit Atomic Tx

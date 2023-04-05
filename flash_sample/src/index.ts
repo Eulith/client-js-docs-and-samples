@@ -18,10 +18,10 @@ async function exampleFlash() {
     const ew3 = new Eulith.Web3({ provider, signer: acct });
 
     /*
-     *  Frequently you can ingore the proxy address used by the AtomicTx code, but you need to know the
+     *  Frequently you can ingore the toolkit address used by the AtomicTx code, but you need to know the
      *  address when you must 'approve' of transactions (spending) done by that proxy
      */
-    const proxyContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
+    const toolkitContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
 
     // We're going to PAY USDC
     const payTokenContract = await Eulith.tokens.getTokenContract({ provider, symbol: Eulith.tokens.Symbols.USDC });
@@ -29,7 +29,7 @@ async function exampleFlash() {
     // We're going to TAKE WETH
     const takeTokenContract = (await Eulith.tokens.getTokenContract({
         provider,
-        symbol: Eulith.tokens.Symbols.WETH,
+        symbol: Eulith.tokens.Symbols.WETH
     })) as Eulith.contracts.WethTokenContract;
 
     // @todo rewrite using new TOKENVALUE
@@ -45,17 +45,17 @@ async function exampleFlash() {
     // The x 1.2 here is so we pre-approve a bit more than we expect to take, so the
     // loan request succeeds (gas/fee).
     await payTokenContract
-        .approve(proxyContractAddress, payTokenContract.asTokenValue(payAmount * 1.2), { from: acct.address })
+        .approve(toolkitContractAddress, payTokenContract.asTokenValue(payAmount * 1.2), { from: acct.address })
         .signAndSendAndWait(acct, provider);
 
     /*
      * Start an atomic transaction. The atomic transaction needs to know the provider to talk to
      * and the signer (or the account address - which can be extracted from the signer)
      *
-     *  \note - constructor for AtomicTx allows you to OPTIONALLY specify proxyContractAddress for performance sake only.
+     *  \note - constructor for AtomicTx allows you to OPTIONALLY specify toolkitContractAddress for performance sake only.
      *          It can be computed internally automatically.
      */
-    const atomicTx = new Eulith.AtomicTx({ provider, signer: acct /*proxyContractAddress*/ });
+    const atomicTx = new Eulith.AtomicTx({ provider, signer: acct /*, toolkitContractAddress*/ });
 
     /**
      *  Create the payment exchange object to be serialized in the atomic transaction.
@@ -67,8 +67,8 @@ async function exampleFlash() {
             pay: payTokenContract,
             takeAmount: takeAmount,
             payTransferFrom: Web3.utils.toChecksumAddress(acct.address),
-            recipient: acct.address,
-        },
+            recipient: acct.address
+        }
     });
 
     // You'll get a price and fee for the transaction
@@ -83,17 +83,17 @@ async function exampleFlash() {
     const txNum: number = await flashPay.commit();
 
     const payTokenBalanceBefore = await payTokenContract.balanceOf(acct.address);
-    const takeTokenBalanceBefore = await takeTokenContract.balanceOf(proxyContractAddress);
+    const takeTokenBalanceBefore = await takeTokenContract.balanceOf(toolkitContractAddress);
 
     console.log(
         `BEFORE TX: To start: payTokenContract: accnt has balance ${await (
             await payTokenContract.balanceOf(acct.address)
-        ).asFloat}, but proxy has balance ${await (await payTokenContract.balanceOf(proxyContractAddress)).asFloat}`
+        ).asFloat}, but proxy has balance ${await (await payTokenContract.balanceOf(toolkitContractAddress)).asFloat}`
     );
     console.log(
         `BEFORE TX: To start: takeTokenContract: accnt has balance ${await (
             await takeTokenContract.balanceOf(acct.address)
-        ).asFloat}, but proxy has balance ${await (await takeTokenContract.balanceOf(proxyContractAddress)).asFloat}`
+        ).asFloat}, but proxy has balance ${await (await takeTokenContract.balanceOf(toolkitContractAddress)).asFloat}`
     );
 
     // commitAndSendAndWait will throw if the transaction fails, or times out
@@ -104,12 +104,12 @@ async function exampleFlash() {
     // This APPEARS to only happen when you have run out of ETH in your account, so restart the dev server (cuz oyu will then
     // get TRANASACTION FAILED here and in hte CALL server log, get 'error reverted without a reason' or 'Error: reverted with 'ERC20: transfer amount exceeds balance''
     const txReceipt: TransactionReceipt = await atomicTx.commitAndSendAndWait({
-        timeoutMS: 10 * 1000,
+        timeoutMS: 10 * 1000
         //extraTXParams2Merge: { gas:  1000000 }, // @todo mention/discuss with Kristian
     });
 
     const payTokenBalanceAfter = await payTokenContract.balanceOf(acct.address);
-    const takeTokenBalanceAfter = await takeTokenContract.balanceOf(proxyContractAddress);
+    const takeTokenBalanceAfter = await takeTokenContract.balanceOf(toolkitContractAddress);
 
     console.log(
         `payToken Balance: Before Transaction: ${payTokenBalanceBefore.asFloat} and after: ${payTokenBalanceAfter.asFloat}`
@@ -120,12 +120,12 @@ async function exampleFlash() {
     console.log(
         `AFTER TX: To start: payTokenContract: accnt has balance ${await (
             await payTokenContract.balanceOf(acct.address)
-        ).asFloat}, but proxy has balance ${await (await payTokenContract.balanceOf(proxyContractAddress)).asFloat}`
+        ).asFloat}, but proxy has balance ${await (await payTokenContract.balanceOf(toolkitContractAddress)).asFloat}`
     );
     console.log(
         `AFTER TX: To start: takeTokenContract: accnt has balance ${await (
             await takeTokenContract.balanceOf(acct.address)
-        ).asFloat}, but proxy has balance ${await (await takeTokenContract.balanceOf(proxyContractAddress)).asFloat}`
+        ).asFloat}, but proxy has balance ${await (await takeTokenContract.balanceOf(toolkitContractAddress)).asFloat}`
     );
 
     console.log("SUCCESS");

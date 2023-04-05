@@ -15,5 +15,5 @@ export default {
     Wallet2,
     Wallet3,
     Wallet4,
-    Wallet5,
+    Wallet5
 };

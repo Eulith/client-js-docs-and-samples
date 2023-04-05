@@ -15,15 +15,15 @@ const logger = pino.pino({
             {
                 target: "pino/file",
                 options: { destination: "tracelog.txt" },
-                level: "trace",
+                level: "trace"
             },
             {
                 target: "pino-pretty",
                 options: { destination: 1 },
-                level: "info",
-            },
-        ],
-    },
+                level: "info"
+            }
+        ]
+    }
 });
 
 /*
@@ -33,7 +33,7 @@ const logger = pino.pino({
 const provider = new Eulith.Provider({
     serverURL: config.serverURL,
     refreshToken: config.refreshToken,
-    logger: new Eulith.logging.PinoLogger(logger),
+    logger: new Eulith.logging.PinoLogger(logger)
 });
 
 async function createContract() {

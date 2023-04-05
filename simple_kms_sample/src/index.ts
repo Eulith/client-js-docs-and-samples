@@ -25,11 +25,11 @@ const main = async () => {
     const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
     const provider = new Eulith.Provider({
         serverURL: config.serverURL,
-        refreshToken: config.refreshToken,
+        refreshToken: config.refreshToken
     });
     const ew3 = new Eulith.Web3({
         provider,
-        signer: acct,
+        signer: acct
     });
 
     {
@@ -38,7 +38,7 @@ const main = async () => {
             gasPrice: "0x0918400000",
             to: "0x0000000000000000000000000000000000000000",
             value: "0x00",
-            data: "0x00",
+            data: "0x00"
         };
         const signedTx = await kmsSigner.signTransaction(txParams, ew3);
         console.log(`Tx to Sign:         ${JSON.stringify(txParams)}`);
@@ -53,7 +53,7 @@ const main = async () => {
             {
                 from: acct.address,
                 to: kmsSigner.address,
-                value: 1213141500000000,
+                value: 1213141500000000
             },
             acct
         );
@@ -71,7 +71,7 @@ const main = async () => {
             {
                 from: kmsSigner.address,
                 to: acct.address,
-                value: 12131415,
+                value: 12131415
             },
             kmsSigner
         );
