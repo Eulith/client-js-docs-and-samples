@@ -15,13 +15,7 @@ const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
  *  Example, of doing a simple swap, within a transaction - buying WETH with USDC
  */
 async function exampleFlash() {
-    const ew3 = new Eulith.Web3({ provider, signer: acct });
-
-    /*
-     *  Frequently you can ingore the toolkit address used by the AtomicTx code, but you need to know the
-     *  address when you must 'approve' of transactions (spending) done by that proxy
-     */
-    const toolkitContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
+    console.log("exampleFlash: START");
 
     // We're going to PAY USDC
     const payTokenContract = await Eulith.tokens.getTokenContract({ provider, symbol: Eulith.tokens.Symbols.USDC });
@@ -39,6 +33,12 @@ async function exampleFlash() {
     // @todo figure out how to clean this logic up!!!
     // # magic number math to cover enough USDC to pay back the ETH and max $1,500 per.
     const payAmount = takeAmount * 1500 * 1.2;
+
+    /*
+     *  Frequently you can ingore the toolkit address used by the AtomicTx code, but you need to know the
+     *  address when you must 'approve' of transactions (spending) done by that proxy
+     */
+    const toolkitContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
 
     // @todo - this from: acct.address sb AUTOMATIC?? DISCUSS WITH @Kristain/Moh
 
@@ -74,9 +74,11 @@ async function exampleFlash() {
     // You'll get a price and fee for the transaction
     // If PAY and TAKE are the same token, the price is 1.0
     // The fee is ONLY the Uniswap or Aave fee. Eulith does not take a fee here.
-    const price = flashPay.price;
-    const fee = flashPay.fee; // represented as a percentage
-    console.log(`The price was ${flashPay.price}, and the fee was: ${flashPay.fee}%`);
+    console.log(
+        `  The price was ${flashPay.price}, and the fee was: ${flashPay.feePct}% (aka ${flashPay.feeAmt
+            .map((a) => a.asDisplayString)
+            .join(",")})`
+    );
 
     // @todo DISCUSS WITH Kristian - this is a good time to explain why we return the txNumber, or
     // to REMOVE IT FROM SAMPLE
@@ -86,14 +88,14 @@ async function exampleFlash() {
     const takeTokenBalanceBefore = await takeTokenContract.balanceOf(toolkitContractAddress);
 
     console.log(
-        `BEFORE TX: To start: payTokenContract: accnt has balance ${await (
-            await payTokenContract.balanceOf(acct.address)
-        ).asFloat}, but proxy has balance ${await (await payTokenContract.balanceOf(toolkitContractAddress)).asFloat}`
+        `  BEFORE TX: To start: payTokenContract: accnt has balance ${
+            (await payTokenContract.balanceOf(acct.address)).asDisplayString
+        }, but proxy has balance ${(await payTokenContract.balanceOf(toolkitContractAddress)).asDisplayString}`
     );
     console.log(
-        `BEFORE TX: To start: takeTokenContract: accnt has balance ${await (
-            await takeTokenContract.balanceOf(acct.address)
-        ).asFloat}, but proxy has balance ${await (await takeTokenContract.balanceOf(toolkitContractAddress)).asFloat}`
+        `  BEFORE TX: To start: takeTokenContract: accnt has balance ${
+            (await takeTokenContract.balanceOf(acct.address)).asDisplayString
+        }, but proxy has balance ${(await takeTokenContract.balanceOf(toolkitContractAddress)).asDisplayString}`
     );
 
     // commitAndSendAndWait will throw if the transaction fails, or times out
@@ -112,23 +114,23 @@ async function exampleFlash() {
     const takeTokenBalanceAfter = await takeTokenContract.balanceOf(toolkitContractAddress);
 
     console.log(
-        `payToken Balance: Before Transaction: ${payTokenBalanceBefore.asFloat} and after: ${payTokenBalanceAfter.asFloat}`
+        `  payToken Balance: Before Transaction: ${payTokenBalanceBefore.asDisplayString} and after: ${payTokenBalanceAfter.asDisplayString}`
     );
     console.log(
-        `takeToken Balance: Before Transaction: ${takeTokenBalanceBefore.asFloat} and after: ${takeTokenBalanceAfter.asFloat}`
+        `  takeToken Balance: Before Transaction: ${takeTokenBalanceBefore.asDisplayString} and after: ${takeTokenBalanceAfter.asDisplayString}`
     );
     console.log(
-        `AFTER TX: To start: payTokenContract: accnt has balance ${await (
-            await payTokenContract.balanceOf(acct.address)
-        ).asFloat}, but proxy has balance ${await (await payTokenContract.balanceOf(toolkitContractAddress)).asFloat}`
+        `  AFTER TX: To start: payTokenContract: accnt has balance ${
+            (await payTokenContract.balanceOf(acct.address)).asDisplayString
+        }, but proxy has balance ${(await payTokenContract.balanceOf(toolkitContractAddress)).asDisplayString}`
     );
     console.log(
-        `AFTER TX: To start: takeTokenContract: accnt has balance ${await (
-            await takeTokenContract.balanceOf(acct.address)
-        ).asFloat}, but proxy has balance ${await (await takeTokenContract.balanceOf(toolkitContractAddress)).asFloat}`
+        `  AFTER TX: To start: takeTokenContract: accnt has balance ${
+            (await takeTokenContract.balanceOf(acct.address)).asDisplayString
+        }, but proxy has balance ${(await takeTokenContract.balanceOf(toolkitContractAddress)).asDisplayString}`
     );
 
-    console.log("SUCCESS");
+    console.log("exampleFlash: SUCCESS");
 }
 
 const topLevel = async function () {

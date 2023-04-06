@@ -8,7 +8,7 @@ const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken
 
 async function helloWorld() {
     const ew3 = new Eulith.Web3({ provider });
-    console.log(`chainID = ${await ew3.eth.getChainId()}`);
+    console.log(`  chainID = ${await ew3.eth.getChainId()}`);
 }
 
 const topLevel = async function () {

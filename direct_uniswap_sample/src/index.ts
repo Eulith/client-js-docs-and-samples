@@ -42,7 +42,7 @@ async function performDirectUNISWAPSwap() {
     const swapPool = await Eulith.Uniswap.getSwapPool({
         request: {
             tokenContracts: [fundingContract, targetTokenContract], // this list must always contain two distinct erc20 token contracts
-            fee: Eulith.Uniswap.Fee.ThirtyBips
+            fee: Eulith.Uniswap.PoolFee.ThirtyBips
         },
         provider
     });
@@ -64,9 +64,9 @@ async function performDirectUNISWAPSwap() {
     console.log(
         `  UNISWAP quote: {price: ${quote.price} ${await fundingContract.symbol}, fee: ${
             quote.feeAmt.asDisplayString
-        }, details: {sellAmount: ${quote.swapRequest.sellAmount} ${
-            fundingContract.symbol
-        }, fillOrKill: ${quote.swapRequest.fillOrKill}, ...}}`
+        }, details: {sellAmount: ${quote.swapRequest.sellAmount} ${fundingContract.symbol}, fillOrKill: ${
+            quote.swapRequest.fillOrKill
+        }, ...}}`
     );
     await fundingContract
         .approve(toolkitContractAddress, fundingContract.asTokenValue(sellAmount * 1.2), { from: acct.address })
@@ -216,7 +216,6 @@ async function simpleCurrencyConversionSampleWithBestPricePreparingToDoMore() {
 
     console.log(`Sucessfully Completed simpleCurrencyConversionSampleWithBestPricePreparingToDoMore`);
 }
-
 
 const topLevel = async function () {
     await performDirectUNISWAPSwap();

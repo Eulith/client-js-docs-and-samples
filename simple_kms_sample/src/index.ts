@@ -15,11 +15,11 @@ const main = async () => {
     console.log("  > Compute Ethereum address (based on KMS Key)");
 
     const client = new KMSClient(config.kmsClientConfig);
-    console.log(`AWS-KMS KeyID:      ${config.awsKMSKeyID}`);
+    console.log(`  AWS-KMS KeyID:      ${config.awsKMSKeyID}`);
 
     const kmsSigner = await Eulith.KMSSigner.mk(client, config.awsKMSKeyID);
-    console.log(`AWS-KMS Public key: ${kmsSigner.publicKey}`); // informational, no need to call
-    console.log(`Ethereum Address:   ${kmsSigner.address}`); // ''
+    console.log(`  AWS-KMS Public key: ${kmsSigner.publicKey}`); // informational, no need to call
+    console.log(`  Ethereum Address:   ${kmsSigner.address}`); // ''
 
     // Now try sending a transaction from an existing predefined wallet
     const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
@@ -41,14 +41,14 @@ const main = async () => {
             data: "0x00"
         };
         const signedTx = await kmsSigner.signTransaction(txParams, ew3);
-        console.log(`Tx to Sign:         ${JSON.stringify(txParams)}`);
-        console.log(`Signed TX:          ${signedTx.rawTransaction}`);
+        console.log(`  Tx to Sign:         ${JSON.stringify(txParams)}`);
+        console.log(`  Signed TX:          ${signedTx.rawTransaction}`);
     }
 
     // Now try creating an account, doing a transfer (with regular signing), and then use the
     // kms signer to send the money back
     {
-        console.log(`B4 kms bal:         ${await ew3.eth.getBalance(await kmsSigner.address)}`);
+        console.log(`  B4 kms bal:         ${await ew3.eth.getBalance(await kmsSigner.address)}`);
         let txReceiptHash = await provider.signAndSendTransaction(
             {
                 from: acct.address,
@@ -58,7 +58,7 @@ const main = async () => {
             acct
         );
         await ew3.eth.getTransactionReceipt(txReceiptHash); // NOTE Pyhon code doesn't do this, but I think its logically needed
-        console.log(`AFTER kms bal:      ${await ew3.eth.getBalance(await kmsSigner.address)}`);
+        console.log(`  AFTER kms bal:      ${await ew3.eth.getBalance(await kmsSigner.address)}`);
 
         // // Now sign and send with KMS signer
         // const kmsEW3 = new Eulith.Web3({
@@ -76,7 +76,7 @@ const main = async () => {
             kmsSigner
         );
         await ew3.eth.getTransactionReceipt(txReceiptHash);
-        console.log(`At end: KMS bal:    ${await ew3.eth.getBalance(kmsSigner.address)}`);
+        console.log(`  At end: KMS bal:    ${await ew3.eth.getBalance(kmsSigner.address)}`);
     }
 };
 

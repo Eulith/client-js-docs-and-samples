@@ -12,6 +12,8 @@ const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken
 const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
 
 async function exampleAtomicTransaction() {
+    console.log("exampleAtomicTransaction - START");
+
     // Web3 object generally not needed, but maybe handy for some apis (like to access web3.eth apis directly)
     const ew3 = new Eulith.Web3({ provider, signer: acct });
 
@@ -42,7 +44,7 @@ async function exampleAtomicTransaction() {
     // Commit Atomic Tx
     const oneWay = Math.random() <= 0.5;
     if (oneWay) {
-        console.log("Using step by step commit and explict send");
+        console.log("  Using step by step commit and explict send");
         const combinedTransactionAsTxParams = await atomicTransaction.commit();
 
         // Sign and send
@@ -51,11 +53,11 @@ async function exampleAtomicTransaction() {
         // Get tx hash
         const txReceipt: TransactionReceipt = await ew3.eth.getTransactionReceipt(txHash);
     } else {
-        console.log("Using commitAndSendAndWait");
+        console.log("  Using commitAndSendAndWait");
         // Sign and send and wait for txReceipt
         await atomicTransaction.commitAndSendAndWait({ timeoutMS: 10 * 1000 }); // timeout optional
     }
-    console.log("SUCCESS");
+    console.log("exampleAtomicTransaction - SUCCESS");
 }
 
 const topLevel = async function () {

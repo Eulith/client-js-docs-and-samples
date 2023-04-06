@@ -7,6 +7,36 @@ are lumped here.
 This changlog also contains changes to samples, even thought they are published
 in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/clients-samples-web3js)
 
+
+## 0.3.1-beta.5 {2023-04-06}
+
+- Samples
+  - cosmetic cleanup
+
+- Test
+  - use jest --runInBand because doing tests asyncrhonously doesn't work with the transaction numbering scheme used by ethereum for nonces
+  - lose main/delay function in regtests - not hepling with warnings about not finishing
+
+- ToolkitContract
+  - fixed bad names (internal) in procedure
+
+- Modules
+  - Experiemental use of typescript module mechanism in Uniswap code, to address issues with nested types
+    - much cleaner, if it works well in browser/react world
+  - UNRELATED - module possible fix - issue if I'm right - was with import vs require, so
+    reverted 'workarounds' on axios/crypto to see if they still work
+  - cleanup/tsconfig.json file (was trying to work on esmodule issue but may have found it elsewhere)
+
+- Uniswap
+  - MASSIVE cleanup of namespace/module stuff for UNISWAP
+
+- Flash
+  - cleanup Flash Fee calculations - feeAmt returns array of tokens, feePct replaces old 'fee' (deprecation)
+
+- Signing
+  - Light draft of new signing regtests, and progress trying to use techniques from kms code for basic
+    signining refactor, but still alot todo
+
 ## 0.3.1-beta.4 {2023-04-05}
 
 - ToolkitContract
