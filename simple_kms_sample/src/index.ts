@@ -1,5 +1,8 @@
 import { TransactionConfig } from "web3-eth";
+import { SignedTransaction } from "web3-core";
 import { KMSClient } from "@aws-sdk/client-kms";
+import { strict as assert } from "assert";
+
 import * as Eulith from "eulith-web3js";
 
 import config from "./common-configuration";
@@ -40,10 +43,28 @@ const main = async () => {
             value: "0x00",
             data: "0x00"
         };
-        const signedTx = await kmsSigner.signTransaction(txParams, ew3);
-        console.log(`  Tx to Sign:         ${JSON.stringify(txParams)}`);
-        console.log(`  Signed TX:          ${signedTx.rawTransaction}`);
+        const signedTx: SignedTransaction = await kmsSigner.signTransaction(txParams, ew3);
+        console.log(`  (OLD)Tx to Sign:    ${JSON.stringify(txParams)}`);
+        // console.log(`  (OLD)Signed RAWTX:  ${signedTx.rawTransaction}`);
+        console.log(`  (OLD)Signed TX RSV: ${new Eulith.signing.ECDSASignature(signedTx).rsv}`);
+        assert(Eulith.signing.recoverTransactionSigner(signedTx.rawTransaction) == kmsSigner.address);
     }
+
+    {
+        // Same test, new API
+        const txParams: TransactionConfig = {
+            gasPrice: "0x0918400000",
+            to: "0x0000000000000000000000000000000000000000",
+            value: "0x00",
+            data: "0x00"
+        };
+        const utx = new Eulith.UnsignedTransaction(txParams);
+        const signedTx: SignedTransaction = await utx.signTransaction({ provider, signer: kmsSigner });
+        console.log(`  Signed TX RSV:     ${new Eulith.signing.ECDSASignature(signedTx).rsv}`);
+        // console.log(`  Signed TX:         ${JSON.stringify(signedTx)}`);
+        assert(Eulith.signing.recoverTransactionSigner(signedTx.rawTransaction) == kmsSigner.address);
+    }
+    return;
 
     // Now try creating an account, doing a transfer (with regular signing), and then use the
     // kms signer to send the money back

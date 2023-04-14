@@ -2,10 +2,7 @@ import * as Eulith from "eulith-web3js";
 
 import config from "./common-configuration";
 
-const provider = new Eulith.Provider({
-    serverURL: config.serverURL,
-    refreshToken: config.refreshToken
-});
+const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
 
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });

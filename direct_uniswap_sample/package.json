@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-direct-uniswap-sample",
-  "version": "0.3.1-beta.5",
+  "version": "0.3.1-beta.6",
   "description": "Sample use of using UNISWAP directly (without flash) eulith-web3js",
   "main": "index.js",
   "files": [

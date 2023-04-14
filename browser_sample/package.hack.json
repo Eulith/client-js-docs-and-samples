@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-browser-sample",
-  "version": "0.3.1-beta.6",
+  "version": "0.3.1-beta.5",
   "description": "",
   "private": true,
   "scripts": {
@@ -18,12 +18,12 @@
     "crypto-browserify": "^3.12.0",
     "eulith-web3js": "^0.3.1-beta.5",
     "events-polyfill": "^2.1.2",
+    "prettier": "^2.8.4",
     "stream-browserify": "^3.0.0",
     "web3": "^1.8.2",
     "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
-    "prettier": "^2.8.4",
     "buffer": "^6.0.3",
     "html-webpack-plugin": "^5.5.0",
     "path-browserify": "^1.0.1",

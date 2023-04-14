@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-basic-simple-sample",
-  "version": "0.3.1-beta.5",
+  "version": "0.3.1-beta.6",
   "description": "Simple sample using eulith-web3js (simple way to get started)",
   "main": "index.js",
   "files": [

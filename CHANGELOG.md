@@ -8,17 +8,30 @@ This changlog also contains changes to samples, even thought they are published
 in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/clients-samples-web3js)
 
 
-## 0.3.1-beta.5 {2023-04-06}
+## 0.3.1-beta.6 {2023-04-14}
 
+- Modules
+  - Signing
+    - Misc cleanups
+    - hashMessage to use ethereumjsUtil.hashPersonalMessage
+    - test cases to support one queer aspect of web3js hashMessage api
+    - canonicalize now takes signer arg, and Eulith.utils.fillTransactionDefaults now REQUIRES a from be specified or it throws - needed for computing nonce
+    - Use bigint-buffer to avoid depending on BN, and use it to read Buffer values properly, and document this is what is done by ECDSASignature class (fixes occasional bug when using signTransaction alot)
+    - deprecated old ISigner API signTransaction, and switched (I think fully) to using new API (signHash). All tests still pass
+  - Major revamp of UnsignedTransation code to support new signing API. Works, but is not fully hooked in replacing previous API
+  - KMS - support new signing API
 - Samples
-  - cosmetic cleanup
+  - Improvements to KMS Sample (mostly use of new API to test)
+- Library
+  - lose workarounds to cryto load code - since fixed module issue(s)
+  - Documentation improvements
+  - Add dependency on bigint-buffer
+  - convert to using assertions library - but not node:assert - the npm assert since mostly compatible and compat with browsers - I hope
+- Tests
+  - no longer log to console (just to file)
+  - Much improved signing tests (for new API)
 
-- Test
-  - use jest --runInBand because doing tests asyncrhonously doesn't work with the transaction numbering scheme used by ethereum for nonces
-  - lose main/delay function in regtests - not hepling with warnings about not finishing
-
-- ToolkitContract
-  - fixed bad names (internal) in procedure
+## 0.3.1-beta.5 {2023-04-06}
 
 - Modules
   - Experiemental use of typescript module mechanism in Uniswap code, to address issues with nested types
@@ -26,13 +39,17 @@ in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/
   - UNRELATED - module possible fix - issue if I'm right - was with import vs require, so
     reverted 'workarounds' on axios/crypto to see if they still work
   - cleanup/tsconfig.json file (was trying to work on esmodule issue but may have found it elsewhere)
-
+- Samples
+  - cosmetic cleanups
+- Test
+  - use jest --runInBand because doing tests asynchronously doesn't work with the transaction numbering scheme used by ethereum for nonces
+  - lose main/delay function in regtests - not hepling with warnings about not finishing
+- ToolkitContract
+  - fixed bad names (internal) in procedure
 - Uniswap
-  - MASSIVE cleanup of namespace/module stuff for UNISWAP
-
+  - MASSIVE cleanup of namespace/module stuff for Uniswap
 - Flash
   - cleanup Flash Fee calculations - feeAmt returns array of tokens, feePct replaces old 'fee' (deprecation)
-
 - Signing
   - Light draft of new signing regtests, and progress trying to use techniques from kms code for basic
     signining refactor, but still alot todo

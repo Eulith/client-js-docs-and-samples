@@ -2,10 +2,7 @@ import * as Eulith from "eulith-web3js";
 
 import config from "./common-configuration";
 
-const provider = new Eulith.Provider({
-    serverURL: config.serverURL,
-    refreshToken: config.refreshToken
-});
+const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
 
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
@@ -31,11 +28,7 @@ async function setupLeveredShort() {
 
     // Get short quote (leverage)
     const eulithShortAPI = new Eulith.Shorts({ atomicTx: atomicTx });
-    const leverage = await eulithShortAPI.shortOn({
-        collateralToken: collateralToken,
-        shortToken: shortToken,
-        collateralAmount: collateralAmount
-    });
+    const leverage = await eulithShortAPI.shortOn({ collateralToken, shortToken, collateralAmount });
 
     // Commit, sign, and send the short on position
     const txReceipt = await atomicTx.commitAndSendAndWait({
@@ -53,8 +46,8 @@ async function removeLeveredShort() {
 
     const eulithShortAPI = new Eulith.Shorts({ atomicTx: atomicTx });
     const releasedCollateral = await eulithShortAPI.shortOff({
-        collateralToken: collateralToken,
-        shortToken: shortToken,
+        collateralToken,
+        shortToken,
         repayShortAmount: 0.01, // whole units of the short token
         trueForUnwindA: true // you can pick unwind option A or B... we don't think it matters, but feel free to experiment
     });
