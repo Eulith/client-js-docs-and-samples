@@ -38,6 +38,11 @@ module.exports = {
             path: require.resolve("path-browserify"),
             crypto: require.resolve("crypto-browserify"),
             stream: require.resolve("stream-browserify"),
+            http: require.resolve("stream-http"),
+            zlib: require.resolve("browserify-zlib"),
+            https: require.resolve("https-browserify"),
+            // Only seems needed on CI system???
+            url: require.resolve("url/"),
             // Fallbacks required to use web3-js, and therefore Eulith-web3js
             assert: require.resolve("assert/"),
             buffer: require.resolve("buffer/"),

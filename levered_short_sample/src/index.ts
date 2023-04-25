@@ -17,10 +17,13 @@ async function setupLeveredShort() {
     const collateralToken = await Eulith.tokens.getTokenContract({ provider, symbol: Eulith.tokens.Symbols.USDC });
     const shortToken = await Eulith.tokens.getTokenContract({ provider, symbol: Eulith.tokens.Symbols.WETH });
 
-    const collateralAmount = 1000;
+    const collateralAmount = 10;
+    const fudgeForGas = 0.2;
 
     await collateralToken
-        .transfer(toolkitContractAddress, collateralToken.asTokenValue(collateralAmount * 1.2), { from: acct.address })
+        .transfer(toolkitContractAddress, collateralToken.asTokenValue(collateralAmount + fudgeForGas), {
+            from: acct.address
+        })
         .signAndSendAndWait(acct, provider);
 
     // Start atomic tx

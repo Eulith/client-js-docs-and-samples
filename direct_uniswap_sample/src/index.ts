@@ -128,7 +128,7 @@ async function simpleCurrencyConversionSampleWithBestPricePreparingToDoMore() {
     })) as Eulith.contracts.WethTokenContract;
 
     // @todo cleanup - use fundingTokenContract.asTokenValue, but requires more changes to UNISWAP API
-    const sellAmount = 10;
+    const sellAmount = 5;
 
     // Since we need to 'approve' the transaction, we need access to the toolkitContractAddress
     const toolkitContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
@@ -139,6 +139,8 @@ async function simpleCurrencyConversionSampleWithBestPricePreparingToDoMore() {
      */
     const fundingContractBalance = await fundingTokenContract.balanceOf(acct.address);
     const proxyBalanceBefore = await transactionTokenContract.balanceOf(toolkitContractAddress);
+
+    const fudgeForGas = 1000;
 
     /**
      *  Tell the funding contract that its OK to transfer (given amount) to the toolkitContractAddress; without this
@@ -153,7 +155,9 @@ async function simpleCurrencyConversionSampleWithBestPricePreparingToDoMore() {
      *        and easy to accidentally omit in this style usage?
      */
     await fundingTokenContract
-        .approve(toolkitContractAddress, fundingTokenContract.asTokenValue(sellAmount * 1.2), { from: acct.address })
+        .approve(toolkitContractAddress, fundingTokenContract.asTokenValue(sellAmount + fudgeForGas), {
+            from: acct.address
+        })
         .signAndSendAndWait(acct, provider);
 
     /*

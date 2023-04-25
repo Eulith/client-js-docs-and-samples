@@ -27,13 +27,12 @@ async function exampleFlash() {
     })) as Eulith.contracts.WethTokenContract;
 
     // @todo rewrite using new TOKENVALUE
-    // TAKE 2 whole WETH
-    const takeAmount = 2;
+    // TAKE amount in whole WETH
+    const takeAmount = 0.1;
 
     // @todo figure out how to clean this logic up!!!
-    // # magic number math to cover enough USDC to pay back the ETH and max $1,500 per.
-    const payAmount = takeAmount * 1500 * 1.2;
-
+    // # magic number math to cover enough USDC to pay back the ETH and max $2,000 per.
+    const payAmount = takeAmount * 2000 + 600;
     /*
      *  Frequently you can ingore the toolkit address used by the AtomicTx code, but you need to know the
      *  address when you must 'approve' of transactions (spending) done by that proxy

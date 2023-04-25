@@ -8,6 +8,20 @@ This changlog also contains changes to samples, even thought they are published
 in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/clients-samples-web3js)
 
 
+
+## 0.3.1-beta.9 {2023-04-25}
+
+- Safe support
+  - draft Toolkit.createArmor, Toolkit.authorizeArmorForOwner APIs (names will change next release)
+  - new depdendencies in library-core for safe
+- Restructure test scripts and github actions to run some on fork from block 16136224, and some on fork from block 17098359
+- Adjusted several samples to start using slightly smarter gas computation, and generally lowered amounts due to issues with
+  the blocks we forked from, and how call 'pre-seeds' accounts
+- lose doAssertionChecks from signAndSendTransaction code
+- improved build / testing scripts
+- more workarounds for browser sample webpack version 5 issue
+- improved error reporting in Provider for JSONRPC calls (still needs love)
+
 ## 0.3.1-beta.6 {2023-04-14}
 
 - Modules
