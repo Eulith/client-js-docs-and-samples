@@ -1,7 +1,7 @@
 {
-  "name": "eulith-web3js-simple-kms-sample",
-  "version": "0.3.1-beta.9",
-  "description": "Simple sample using eulith-web3js with KMS signing",
+  "name": "eulith-web3js-kms-sample",
+  "version": "0.3.1-beta.10",
+  "description": "Sample using eulith-web3js with KMS signing",
   "main": "index.js",
   "files": [
     "/dist"
@@ -17,7 +17,7 @@
   "license": "CC BY-NC-ND 4.0",
   "dependencies": {
     "@aws-sdk/client-kms": "^3.279.0",
-    "eulith-web3js": "^0.3.1-beta.9",
+    "eulith-web3js": "^0.3.1-beta.10",
     "web3-eth": "^1.8.2"
   },
   "devDependencies": {

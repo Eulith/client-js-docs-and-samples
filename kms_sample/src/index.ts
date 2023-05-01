@@ -20,55 +20,33 @@ const main = async () => {
     const client = new KMSClient(config.kmsClientConfig);
     console.log(`  AWS-KMS KeyID:      ${config.awsKMSKeyID}`);
 
-    const kmsSigner = await Eulith.KMSSigner.mk(client, config.awsKMSKeyID);
-    console.log(`  AWS-KMS Public key: ${kmsSigner.publicKey}`); // informational, no need to call
-    console.log(`  Ethereum Address:   ${kmsSigner.address}`); // ''
-
     // Now try sending a transaction from an existing predefined wallet
-    const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
-    const provider = new Eulith.Provider({
-        serverURL: config.serverURL,
-        refreshToken: config.refreshToken
-    });
-    const ew3 = new Eulith.Web3({
-        provider,
-        signer: acct
-    });
+    const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
+    const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
+
+    const kmsCryptoSigner = await Eulith.Signing.KMSSigner.mk(client, config.awsKMSKeyID);
+
+    const kmsSigner = new Eulith.Signing.SigningService({ provider, cryptographicSigner: kmsCryptoSigner });
+    console.log(`  AWS-KMS Public key: ${kmsCryptoSigner.publicKey}`); // informational, no need to call
+    console.log(`  Ethereum Address:   ${kmsCryptoSigner.address}`); // ''
 
     {
         // Test normal signing, without actually sending
         const txParams: TransactionConfig = {
-            gasPrice: "0x0918400000",
             to: "0x0000000000000000000000000000000000000000",
             value: "0x00",
             data: "0x00"
         };
-        const signedTx: SignedTransaction = await kmsSigner.signTransaction(txParams, ew3);
+        const signedTx: SignedTransaction = await kmsSigner.signTransaction(txParams);
         console.log(`  (OLD)Tx to Sign:    ${JSON.stringify(txParams)}`);
-        // console.log(`  (OLD)Signed RAWTX:  ${signedTx.rawTransaction}`);
-        console.log(`  (OLD)Signed TX RSV: ${new Eulith.signing.ECDSASignature(signedTx).rsv}`);
-        assert(Eulith.signing.recoverTransactionSigner(signedTx.rawTransaction) == kmsSigner.address);
+        console.log(`  (OLD)Signed TX RSV: ${new Eulith.Signing.ECDSASignature(signedTx).rsv}`);
+        assert.equal(Eulith.Signing.recoverTransactionSigner(signedTx.rawTransaction), kmsSigner.address);
     }
-
-    {
-        // Same test, new API
-        const txParams: TransactionConfig = {
-            gasPrice: "0x0918400000",
-            to: "0x0000000000000000000000000000000000000000",
-            value: "0x00",
-            data: "0x00"
-        };
-        const utx = new Eulith.UnsignedTransaction(txParams);
-        const signedTx: SignedTransaction = await utx.signTransaction({ provider, signer: kmsSigner });
-        console.log(`  Signed TX RSV:     ${new Eulith.signing.ECDSASignature(signedTx).rsv}`);
-        // console.log(`  Signed TX:         ${JSON.stringify(signedTx)}`);
-        assert(Eulith.signing.recoverTransactionSigner(signedTx.rawTransaction) == kmsSigner.address);
-    }
-    return;
 
     // Now try creating an account, doing a transfer (with regular signing), and then use the
     // kms signer to send the money back
     {
+        const ew3 = new Eulith.Web3({ provider });
         console.log(`  B4 kms bal:         ${await ew3.eth.getBalance(await kmsSigner.address)}`);
         let txReceiptHash = await provider.signAndSendTransaction(
             {
@@ -80,12 +58,6 @@ const main = async () => {
         );
         await ew3.eth.getTransactionReceipt(txReceiptHash); // NOTE Pyhon code doesn't do this, but I think its logically needed
         console.log(`  AFTER kms bal:      ${await ew3.eth.getBalance(await kmsSigner.address)}`);
-
-        // // Now sign and send with KMS signer
-        // const kmsEW3 = new Eulith.Web3({
-        //     provider,
-        //     signer: kmsSigner,
-        // });
 
         // Now final transfer using the kmsSigner (inside kmsEW3)
         txReceiptHash = await provider.signAndSendTransaction(

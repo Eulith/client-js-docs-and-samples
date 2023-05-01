@@ -1,15 +1,15 @@
 {
   "name": "eulith-web3js-basic-slim-sample",
-  "version": "0.3.1-beta.9",
+  "version": "0.3.1-beta.10",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "eulith-web3js-basic-slim-sample",
-      "version": "0.3.1-beta.9",
+      "version": "0.3.1-beta.10",
       "license": "CC BY-NC-ND 4.0",
       "dependencies": {
-        "eulith-web3js-core": "^0.3.1-beta.9"
+        "eulith-web3js-core": "^0.3.1-beta.10"
       },
       "devDependencies": {
         "@types/node": "^18.6.1",
@@ -261,6 +261,11 @@
         "@ethersproject/logger": "^5.7.0",
         "bn.js": "^5.2.1"
       }
+    },
+    "node_modules/@ethersproject/bignumber/node_modules/bn.js": {
+      "version": "5.2.1",
+      "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-5.2.1.tgz",
+      "integrity": "sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ=="
     },
     "node_modules/@ethersproject/bytes": {
       "version": "5.7.0",
@@ -617,6 +622,11 @@
         "hash.js": "1.1.7"
       }
     },
+    "node_modules/@ethersproject/signing-key/node_modules/bn.js": {
+      "version": "5.2.1",
+      "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-5.2.1.tgz",
+      "integrity": "sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ=="
+    },
     "node_modules/@ethersproject/solidity": {
       "version": "5.7.0",
       "resolved": "https://registry.npmjs.org/@ethersproject/solidity/-/solidity-5.7.0.tgz",
@@ -807,6 +817,22 @@
         "@jridgewell/sourcemap-codec": "^1.4.10"
       }
     },
+    "node_modules/@metamask/eth-sig-util": {
+      "version": "5.1.0",
+      "resolved": "https://registry.npmjs.org/@metamask/eth-sig-util/-/eth-sig-util-5.1.0.tgz",
+      "integrity": "sha512-mlgziIHYlA9pi/XZerChqg4NocdOgBPB9NmxgXWQO2U2hH8RGOJQrz6j/AIKkYxgCMIE2PY000+joOwXfzeTDQ==",
+      "dependencies": {
+        "@ethereumjs/util": "^8.0.6",
+        "bn.js": "^4.12.0",
+        "ethereum-cryptography": "^2.0.0",
+        "ethjs-util": "^0.1.6",
+        "tweetnacl": "^1.0.3",
+        "tweetnacl-util": "^0.15.1"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      }
+    },
     "node_modules/@noble/curves": {
       "version": "1.0.0",
       "resolved": "https://registry.npmjs.org/@noble/curves/-/curves-1.0.0.tgz",
@@ -858,14 +884,14 @@
       }
     },
     "node_modules/@safe-global/safe-core-sdk": {
-      "version": "3.3.2",
-      "resolved": "https://registry.npmjs.org/@safe-global/safe-core-sdk/-/safe-core-sdk-3.3.2.tgz",
-      "integrity": "sha512-IhAxGyYnnG+Zl2zWe1520l00l+FT1QTeMDQlTtnhKCeISs2krXZSEKuolj/sHltXzrswuntaGElAYJyruWEG/A==",
+      "version": "3.3.3",
+      "resolved": "https://registry.npmjs.org/@safe-global/safe-core-sdk/-/safe-core-sdk-3.3.3.tgz",
+      "integrity": "sha512-f7k/L8eGINrjAgN5DQuHY101gxntVTwS/VO14w1Qh+2+AuZmyWn0WekAAU0icAc1jVy0lhgNqCvbMQHc7rkfUg==",
       "dependencies": {
         "@ethersproject/solidity": "^5.7.0",
-        "@safe-global/safe-core-sdk-types": "^1.9.0",
-        "@safe-global/safe-core-sdk-utils": "^1.7.2",
-        "@safe-global/safe-deployments": "^1.20.2",
+        "@safe-global/safe-core-sdk-types": "^1.9.1",
+        "@safe-global/safe-core-sdk-utils": "^1.7.3",
+        "@safe-global/safe-deployments": "^1.22.0",
         "ethereumjs-util": "^7.1.5",
         "semver": "^7.3.8",
         "web3-utils": "^1.8.1"
@@ -884,11 +910,11 @@
       }
     },
     "node_modules/@safe-global/safe-core-sdk-utils": {
-      "version": "1.7.2",
-      "resolved": "https://registry.npmjs.org/@safe-global/safe-core-sdk-utils/-/safe-core-sdk-utils-1.7.2.tgz",
-      "integrity": "sha512-nlS9/vtd6rj+2IK0tgt4xq6vqdGOAa+6MwAeiYCoP1ihcqFD38k6LBn7ZdXWjRF9VBvMXTgclkjvzp+PkLKtAw==",
+      "version": "1.7.3",
+      "resolved": "https://registry.npmjs.org/@safe-global/safe-core-sdk-utils/-/safe-core-sdk-utils-1.7.3.tgz",
+      "integrity": "sha512-QbUTwV8Pmc4dpDW0icfl02hcg41eTJomB0jtyhXQ79RIVCnFUIq1+P6FZL+/1gXcur4XWQTX7kShOWqfvd+BZA==",
       "dependencies": {
-        "@safe-global/safe-core-sdk-types": "^1.9.0",
+        "@safe-global/safe-core-sdk-types": "^1.9.1",
         "semver": "^7.3.8",
         "web3-utils": "^1.8.1"
       }
@@ -1022,9 +1048,9 @@
       }
     },
     "node_modules/@types/node": {
-      "version": "18.16.0",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-18.16.0.tgz",
-      "integrity": "sha512-BsAaKhB+7X+H4GnSjGhJG9Qi8Tw+inU9nJDwmD5CgOmBLEI6ArdhikpLX7DjbjDRDTbqZzU2LSQNZg8WGPiSZQ=="
+      "version": "18.16.3",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-18.16.3.tgz",
+      "integrity": "sha512-OPs5WnnT1xkCBiuQrZA4+YAV4HEJejmHneyraIaxsbev5yCEr6KMwINNFP9wQeFIw8FWcoTqF3vQsa5CDaI+8Q=="
     },
     "node_modules/@types/pbkdf2": {
       "version": "3.1.0",
@@ -1181,9 +1207,9 @@
       "integrity": "sha512-NmWvPnx0F1SfrQbYwOi7OeaNGokp9XhzNioJ/CSBs8Qa4vxug81mhJEAVZwxXuBmYB5KDRfMq/F3RR0BIU7sWg=="
     },
     "node_modules/axios": {
-      "version": "1.3.6",
-      "resolved": "https://registry.npmjs.org/axios/-/axios-1.3.6.tgz",
-      "integrity": "sha512-PEcdkk7JcdPiMDkvM4K6ZBRYq9keuVJsToxm2zQIM70Qqo2WHTdJZMXcG9X+RmRp2VPNUQC8W1RAGbgt6b1yMg==",
+      "version": "1.4.0",
+      "resolved": "https://registry.npmjs.org/axios/-/axios-1.4.0.tgz",
+      "integrity": "sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==",
       "dependencies": {
         "follow-redirects": "^1.15.0",
         "form-data": "^4.0.0",
@@ -1230,6 +1256,11 @@
       "dependencies": {
         "tweetnacl": "^0.14.3"
       }
+    },
+    "node_modules/bcrypt-pbkdf/node_modules/tweetnacl": {
+      "version": "0.14.5",
+      "resolved": "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz",
+      "integrity": "sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA=="
     },
     "node_modules/bech32": {
       "version": "1.1.4",
@@ -1280,9 +1311,9 @@
       "integrity": "sha512-7TvGbqbZb6lDzsBtNz1VkdXXV0BVmZKPPViPmo2IpvwaryF7P+QKYKACyVkwo2mZPr2CpFiz7EtgPEcc3o/JFQ=="
     },
     "node_modules/bn.js": {
-      "version": "5.2.1",
-      "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-5.2.1.tgz",
-      "integrity": "sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ=="
+      "version": "4.12.0",
+      "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-4.12.0.tgz",
+      "integrity": "sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA=="
     },
     "node_modules/body-parser": {
       "version": "1.20.2",
@@ -1823,11 +1854,6 @@
         "minimalistic-crypto-utils": "^1.0.1"
       }
     },
-    "node_modules/elliptic/node_modules/bn.js": {
-      "version": "4.12.0",
-      "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-4.12.0.tgz",
-      "integrity": "sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA=="
-    },
     "node_modules/encodeurl": {
       "version": "1.0.2",
       "resolved": "https://registry.npmjs.org/encodeurl/-/encodeurl-1.0.2.tgz",
@@ -1927,11 +1953,6 @@
         "xhr-request-promise": "^0.1.2"
       }
     },
-    "node_modules/eth-lib/node_modules/bn.js": {
-      "version": "4.12.0",
-      "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-4.12.0.tgz",
-      "integrity": "sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA=="
-    },
     "node_modules/eth-lib/node_modules/safe-buffer": {
       "version": "5.1.2",
       "resolved": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz",
@@ -1980,6 +2001,11 @@
       "engines": {
         "node": ">=10.0.0"
       }
+    },
+    "node_modules/ethereumjs-util/node_modules/bn.js": {
+      "version": "5.2.1",
+      "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-5.2.1.tgz",
+      "integrity": "sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ=="
     },
     "node_modules/ethereumjs-util/node_modules/ethereum-cryptography": {
       "version": "0.1.3",
@@ -2068,12 +2094,26 @@
       "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-4.11.6.tgz",
       "integrity": "sha512-XWwnNNFCuuSQ0m3r3C4LE3EiORltHd9M05pq6FOlVeiophzRbMo50Sbz1ehl8K3Z+jw9+vmgnXefY1hz8X+2wA=="
     },
+    "node_modules/ethjs-util": {
+      "version": "0.1.6",
+      "resolved": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.6.tgz",
+      "integrity": "sha512-CUnVOQq7gSpDHZVVrQW8ExxUETWrnrvXYvYz55wOU8Uj4VCgw56XC2B/fVqQN+f7gmrnRHSLVnFAwsCuNwji8w==",
+      "dependencies": {
+        "is-hex-prefixed": "1.0.0",
+        "strip-hex-prefix": "1.0.0"
+      },
+      "engines": {
+        "node": ">=6.5.0",
+        "npm": ">=3"
+      }
+    },
     "node_modules/eulith-web3js-core": {
-      "version": "0.3.1-beta.9",
-      "resolved": "https://registry.npmjs.org/eulith-web3js-core/-/eulith-web3js-core-0.3.1-beta.9.tgz",
-      "integrity": "sha512-MjnoWAWqmUJlj1HvvyDvxp6QNwDamjk1wfmlsAYGuHD5Z1KerWK8FQyywzDDOs0i09Dq+zgVmp/oiCrs4s8NPg==",
+      "version": "0.3.1-beta.10",
+      "resolved": "https://registry.npmjs.org/eulith-web3js-core/-/eulith-web3js-core-0.3.1-beta.10.tgz",
+      "integrity": "sha512-BAPoO8nf5f3cj2t1d7Rw+ua4dnBBVvA6/SH0oPmhbiDtbLSqHoyNANoZiG0jSApWiwlT6kc2uvYCftPi06INMA==",
       "dependencies": {
         "@ethereumjs/tx": "^4.1.1",
+        "@metamask/eth-sig-util": "^5.0.2",
         "@safe-global/api-kit": "^1.0.1",
         "@safe-global/protocol-kit": "^0.1.1",
         "@safe-global/safe-core-sdk": "^3.3.2",
@@ -2083,7 +2123,7 @@
         "bigint-buffer": "^1.1.5",
         "bn": "^1.0.5",
         "ethers": "^5.7.2",
-        "web3": "^1.8.2"
+        "web3": "^1.9.0"
       }
     },
     "node_modules/eventemitter3": {
@@ -3532,6 +3572,11 @@
         "rlp": "bin/rlp"
       }
     },
+    "node_modules/rlp/node_modules/bn.js": {
+      "version": "5.2.1",
+      "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-5.2.1.tgz",
+      "integrity": "sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ=="
+    },
     "node_modules/safe-buffer": {
       "version": "5.2.1",
       "resolved": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz",
@@ -3744,6 +3789,11 @@
       "engines": {
         "node": ">=0.10.0"
       }
+    },
+    "node_modules/sshpk/node_modules/tweetnacl": {
+      "version": "0.14.5",
+      "resolved": "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz",
+      "integrity": "sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA=="
     },
     "node_modules/statuses": {
       "version": "2.0.1",
@@ -3991,9 +4041,14 @@
       }
     },
     "node_modules/tweetnacl": {
-      "version": "0.14.5",
-      "resolved": "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz",
-      "integrity": "sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA=="
+      "version": "1.0.3",
+      "resolved": "https://registry.npmjs.org/tweetnacl/-/tweetnacl-1.0.3.tgz",
+      "integrity": "sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw=="
+    },
+    "node_modules/tweetnacl-util": {
+      "version": "0.15.1",
+      "resolved": "https://registry.npmjs.org/tweetnacl-util/-/tweetnacl-util-0.15.1.tgz",
+      "integrity": "sha512-RKJBIj8lySrShN4w6i/BonWp2Z/uxwC3h4y7xsRrpP59ZboCd0GpEVsOnMDYLMmKBpYhb5TgHzZXy7wTfYFBRw=="
     },
     "node_modules/type": {
       "version": "1.2.0",
@@ -4346,11 +4401,6 @@
         "ethereumjs-util": "^7.1.2"
       }
     },
-    "node_modules/web3-eth-accounts/node_modules/bn.js": {
-      "version": "4.12.0",
-      "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-4.12.0.tgz",
-      "integrity": "sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA=="
-    },
     "node_modules/web3-eth-accounts/node_modules/eth-lib": {
       "version": "0.2.8",
       "resolved": "https://registry.npmjs.org/eth-lib/-/eth-lib-0.2.8.tgz",
@@ -4416,6 +4466,11 @@
       "engines": {
         "node": ">=8.0.0"
       }
+    },
+    "node_modules/web3-eth-iban/node_modules/bn.js": {
+      "version": "5.2.1",
+      "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-5.2.1.tgz",
+      "integrity": "sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ=="
     },
     "node_modules/web3-eth-personal": {
       "version": "1.9.0",
@@ -4521,6 +4576,11 @@
       "engines": {
         "node": ">=8.0.0"
       }
+    },
+    "node_modules/web3-utils/node_modules/bn.js": {
+      "version": "5.2.1",
+      "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-5.2.1.tgz",
+      "integrity": "sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ=="
     },
     "node_modules/webidl-conversions": {
       "version": "3.0.1",

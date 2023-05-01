@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-basic-slim-sample",
-  "version": "0.3.1-beta.9",
+  "version": "0.3.1-beta.10",
   "description": "Simple sample using eulith-web3js-core (so minimal dependencies)",
   "main": "index.js",
   "files": [
@@ -16,7 +16,7 @@
   "author": "Eulith Support <support@eulith.com>",
   "license": "CC BY-NC-ND 4.0",
   "dependencies": {
-    "eulith-web3js-core": "^0.3.1-beta.9"
+    "eulith-web3js-core": "^0.3.1-beta.10"
   },
   "devDependencies": {
     "@types/node": "^18.6.1",

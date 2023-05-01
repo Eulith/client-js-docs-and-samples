@@ -9,7 +9,7 @@ import config from "./common-configuration";
 const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
 
 // DO NOT use a plain text private key in production. Use KMS instead.
-const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
+const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
 
 /*
  *  Example, of doing a simple swap, within a transaction - buying WETH with USDC
@@ -18,13 +18,13 @@ async function exampleFlash() {
     console.log("exampleFlash: START");
 
     // We're going to PAY USDC
-    const payTokenContract = await Eulith.tokens.getTokenContract({ provider, symbol: Eulith.tokens.Symbols.USDC });
+    const payTokenContract = await Eulith.Tokens.getTokenContract({ provider, symbol: Eulith.Tokens.Symbols.USDC });
 
     // We're going to TAKE WETH
-    const takeTokenContract = (await Eulith.tokens.getTokenContract({
+    const takeTokenContract = (await Eulith.Tokens.getTokenContract({
         provider,
-        symbol: Eulith.tokens.Symbols.WETH
-    })) as Eulith.contracts.WethTokenContract;
+        symbol: Eulith.Tokens.Symbols.WETH
+    })) as Eulith.Contracts.WethTokenContract;
 
     // @todo rewrite using new TOKENVALUE
     // TAKE amount in whole WETH
@@ -33,28 +33,29 @@ async function exampleFlash() {
     // @todo figure out how to clean this logic up!!!
     // # magic number math to cover enough USDC to pay back the ETH and max $2,000 per.
     const payAmount = takeAmount * 2000 + 600;
+
     /*
      *  Frequently you can ingore the toolkit address used by the AtomicTx code, but you need to know the
      *  address when you must 'approve' of transactions (spending) done by that proxy
      */
-    const toolkitContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
+    const agentContractAddress = await Eulith.OnChainAgents.contractAddress({ provider, authoriziedSigner: acct });
 
     // @todo - this from: acct.address sb AUTOMATIC?? DISCUSS WITH @Kristain/Moh
 
     // The x 1.2 here is so we pre-approve a bit more than we expect to take, so the
     // loan request succeeds (gas/fee).
     await payTokenContract
-        .approve(toolkitContractAddress, payTokenContract.asTokenValue(payAmount * 1.2), { from: acct.address })
+        .approve(agentContractAddress, payTokenContract.asTokenValue(payAmount * 1.2), { from: acct.address })
         .signAndSendAndWait(acct, provider);
 
     /*
      * Start an atomic transaction. The atomic transaction needs to know the provider to talk to
      * and the signer (or the account address - which can be extracted from the signer)
      *
-     *  \note - constructor for AtomicTx allows you to OPTIONALLY specify toolkitContractAddress for performance sake only.
+     *  \note - constructor for AtomicTx allows you to OPTIONALLY specify agentContractAddress for performance sake only.
      *          It can be computed internally automatically.
      */
-    const atomicTx = new Eulith.AtomicTx({ provider, signer: acct /*, toolkitContractAddress*/ });
+    const atomicTx = new Eulith.AtomicTx({ provider, signer: acct /*, agentContractAddress*/ });
 
     /**
      *  Create the payment exchange object to be serialized in the atomic transaction.
@@ -65,7 +66,7 @@ async function exampleFlash() {
             take: takeTokenContract,
             pay: payTokenContract,
             takeAmount: takeAmount,
-            payTransferFrom: Web3.utils.toChecksumAddress(acct.address),
+            payTransferFrom: acct.address,
             recipient: acct.address
         }
     });
@@ -84,17 +85,17 @@ async function exampleFlash() {
     const txNum: number = await flashPay.commit();
 
     const payTokenBalanceBefore = await payTokenContract.balanceOf(acct.address);
-    const takeTokenBalanceBefore = await takeTokenContract.balanceOf(toolkitContractAddress);
+    const takeTokenBalanceBefore = await takeTokenContract.balanceOf(agentContractAddress);
 
     console.log(
         `  BEFORE TX: To start: payTokenContract: accnt has balance ${
             (await payTokenContract.balanceOf(acct.address)).asDisplayString
-        }, but proxy has balance ${(await payTokenContract.balanceOf(toolkitContractAddress)).asDisplayString}`
+        }, but proxy has balance ${(await payTokenContract.balanceOf(agentContractAddress)).asDisplayString}`
     );
     console.log(
         `  BEFORE TX: To start: takeTokenContract: accnt has balance ${
             (await takeTokenContract.balanceOf(acct.address)).asDisplayString
-        }, but proxy has balance ${(await takeTokenContract.balanceOf(toolkitContractAddress)).asDisplayString}`
+        }, but proxy has balance ${(await takeTokenContract.balanceOf(agentContractAddress)).asDisplayString}`
     );
 
     // commitAndSendAndWait will throw if the transaction fails, or times out
@@ -110,7 +111,7 @@ async function exampleFlash() {
     });
 
     const payTokenBalanceAfter = await payTokenContract.balanceOf(acct.address);
-    const takeTokenBalanceAfter = await takeTokenContract.balanceOf(toolkitContractAddress);
+    const takeTokenBalanceAfter = await takeTokenContract.balanceOf(agentContractAddress);
 
     console.log(
         `  payToken Balance: Before Transaction: ${payTokenBalanceBefore.asDisplayString} and after: ${payTokenBalanceAfter.asDisplayString}`
@@ -121,12 +122,12 @@ async function exampleFlash() {
     console.log(
         `  AFTER TX: To start: payTokenContract: accnt has balance ${
             (await payTokenContract.balanceOf(acct.address)).asDisplayString
-        }, but proxy has balance ${(await payTokenContract.balanceOf(toolkitContractAddress)).asDisplayString}`
+        }, but proxy has balance ${(await payTokenContract.balanceOf(agentContractAddress)).asDisplayString}`
     );
     console.log(
         `  AFTER TX: To start: takeTokenContract: accnt has balance ${
             (await takeTokenContract.balanceOf(acct.address)).asDisplayString
-        }, but proxy has balance ${(await takeTokenContract.balanceOf(toolkitContractAddress)).asDisplayString}`
+        }, but proxy has balance ${(await takeTokenContract.balanceOf(agentContractAddress)).asDisplayString}`
     );
 
     console.log("exampleFlash: SUCCESS");

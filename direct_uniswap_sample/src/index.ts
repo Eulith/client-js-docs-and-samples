@@ -5,7 +5,7 @@ import config from "./common-configuration";
 const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
 
 // DO NOT use a plain text private key in production. Use KMS instead.
-const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
+const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
 
 /*
  *  Select a specific Uniswap pool, and do a simple swap on it
@@ -14,14 +14,14 @@ const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
  */
 async function performDirectUNISWAPSwap() {
     console.log(`Starting performDirectUNISWAPSwap`);
-    const fundingContract = await Eulith.tokens.getTokenContract({ provider, symbol: Eulith.tokens.Symbols.USDC });
-    const targetTokenContract = await Eulith.tokens.getTokenContract({ provider, symbol: Eulith.tokens.Symbols.WETH });
+    const fundingContract = await Eulith.Tokens.getTokenContract({ provider, symbol: Eulith.Tokens.Symbols.USDC });
+    const targetTokenContract = await Eulith.Tokens.getTokenContract({ provider, symbol: Eulith.Tokens.Symbols.WETH });
 
-    // Since we need to 'approve' the transaction, we need access to the toolkitContractAddress
-    const toolkitContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
+    // Since we need to 'approve' the transaction, we need access to the agentContractAddress
+    const agentContractAddress = await Eulith.OnChainAgents.contractAddress({ provider, authoriziedSigner: acct });
 
     const beforeFundingAcctBalance = await fundingContract.balanceOf(acct.address);
-    const beforeTargetBalance = await targetTokenContract.balanceOf(toolkitContractAddress);
+    const beforeTargetBalance = await targetTokenContract.balanceOf(agentContractAddress);
     console.log(
         `  Before swap: FundingAcctBalance=${beforeFundingAcctBalance.asDisplayString}, and TargetBalance=${beforeTargetBalance.asDisplayString}`
     );
@@ -66,7 +66,7 @@ async function performDirectUNISWAPSwap() {
         }, ...}}`
     );
     await fundingContract
-        .approve(toolkitContractAddress, fundingContract.asTokenValue(sellAmount * 1.2), { from: acct.address })
+        .approve(agentContractAddress, fundingContract.asTokenValue(sellAmount * 1.2), { from: acct.address })
         .signAndSendAndWait(acct, provider);
 
     // UNISWAP transactions require a Eulith.AtomicTx, to make sure all the money is tranfered appropriately
@@ -89,7 +89,7 @@ async function performDirectUNISWAPSwap() {
         `  After swap: fundingContract balance: ${
             (await fundingContract.balanceOf(acct.address)).asDisplayString
         }, and targetTokenContract toolkit balance: ${
-            (await targetTokenContract.balanceOf(toolkitContractAddress)).asDisplayString
+            (await targetTokenContract.balanceOf(agentContractAddress)).asDisplayString
         }`
     );
 
@@ -121,29 +121,29 @@ async function simpleCurrencyConversionSampleWithBestPricePreparingToDoMore() {
      *
      *  The token contract (currency) you wish top operate with is your transactionTokenContract.
      */
-    const fundingTokenContract = await Eulith.tokens.getTokenContract({ provider, symbol: Eulith.tokens.Symbols.USDC });
-    const transactionTokenContract = (await Eulith.tokens.getTokenContract({
+    const fundingTokenContract = await Eulith.Tokens.getTokenContract({ provider, symbol: Eulith.Tokens.Symbols.USDC });
+    const transactionTokenContract = (await Eulith.Tokens.getTokenContract({
         provider,
-        symbol: Eulith.tokens.Symbols.WETH
-    })) as Eulith.contracts.WethTokenContract;
+        symbol: Eulith.Tokens.Symbols.WETH
+    })) as Eulith.Contracts.WethTokenContract;
 
     // @todo cleanup - use fundingTokenContract.asTokenValue, but requires more changes to UNISWAP API
     const sellAmount = 5;
 
-    // Since we need to 'approve' the transaction, we need access to the toolkitContractAddress
-    const toolkitContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
+    // Since we need to 'approve' the transaction, we need access to the agentContractAddress
+    const agentContractAddress = await Eulith.OnChainAgents.contractAddress({ provider, authoriziedSigner: acct });
 
     /*
      *  Before we get started, lets see how much of your money is in your account (in the funding currency),
      *  and how much the toolkit has on your behalf (in the transaction currency).
      */
     const fundingContractBalance = await fundingTokenContract.balanceOf(acct.address);
-    const proxyBalanceBefore = await transactionTokenContract.balanceOf(toolkitContractAddress);
+    const proxyBalanceBefore = await transactionTokenContract.balanceOf(agentContractAddress);
 
     const fudgeForGas = 1000;
 
     /**
-     *  Tell the funding contract that its OK to transfer (given amount) to the toolkitContractAddress; without this
+     *  Tell the funding contract that its OK to transfer (given amount) to the agentContractAddress; without this
      *  approval, the atomicTx.commitAndSendAndWait below will be rejected/rolled back.
      *
      *  // The x 1.2 here is so we pre-approve a bit more than we expect to take, so the
@@ -155,7 +155,7 @@ async function simpleCurrencyConversionSampleWithBestPricePreparingToDoMore() {
      *        and easy to accidentally omit in this style usage?
      */
     await fundingTokenContract
-        .approve(toolkitContractAddress, fundingTokenContract.asTokenValue(sellAmount + fudgeForGas), {
+        .approve(agentContractAddress, fundingTokenContract.asTokenValue(sellAmount + fudgeForGas), {
             from: acct.address
         })
         .signAndSendAndWait(acct, provider);
@@ -211,7 +211,7 @@ async function simpleCurrencyConversionSampleWithBestPricePreparingToDoMore() {
         } ${
             fundingTokenContract.symbol
         }, and toolkit contracts's balance DELTA (how much we added) in the transaction: ${
-            (await transactionTokenContract.balanceOf(toolkitContractAddress)).asFloat - proxyBalanceBefore.asFloat
+            (await transactionTokenContract.balanceOf(agentContractAddress)).asFloat - proxyBalanceBefore.asFloat
         } ${transactionTokenContract.symbol}`
     );
 

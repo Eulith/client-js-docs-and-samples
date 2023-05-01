@@ -33,12 +33,12 @@ const logger = pino.pino({
 const provider = new Eulith.Provider({
     serverURL: config.serverURL,
     refreshToken: config.refreshToken,
-    logger: new Eulith.logging.PinoLogger(logger)
+    logger: new Eulith.Logging.PinoLogger(logger)
 });
 
 async function createContract() {
-    const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
-    const contractAddress1: string = await Eulith.ToolkitContract.address({ provider, signer: acct });
+    const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
+    const contractAddress1: string = await Eulith.OnChainAgents.contractAddress({ provider, authoriziedSigner: acct });
     logger.info(`acct.address: ${acct.address}`);
 }
 

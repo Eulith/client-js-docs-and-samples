@@ -9,7 +9,7 @@ const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken
 
 // Sample account/signer to test with
 // DO NOT use a plain text private key in production. Use KMS instead.
-const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
+const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
 
 async function exampleAtomicTransaction() {
     console.log("exampleAtomicTransaction - START");

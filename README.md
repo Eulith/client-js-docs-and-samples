@@ -4,6 +4,9 @@
 
 - [NodeJS.org Getting Started](https://nodejs.org/en/docs/guides/getting-started-guide/)
 
+## Helpful Overview documentation
+
+- [Design Notes](Documentation/DESIGN-NOTES.md)
 
 ## Samples List
 
@@ -45,4 +48,4 @@
 
 - Use AWS/KMS for signing
 
-    Example use of KMS Signer [simple_kms_sample/README.md](simple_kms_sample/README.md)
+    Example use of KMS Signer [sample/README.md](kms_sample/README.md)

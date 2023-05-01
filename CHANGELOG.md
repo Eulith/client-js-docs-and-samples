@@ -8,6 +8,24 @@ This changlog also contains changes to samples, even thought they are published
 in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/clients-samples-web3js)
 
 
+## 0.3.1-beta.10 {2023-05-01}
+
+- New On-Chain Agents API
+  - Basically quite similar to ToolkitContract, which it replaces (now deprecated).
+  - But it subsumes new armor on-chain agents and newly renamed 'unchecked' on-chain agents
+- New Signing service API
+  - abstraction of various kinds of signing, in a way that neatly allowes 'SigningService' objects
+    to support and advertise what they can, given how they were constructed (signing hashes, or personal messages
+    or transactions or typedData).
+- Some module renaming/refactoring/cleanups - mostly just using Captialized names for the intermediate
+  modules as typescript docs do in their examples (not the way web3js does in its implementation).
+  - improved and better documented the typescript issues with modules
+- Use more of assertions to cleanup error checking in the ts-client code.
+- New DEPENDENCY
+  - @metamask/eth-sig-util - used for crytographic-signing based signing of typed data 
+- Fixed serious bug with Eulith.Signing.ECDSASignature CTOR - which caused signTypedData to occasionally produce
+  answers the Eulith call server would reject (left padding).
+- New DESIGN-NOTES.md file
 
 ## 0.3.1-beta.9 {2023-04-25}
 

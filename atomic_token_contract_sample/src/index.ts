@@ -24,15 +24,15 @@ const logger = pino.pino({
 const provider = new Eulith.Provider({
     serverURL: config.serverURL,
     refreshToken: config.refreshToken,
-    logger: new Eulith.logging.PinoLogger(logger)
+    logger: new Eulith.Logging.PinoLogger(logger)
 });
 
 function walletPrivateKey2Address_(w: string) {
-    return new Eulith.LocalSigner({ privateKey: w }).address;
+    return new Eulith.Signing.LocalSigner({ privateKey: w }).address;
 }
 
 // DO NOT use a plain text private key in production. Use KMS instead.
-const acct = new Eulith.LocalSigner({ privateKey: config.Wallet1 });
+const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
 
 function closeTo(a: number, b: number, errorMargin: number) {
     return Math.abs(a - b) < errorMargin;
@@ -55,9 +55,9 @@ async function tokenContractWithoutAtomics() {
     /*
      *  Test doing atomic transactions on some ERC20 token contract
      */
-    const tokenContract = await Eulith.tokens.getTokenContract({
+    const tokenContract = await Eulith.Tokens.getTokenContract({
         provider,
-        symbol: Eulith.tokens.Symbols.USDC
+        symbol: Eulith.Tokens.Symbols.USDC
     });
 
     // Just to test/report
@@ -159,9 +159,9 @@ async function tokenContractWithAtomics() {
     /*
      *  Test doing atomic transactions on some ERC20 token contract
      */
-    const tokenContract = await Eulith.tokens.getTokenContract({
+    const tokenContract = await Eulith.Tokens.getTokenContract({
         provider,
-        symbol: Eulith.tokens.Symbols.USDC
+        symbol: Eulith.Tokens.Symbols.USDC
     });
 
     // Just to test/report
@@ -173,20 +173,20 @@ async function tokenContractWithAtomics() {
      *
      *  Here we must 'approve' that address for later transfers
      */
-    const toolkitContractAddress = await Eulith.ToolkitContract.address({ provider, signer: acct });
+    const agentContractAddress = await Eulith.OnChainAgents.contractAddress({ provider, authoriziedSigner: acct });
 
     const approveAmt = tokenContract.asTokenValue(1.0); // one dollar
 
     // Pre-approve an amount to be used in the atomic transaction
     await tokenContract
-        .approve(toolkitContractAddress, approveAmt, { from: acct.address })
+        .approve(agentContractAddress, approveAmt, { from: acct.address })
         .signAndSendAndWait(acct, provider);
-    logger.info(`APPROVED: ${approveAmt.asFloat} for toolkitContractAddress: ${toolkitContractAddress})`);
+    logger.info(`APPROVED: ${approveAmt.asFloat} for agentContractAddress: ${agentContractAddress})`);
 
-    // begin the transaction (toolkitContractAddress parameter optional, but we happen to have it handy, so why recompute)
+    // begin the transaction (agentContractAddress parameter optional, but we happen to have it handy, so why recompute)
     let atomicTx = new Eulith.AtomicTx({ provider, signer: acct });
     logger.trace(
-        `tokenContract.allowance: ${(await tokenContract.allowance(acct.address, toolkitContractAddress)).asFloat}`
+        `tokenContract.allowance: ${(await tokenContract.allowance(acct.address, agentContractAddress)).asFloat}`
     );
 
     let preTransactionRecipientBalances: { [index: string]: number } = {};
@@ -230,7 +230,7 @@ async function tokenContractWithAtomics() {
 
     logger.info(
         `AFTER-COMMIT: tokenContract.allowance=${
-            (await tokenContract.allowance(acct.address, toolkitContractAddress)).asFloat
+            (await tokenContract.allowance(acct.address, agentContractAddress)).asFloat
         }`
     );
     logger.info(
