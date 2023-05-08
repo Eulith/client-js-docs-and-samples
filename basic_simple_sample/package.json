@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-basic-simple-sample",
-  "version": "0.3.1-beta.10",
+  "version": "0.3.1-beta.12",
   "description": "Simple sample using eulith-web3js (simple way to get started)",
   "main": "index.js",
   "files": [
@@ -16,7 +16,7 @@
   "author": "Eulith Support <support@eulith.com>",
   "license": "CC BY-NC-ND 4.0",
   "dependencies": {
-    "eulith-web3js": "^0.3.1-beta.10"
+    "eulith-web3js": "^0.3.1-beta.12"
   },
   "devDependencies": {
     "@types/node": "^18.6.1",

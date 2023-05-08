@@ -8,6 +8,24 @@ This changlog also contains changes to samples, even thought they are published
 in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/clients-samples-web3js)
 
 
+## 0.3.1-beta.12 {2023-05-08}
+
+- OnChainAgents
+  - enableArmor support
+  - assertions for clarity error checking in createArmorAgent (etc)
+- Signing
+  - new ITransactionSigningSender, and support in SigningService, so you can now call
+    (on signingService) sendTransaction (key to interaction with signTransaciton with WAGMI/METAMASK)
+  - BIG restructuring of UnsignedTransaciton signing support to be indirected through signingService. 
+
+## 0.3.1-beta.11 {2023-05-03}
+
+- Some namespace cleanups
+- Attempted support auto-create-safe in createArmor (total fail)
+- atomic, uniswap, flash, utils.fillTransactionDefaults, etc, cleanups relating to namespaces, Provider|Web3 support, etc
+- assertions cleanups (assert method by itself produces terrible messages).
+- armorAgent cleanups/signing fixes relating to running from react
+
 ## 0.3.1-beta.10 {2023-05-01}
 
 - New On-Chain Agents API
