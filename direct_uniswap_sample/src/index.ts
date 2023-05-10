@@ -2,7 +2,10 @@ import * as Eulith from "eulith-web3js";
 
 import config from "./common-configuration";
 
-const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
+const provider = new Eulith.Provider({
+    network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
+    refreshToken: config.refreshToken
+});
 
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
@@ -71,9 +74,9 @@ async function performDirectUNISWAPSwap() {
 
     // UNISWAP transactions require a Eulith.AtomicTx, to make sure all the money is tranfered appropriately
     // back and forth in a safe way (UNISWAP requires a complicated back and forth the proxy handles for us).
-    const atomicTx = new Eulith.AtomicTx({ provider, signer: acct });
+    const atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: acct });
 
-    const swapAtomicTx: Eulith.SubAtomicTx = await Eulith.Uniswap.startSwap({
+    const swapAtomicTx: Eulith.AtomicTx.NestedTransaction = await Eulith.Uniswap.startSwap({
         request: quote.swapRequest,
         parentTx: atomicTx
     });
@@ -186,10 +189,10 @@ async function simpleCurrencyConversionSampleWithBestPricePreparingToDoMore() {
     {
         // UNISWAP transactions require a Eulith.AtomicTx, to make sure all the money is tranfered appropriately
         // back and forth in a safe way (UNISWAP requires a complicated back and forth the proxy handles for us).
-        const atomicTx = new Eulith.AtomicTx({ provider, signer: acct });
+        const atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: acct });
 
         // Create the actual request to be recorded into the atomicTx transaction
-        const swapAtomicTx: Eulith.SubAtomicTx = await Eulith.Uniswap.startSwap({
+        const swapAtomicTx: Eulith.AtomicTx.NestedTransaction = await Eulith.Uniswap.startSwap({
             request: quote.swapRequest,
             parentTx: atomicTx
         });

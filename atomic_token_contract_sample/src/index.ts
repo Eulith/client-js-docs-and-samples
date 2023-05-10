@@ -21,8 +21,9 @@ const logger = pino.pino({
         ]
     }
 });
+
 const provider = new Eulith.Provider({
-    serverURL: config.serverURL,
+    network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
     refreshToken: config.refreshToken,
     logger: new Eulith.Logging.PinoLogger(logger)
 });
@@ -184,7 +185,7 @@ async function tokenContractWithAtomics() {
     logger.info(`APPROVED: ${approveAmt.asFloat} for agentContractAddress: ${agentContractAddress})`);
 
     // begin the transaction (agentContractAddress parameter optional, but we happen to have it handy, so why recompute)
-    let atomicTx = new Eulith.AtomicTx({ provider, signer: acct });
+    let atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: acct });
     logger.trace(
         `tokenContract.allowance: ${(await tokenContract.allowance(acct.address, agentContractAddress)).asFloat}`
     );

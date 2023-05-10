@@ -8,6 +8,15 @@ This changlog also contains changes to samples, even thought they are published
 in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/clients-samples-web3js)
 
 
+## 0.3.1-beta.13 {2023-05-10}
+
+- Eulith.Networks<br>
+  New feature - Network object and Predefined network objects - (Eulith.Provider now takes Network object instead of serverURL).
+- Eulith.Signing
+  - refactored - Eulith.UnsignedTransaction => Eulith.Signing.UnsignedTransaction
+- Eulith.AtomicTx refactor/rename
+  - Migrate AtomicTx and SubAtomicTx as Eulith.AtomicTx.Transaction and Eulith.AtomicTx.NestedTransaction
+
 ## 0.3.1-beta.12 {2023-05-08}
 
 - OnChainAgents

@@ -37,7 +37,7 @@ Then use the published link from http-server output to browse this web-app.
 
 ## If your RPC server is generating CORS erorrs (doesn't include your particular GUI)
 
-You can run your client through a cors-enabling revsere proxy
+You can run your client through a cors-enabling reverse proxy
 
 [https://www.npmjs.com/package/local-cors-proxy](https://www.npmjs.com/package/local-cors-proxy)
 ~~~

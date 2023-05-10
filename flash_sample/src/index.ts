@@ -6,7 +6,10 @@ import config from "./common-configuration";
 
 // Start creating a Eulith provider (like web3js provider) object, which can be used with web3js (and
 // Eulith APIs to communicate with the ethereum network. This handles authentication, and networking
-const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
+const provider = new Eulith.Provider({
+    network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
+    refreshToken: config.refreshToken
+});
 
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
@@ -55,7 +58,7 @@ async function exampleFlash() {
      *  \note - constructor for AtomicTx allows you to OPTIONALLY specify agentContractAddress for performance sake only.
      *          It can be computed internally automatically.
      */
-    const atomicTx = new Eulith.AtomicTx({ provider, signer: acct /*, agentContractAddress*/ });
+    const atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: acct /*, agentContractAddress*/ });
 
     /**
      *  Create the payment exchange object to be serialized in the atomic transaction.

@@ -1,15 +1,15 @@
 {
   "name": "eulith-web3js-basic-slim-sample",
-  "version": "0.3.1-beta.12",
+  "version": "0.3.1-beta.13",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "eulith-web3js-basic-slim-sample",
-      "version": "0.3.1-beta.12",
+      "version": "0.3.1-beta.13",
       "license": "CC BY-NC-ND 4.0",
       "dependencies": {
-        "eulith-web3js-core": "^0.3.1-beta.12"
+        "eulith-web3js-core": "^0.3.1-beta.13"
       },
       "devDependencies": {
         "@types/node": "^18.6.1",
@@ -1060,9 +1060,9 @@
       }
     },
     "node_modules/@types/node": {
-      "version": "18.16.5",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-18.16.5.tgz",
-      "integrity": "sha512-seOA34WMo9KB+UA78qaJoCO20RJzZGVXQ5Sh6FWu0g/hfT44nKXnej3/tCQl7FL97idFpBhisLYCTB50S0EirA=="
+      "version": "18.16.7",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-18.16.7.tgz",
+      "integrity": "sha512-MFg7ua/bRtnA1hYE3pVyWxGd/r7aMqjNOdHvlSsXV3n8iaeGKkOaPzpJh6/ovf4bEXWcojkeMJpTsq3mzXW4IQ=="
     },
     "node_modules/@types/pbkdf2": {
       "version": "3.1.0",
@@ -2120,9 +2120,9 @@
       }
     },
     "node_modules/eulith-web3js-core": {
-      "version": "0.3.1-beta.12",
-      "resolved": "https://registry.npmjs.org/eulith-web3js-core/-/eulith-web3js-core-0.3.1-beta.12.tgz",
-      "integrity": "sha512-diIq7GokMBbs+uPdeHzUhoWyLOBfcP0xdsxvV88NSLa4hocf/z+Z7V1zkZPeip3ChtznzJjRZLLRGpsMqzh7rw==",
+      "version": "0.3.1-beta.13",
+      "resolved": "https://registry.npmjs.org/eulith-web3js-core/-/eulith-web3js-core-0.3.1-beta.13.tgz",
+      "integrity": "sha512-qaFtCXHyM81VPLZTKCc4bVItQBtPNCnBstwdrvv1vOZ7AmwR7t4+Rwy9lR8coK9L6SMQqkTuanuqHSbAarT41w==",
       "dependencies": {
         "@ethereumjs/tx": "^4.1.1",
         "@metamask/eth-sig-util": "^5.0.2",
@@ -3145,9 +3145,9 @@
       "integrity": "sha512-Ntyt4AIXyaLIuMHF6IOoTakB3K+RWxwtsHNRxllEoA6vPwP9o4866g6YWDLUdnucilZhmkxiHwHr11gAENw+QA=="
     },
     "node_modules/node-fetch": {
-      "version": "2.6.10",
-      "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.10.tgz",
-      "integrity": "sha512-5YytjUVbwzjE/BX4N62vnPPkGNxlJPwdA9/ArUc4pcM6cYS4Hinuv4VazzwjMGgnWuiQqcemOanib/5PpcsGug==",
+      "version": "2.6.11",
+      "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.11.tgz",
+      "integrity": "sha512-4I6pdBY1EthSqDmJkiNk3JIT8cswwR9nfeW/cPdUagJYEQG7R95WRH74wpz7ma8Gh/9dI9FP+OU+0E4FvtA55w==",
       "dependencies": {
         "whatwg-url": "^5.0.0"
       },

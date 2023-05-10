@@ -5,7 +5,10 @@ import config from "./common-configuration";
 
 // Start creating a Eulith provider (like web3js provider) object, which can be used with web3js (and
 // Eulith APIs to communicate with the ethereum network. This handles authentication, and networking
-const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
+const provider = new Eulith.Provider({
+    network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
+    refreshToken: config.refreshToken
+});
 
 // Sample account/signer to test with
 // DO NOT use a plain text private key in production. Use KMS instead.
@@ -18,7 +21,7 @@ async function exampleAtomicTransaction() {
     const ew3 = new Eulith.Web3({ provider, signer: acct });
 
     // Start Atomic Tx (or could pass CTOR {web3: ew3, accountAddress: acct.address})
-    const atomicTransaction = new Eulith.AtomicTx({ provider, signer: acct });
+    const atomicTransaction = new Eulith.AtomicTx.Transaction({ provider, signer: acct });
 
     // Append
     await atomicTransaction.addTransaction({

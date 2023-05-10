@@ -22,7 +22,10 @@ const main = async () => {
 
     // Now try sending a transaction from an existing predefined wallet
     const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
-    const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
+    const provider = new Eulith.Provider({
+        network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
+        refreshToken: config.refreshToken
+    });
 
     const kmsCryptoSigner = await Eulith.Signing.KMSSigner.mk(client, config.awsKMSKeyID);
 

@@ -4,7 +4,10 @@ import config from "./common-configuration";
 
 // Start creating a Eulith provider (like web3js provider) object, which can be used with web3js (and
 // Eulith APIs to communicate with the ethereum network. This handles authentication, and networking
-const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
+const provider = new Eulith.Provider({
+    network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
+    refreshToken: config.refreshToken
+});
 
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });

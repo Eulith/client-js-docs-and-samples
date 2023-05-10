@@ -2,7 +2,10 @@ import * as Eulith from "eulith-web3js-core";
 
 import config from "./common-configuration";
 
-const provider = new Eulith.Provider({ serverURL: config.serverURL, refreshToken: config.refreshToken });
+const provider = new Eulith.Provider({
+    network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
+    refreshToken: config.refreshToken
+});
 
 async function createContract() {
     const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
