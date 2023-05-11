@@ -31,7 +31,7 @@ const logger = pino.pino({
  *  a logger wrapping the pino logger.
  */
 const provider = new Eulith.Provider({
-    serverURL: config.serverURL,
+    network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
     refreshToken: config.refreshToken,
     logger: new Eulith.Logging.PinoLogger(logger)
 });

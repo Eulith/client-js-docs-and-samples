@@ -29,6 +29,30 @@ Our advice is to first use/test with eulith-web3js which contains (all or nearly
 combined. But before preparing to go to production, you limit yourself to using eulith-core, and the specific additional
 eulith-web3js-XXX libraries needed to accomplish your objectives.
 
+### API Evolution, Deprecation, and Upgrading
+
+(good) APIs don't start good: they evolve to be good. The Eulith javascript client API is immature. But we have
+a strategy to make it good.
+
+When an API changes, we maintain the old behavior, and deprecate the older API. This is done with warnings that
+get generated on use, and javascript markup that (depending on your tooling) may or may not show you/hint that an API
+is deprecated.
+
+Periodically, we EXCISE older deprecated APIs (to clean things up). At any such point (deprecation abandonment version),
+we make special note of the version just before.
+
+#### Upgrade Strategy
+
+Then the implied upgrade strategy is for users using these deprecated APIs to upgrade by sequence, through
+each of these 'deprecation abandonment versions'.
+
+So if you are upgrading code from a version prior to one of these versions, its suggested you upgrade to the latest
+
+#### Deprecation Abandonment Versions
+
+- 0.3.1-beta.13 {2023-05-10}
+
+
 ## Minor/Detail Oriented issues
 
 ### Addresses

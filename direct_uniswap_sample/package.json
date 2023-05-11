@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-direct-uniswap-sample",
-  "version": "0.3.1-beta.13",
+  "version": "0.4.1",
   "description": "Sample use of using UNISWAP directly (without flash) eulith-web3js",
   "main": "index.js",
   "files": [
@@ -16,7 +16,7 @@
   "author": "Eulith Support <support@eulith.com>",
   "license": "CC BY-NC-ND 4.0",
   "dependencies": {
-    "eulith-web3js": "^0.3.1-beta.13"
+    "eulith-web3js": "^0.4.1"
   },
   "devDependencies": {
     "@types/node": "^18.6.1",

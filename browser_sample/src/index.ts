@@ -7,7 +7,9 @@ async function usingWindowFetch_(a1: any, a2: any) {
 
 async function doFetchChainID() {
     const providerArgs = {
-        serverURL: (document.getElementById("serverURL") as any).value,
+        network: Eulith.Networks.Predefined.mainnet.with({
+            eulithURL: (document.getElementById("serverURL") as any).value
+        }),
         refreshToken: (document.getElementById("refreshToken") as any).value
         // fetcherInstance: usingWindowFetch_           // defaults to axios, but do this to use fetch
     };
@@ -17,7 +19,7 @@ async function doFetchChainID() {
     const web3 = new Web3(provider);
     let chainID: string | undefined;
     try {
-        chainID = await (await web3.eth.getChainId()).toString();
+        chainID = (await web3.eth.getChainId()).toString();
     } catch (e) {
         chainID = `Err: ${e.message}`;
     }

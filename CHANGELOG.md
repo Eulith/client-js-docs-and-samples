@@ -7,6 +7,16 @@ are lumped here.
 This changlog also contains changes to samples, even thought they are published
 in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/clients-samples-web3js)
 
+## 0.4.1 {2023-05-10}
+
+- Document 'Deprecation Abandonment Versions' in DESIGN-NOTES.md, and document how to use in upgrading
+  and that 0.3.1-beta.13 is the first such point.
+  - Actually expunged all the deprecated code, and cleaned up a bunch of stuff because of that.
+- fixed bug with OnChainAgents.getAgent - supporting differnet args for authAddr 
+- minor tweak to url generation in provider code (no double/)
+  - ACTUALLY more important than I realized, since eulith-call server doesn't support mapping // to /
+    in URLs! - so a biggie!
+
 
 ## 0.3.1-beta.13 {2023-05-10}
 
