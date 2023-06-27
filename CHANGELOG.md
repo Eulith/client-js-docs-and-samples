@@ -4,8 +4,18 @@ Summary of recent changes (in reverse chronological order);
 Changes from sub-projects like eulith-web3js-core, and eulith-web3js-kms, and eulith-web3js-pino
 are lumped here.
 
-This changlog also contains changes to samples, even thought they are published
+This changelog also contains changes to samples, even thought they are published
 in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/clients-samples-web3js)
+
+## 0.5.0-beta.2 {2023-06-27}
+
+- Fix broken source path 
+
+## 0.5.0-beta.1 {2023-06-27}
+
+- Collapse dependency structure into a single package eulith-web3js
+- eulith-web3js-core, eulith-web3js-kms, eulith-web3js-pino **are no longer supported**, please use eulith-web3js
+- Collapse samples into a single package instead of an isolated package for each
 
 ## 0.4.1 {2023-05-10}
 
