@@ -7,6 +7,9 @@ are lumped here.
 This changelog also contains changes to samples, even thought they are published
 in [https://github.com/Eulith/clients-samples-web3js](https://github.com/Eulith/clients-samples-web3js)
 
+## 0.5.0-beta.4 {2023-07-17}
+- General cleanups, primarily on onChainAgents, may include breaking changes
+
 ## 0.5.0-beta.2 {2023-06-27}
 
 - Fix broken source path 

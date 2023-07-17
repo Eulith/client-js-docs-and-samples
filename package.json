@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-samples",
-  "version": "0.5.0-beta.1",
+  "version": "0.5.0-beta.4",
   "description": "Common samples of eulith-web3js usage",
   "files": [
     "/build"
