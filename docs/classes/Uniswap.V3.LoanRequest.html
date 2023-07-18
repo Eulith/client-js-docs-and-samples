@@ -18,9 +18,13 @@
 <li><a href="Uniswap.V3.LoanRequest.html">LoanRequest</a></li></ul>
 <h1>Class LoanRequest</h1></div>
 <section class="tsd-panel tsd-comment">
-<div class="tsd-comment tsd-typography">
-<h4>Todo</h4><p>better explain this - but wait til I review the Flash code...</p>
-</div></section>
+<div class="tsd-comment tsd-typography"><p>A LoanRequest implements IFlashLoanable - so it&#39;s designed to work with the &#39;Flash&#39; mechanism, to create
+ instant, temporary liquidity.</p>
+<p> In the context of Uniswap, this just means using Uniswap pools to create that instant, temporary liquidity.</p>
+<p> This object requires a borrowTokenA (and borrowAmountA), and an optional borrowTokenB (and borrowAmountB).</p>
+<p> payTransferFrom designates who PAYS the loan or sell side of the swap.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></section>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
@@ -30,7 +34,7 @@
 <ul class="tsd-hierarchy">
 <li><a href="../types/FlashLiquidity.IFlashLoanable.html" class="tsd-signature-type tsd-kind-type-alias">IFlashLoanable</a></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/uniswap.ts#L64">src/uniswap.ts:64</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/uniswap.ts#L53">src/uniswap.ts:53</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -69,42 +73,41 @@
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">p</span>: <span class="tsd-signature-type ">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Uniswap.html" class="tsd-signature-type tsd-kind-namespace">Uniswap</a><span class="tsd-signature-symbol">.</span><a href="../modules/Uniswap.V3.html" class="tsd-signature-type tsd-kind-namespace">V3</a><span class="tsd-signature-symbol">.</span><a href="Uniswap.V3.LoanRequest.html" class="tsd-signature-type tsd-kind-class">LoanRequest</a><span class="tsd-signature-symbol">&gt;</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="../modules/Uniswap.html" class="tsd-signature-type tsd-kind-namespace">Uniswap</a><span class="tsd-signature-symbol">.</span><a href="../modules/Uniswap.V3.html" class="tsd-signature-type tsd-kind-namespace">V3</a><span class="tsd-signature-symbol">.</span><a href="Uniswap.V3.LoanRequest.html" class="tsd-signature-type tsd-kind-class">LoanRequest</a></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <a href="../modules/Uniswap.html" class="tsd-signature-type tsd-kind-namespace">Uniswap</a><span class="tsd-signature-symbol">.</span><a href="../modules/Uniswap.V3.html" class="tsd-signature-type tsd-kind-namespace">V3</a><span class="tsd-signature-symbol">.</span><a href="Uniswap.V3.LoanRequest.html" class="tsd-signature-type tsd-kind-class">LoanRequest</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/uniswap.ts#L75">src/uniswap.ts:75</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/uniswap.ts#L61">src/uniswap.ts:61</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member"><a id="borrowAmountA" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>borrow<wbr/>AmountA</span><a href="#borrowAmountA" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">borrow<wbr/>AmountA</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/uniswap.ts#L66">src/uniswap.ts:66</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/uniswap.ts#L55">src/uniswap.ts:55</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="borrowAmountB" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>borrow<wbr/>AmountB</span><a href="#borrowAmountB" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">borrow<wbr/>AmountB</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/uniswap.ts#L68">src/uniswap.ts:68</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/uniswap.ts#L57">src/uniswap.ts:57</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="borrowTokenA" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>borrow<wbr/>TokenA</span><a href="#borrowTokenA" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">borrow<wbr/>TokenA</span><span class="tsd-signature-symbol">:</span> <a href="Contracts.ERC20TokenContract.html" class="tsd-signature-type tsd-kind-class">ERC20TokenContract</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/uniswap.ts#L65">src/uniswap.ts:65</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/uniswap.ts#L54">src/uniswap.ts:54</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="borrowTokenB" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>borrow<wbr/>TokenB</span><a href="#borrowTokenB" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">borrow<wbr/>TokenB</span><span class="tsd-signature-symbol">?:</span> <a href="Contracts.ERC20TokenContract.html" class="tsd-signature-type tsd-kind-class">ERC20TokenContract</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/uniswap.ts#L67">src/uniswap.ts:67</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/uniswap.ts#L56">src/uniswap.ts:56</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="payTransferFrom" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>pay<wbr/>Transfer<wbr/>From</span><a href="#payTransferFrom" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">pay<wbr/>Transfer<wbr/>From</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/uniswap.ts#L69">src/uniswap.ts:69</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/uniswap.ts#L58">src/uniswap.ts:58</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="recipient" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>recipient</span><a href="#recipient" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">recipient</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/uniswap.ts#L70">src/uniswap.ts:70</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/uniswap.ts#L59">src/uniswap.ts:59</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Accessors</h2>
 <section class="tsd-panel tsd-member"><a id="tokenValues" class="tsd-anchor"></a>
@@ -115,7 +118,7 @@
 <h4 class="tsd-returns-title">Returns <a href="../interfaces/Tokens.Value.ITokenValue.html" class="tsd-signature-type tsd-kind-interface">ITokenValue</a><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <p>Implementation of Eulith.FlashLiquidity.IFlashLoanable.tokenValues</p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/uniswap.ts#L99">src/uniswap.ts:99</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/uniswap.ts#L85">src/uniswap.ts:85</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="generateLoanRequest" class="tsd-anchor"></a>
@@ -126,7 +129,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">RequestArguments</span></h4><aside class="tsd-sources">
 <p>Implementation of Eulith.FlashLiquidity.IFlashLoanable.generateLoanRequest</p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/uniswap.ts#L79">src/uniswap.ts:79</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/uniswap.ts#L65">src/uniswap.ts:65</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -159,6 +162,7 @@
 <nav class="tsd-navigation"><a href="../modules.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>eulith-<wbr/>web3js</span></a>
 <ul class="tsd-small-nested-navigation">
 <li><a href="../modules/AtomicTx.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Atomic<wbr/>Tx</span></a></li>
+<li><a href="../modules/Auth.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Auth</span></a></li>
 <li><a href="../modules/Contracts.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Contracts</span></a></li>
 <li><a href="../modules/Exceptions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Exceptions</span></a></li>
 <li><a href="../modules/FlashLiquidity.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Flash<wbr/>Liquidity</span></a></li>
@@ -177,13 +181,24 @@
 <div class="tsd-accordion-details">
 <ul class="tsd-nested-navigation">
 <li><a href="../enums/Uniswap.V3.PoolFee.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-8"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-enum)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.45 16V7.24H14.49V8.224H10.518V10.936H14.07V11.908H10.518V15.016H14.49V16H9.45Z" fill="var(--color-text)"></path></g></svg><span>Pool<wbr/>Fee</span></a></li>
-<li><a href="Uniswap.V3.LoanRequest.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-128"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>Loan<wbr/>Request</span></a></li>
+<li><a href="Uniswap.V3.CreateLimitOrderRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-128"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>Create<wbr/>Limit<wbr/>Order<wbr/>Request</span></a></li>
+<li><a href="Uniswap.V3.LoanRequest.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Loan<wbr/>Request</span></a></li>
 <li><a href="Uniswap.V3.Pool.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Pool</span></a></li>
 <li><a href="Uniswap.V3.PriceQuote.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Price<wbr/>Quote</span></a></li>
 <li><a href="Uniswap.V3.SwapRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Swap<wbr/>Request</span></a></li>
-<li><a href="../functions/Uniswap.V3.getBestPriceQuote.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-64"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)"></path></g></svg><span>get<wbr/>Best<wbr/>Price<wbr/>Quote</span></a></li>
+<li><a href="../interfaces/Uniswap.V3.AceUniBurnCollect.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-256"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)"></path></g></svg><span>Ace<wbr/>Uni<wbr/>Burn<wbr/>Collect</span></a></li>
+<li><a href="../interfaces/Uniswap.V3.AddLimitOrderToAtomicTxResponse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Add<wbr/>Limit<wbr/>Order<wbr/>To<wbr/>Atomic<wbr/>Tx<wbr/>Response</span></a></li>
+<li><a href="../interfaces/Uniswap.V3.CreateLimitOrderResponse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Create<wbr/>Limit<wbr/>Order<wbr/>Response</span></a></li>
+<li><a href="../interfaces/Uniswap.V3.LimitOrder.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Limit<wbr/>Order</span></a></li>
+<li><a href="../interfaces/Uniswap.V3.LimitOrderDetails.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>Limit<wbr/>Order<wbr/>Details</span></a></li>
+<li><a href="../functions/Uniswap.V3.addLimitOrderToAtomicTx.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-64"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)"></path></g></svg><span>add<wbr/>Limit<wbr/>Order<wbr/>To<wbr/>Atomic<wbr/>Tx</span></a></li>
+<li><a href="../functions/Uniswap.V3.confirmLimitOrder.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>confirm<wbr/>Limit<wbr/>Order</span></a></li>
+<li><a href="../functions/Uniswap.V3.createLimitOrder.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>create<wbr/>Limit<wbr/>Order</span></a></li>
+<li><a href="../functions/Uniswap.V3.getBestPriceQuote.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Best<wbr/>Price<wbr/>Quote</span></a></li>
+<li><a href="../functions/Uniswap.V3.getLimitOrders.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Limit<wbr/>Orders</span></a></li>
 <li><a href="../functions/Uniswap.V3.getSwapPool.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Swap<wbr/>Pool</span></a></li>
-<li><a href="../functions/Uniswap.V3.startSwap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>start<wbr/>Swap</span></a></li></ul></div></details></li>
+<li><a href="../functions/Uniswap.V3.startSwap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>start<wbr/>Swap</span></a></li>
+<li><a href="../functions/Uniswap.V3.submitMintHash.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>submit<wbr/>Mint<wbr/>Hash</span></a></li></ul></div></details></li>
 <li><a href="../types/Uniswap.LoanRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4194304"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-type-alias)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.31 16V8.224H8.91V7.24H14.79V8.224H12.39V16H11.31Z" fill="var(--color-text)"></path></g></svg><span>Loan<wbr/>Request</span></a></li>
 <li><a href="../types/Uniswap.Pool.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4194304"></use></svg><span>Pool</span></a></li>
 <li><a href="../types/Uniswap.PoolFee.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4194304"></use></svg><span>Pool<wbr/>Fee</span></a></li>
@@ -198,7 +213,7 @@
 <li><a href="../functions/Uniswap.getSwapPool.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Swap<wbr/>Pool</span></a></li>
 <li><a href="../functions/Uniswap.startSwap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>start<wbr/>Swap</span></a></li></ul></div></details></li>
 <li><a href="../modules/Utils.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Utils</span></a></li>
-<li><a href="AAve.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>AAve</span></a></li>
+<li><a href="Aave.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Aave</span></a></li>
 <li><a href="FlashLiquidity-1.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Flash<wbr/>Liquidity</span></a></li>
 <li><a href="KMSSigner.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>KMSSigner</span></a></li>
 <li><a href="Provider.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Provider</span></a></li>

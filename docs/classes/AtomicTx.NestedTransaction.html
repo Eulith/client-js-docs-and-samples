@@ -16,6 +16,23 @@
 <li><a href="../modules/AtomicTx.html">AtomicTx</a></li>
 <li><a href="AtomicTx.NestedTransaction.html">NestedTransaction</a></li></ul>
 <h1>Class NestedTransaction</h1></div>
+<section class="tsd-panel tsd-comment">
+<div class="tsd-comment tsd-typography"><p>An atomic transaction can have a nested unit inside of it.</p>
+<p>This NestedTransaction is an atomic transaction that has its own scope inside an atomic transaction</p>
+<p>The typical use case of a Nested Transaction is a flash loan. Flash loans execute within an atomic transaction,
+but must be individually opened and closed, with other actions taken inside each loan.</p>
+<p>For example, you could have a transaction that looks like this:</p>
+<p>Start AtomicTransaction
+Start NestedTransaction(FlashLoan) A
+Some action with loan A
+Close NestedTransaction(FlashLoan) A
+Start NestedTransaction(FlashLoan) B
+Some action with loan B
+Some other action with loan B
+Close NestedTransaction(FlashLoan) B
+Close AtomicTransaction</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></section>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
@@ -23,7 +40,7 @@
 <ul class="tsd-hierarchy">
 <li><a href="FlashLiquidity-1.html" class="tsd-signature-type tsd-kind-class">FlashLiquidity</a></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L381">src/atomicTx.ts:381</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/atomicTx.ts#L261">src/atomicTx.ts:261</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -35,8 +52,7 @@
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Properties</h3>
-<div class="tsd-index-list"><a href="AtomicTx.NestedTransaction.html#ongoingTransactions_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>ongoing<wbr/>Transactions_</span></a>
-<a href="AtomicTx.NestedTransaction.html#web3_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>web3_</span></a>
+<div class="tsd-index-list"><a href="AtomicTx.NestedTransaction.html#web3_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>web3_</span></a>
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Accessors</h3>
@@ -55,8 +71,8 @@
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="constructor.new_NestedTransaction"><span class="tsd-kind-constructor-signature">new <wbr/>Nested<wbr/>Transaction</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">__namedParameters</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="AtomicTx.NestedTransaction.html" class="tsd-signature-type tsd-kind-class">NestedTransaction</a><a href="#constructor.new_NestedTransaction" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>NestedTransaction can be nested inside AtomicTx.Transaction or another NestedTransaction
- (so really should consider merging this with AtomicTx)</p>
+<div class="tsd-comment tsd-typography"><p>Start a new NestedTransaction
+NestedTransactions can be nested inside an AtomicTransaction or inside another NestedTransaction</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -69,19 +85,14 @@
 <h4 class="tsd-returns-title">Returns <a href="AtomicTx.NestedTransaction.html" class="tsd-signature-type tsd-kind-class">NestedTransaction</a></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L386">src/atomicTx.ts:386</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/atomicTx.ts#L266">src/atomicTx.ts:266</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="ongoingTransactions_" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>ongoing<wbr/>Transactions_</span><a href="#ongoingTransactions_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">ongoing<wbr/>Transactions_</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L450">src/atomicTx.ts:450</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="web3_" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>web3_</span><a href="#web3_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">web3_</span><span class="tsd-signature-symbol">:</span> <a href="Web3.html" class="tsd-signature-type tsd-kind-class">Web3</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L449">src/atomicTx.ts:449</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/atomicTx.ts#L317">src/atomicTx.ts:317</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Accessors</h2>
 <section class="tsd-panel tsd-member"><a id="provider" class="tsd-anchor"></a>
@@ -89,12 +100,12 @@
 <ul class="tsd-signatures">
 <li class="tsd-signature" id="provider.provider-1"><span class="tsd-signature-symbol">get</span> provider<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>\see IAtomicTx.provider</p>
+<div class="tsd-comment tsd-typography"><p>The provider managing this NestedTransaction</p>
 </div>
 <h4 class="tsd-returns-title">Returns <a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L393">src/atomicTx.ts:393</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/atomicTx.ts#L273">src/atomicTx.ts:273</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="addTransaction" class="tsd-anchor"></a>
@@ -105,31 +116,25 @@
 <div class="tsd-comment tsd-typography"><p>Accumulate the argument transactionConfig into a server-side object which,
  when this.commit() is called, will produce a single transaction which combines
  the added sub-transactions.</p>
+<p> Within the scope of a NestedTransaction, the single transaction resulting from this.commit()
+ will not be returned immediately; it will be added to the outer transaction scope and eventually
+ returned when you commit the root level Atomic Transaction</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">transactionConfig</span>: <span class="tsd-signature-type ">TransactionConfig</span></h5>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h5><span class="tsd-kind-parameter">transactionConfig</span>: <span class="tsd-signature-type ">TransactionConfig</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-<div class="tsd-comment tsd-typography">
-<h4>Todo</h4><p>SINCE we don&#39;t implement any (much) server side logic to react to partially
- completed transactions (like in a database) - I wonder why this is useful todo
- server side. That&#39;s probably worth DOCUMENTING. Otherwise, we could just accumulate
- an array client side and send that.</p>
-</div><aside class="tsd-sources">
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L410">src/atomicTx.ts:410</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/atomicTx.ts#L286">src/atomicTx.ts:286</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="addTransactions" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>add<wbr/>Transactions</span><a href="#addTransactions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="addTransactions.addTransactions-1"><span class="tsd-kind-call-signature">add<wbr/>Transactions</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">txs</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#addTransactions.addTransactions-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Adds multiple transactions, and returns all their hashed txHash results.
- Equivilent to a series sof calls to addTransaction, but waiting for each in turn.</p>
-<p> \note - this means that order is preserved between the transactions added, even
- if the caller fails to wait on this promise.</p>
+<div class="tsd-comment tsd-typography"><p>Convenience method for adding multiple transactions at once</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -139,7 +144,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L423">src/atomicTx.ts:423</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/atomicTx.ts#L294">src/atomicTx.ts:294</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="commit" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>commit</span><a href="#commit" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -148,13 +153,11 @@
 <div class="tsd-comment tsd-typography"><p>Complete (atomically) this sub-step of the parent atomic transaction.</p>
 <p> This doesn&#39;t actually do the step, but marks as completed the sequence of operations
  and returns the (1-based) index of this step in the parent atomic transaction.</p>
-<p> Note: that returned index is not generally useful, but can be used to help diagnose problems
- in advanced applications.</p>
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L441">src/atomicTx.ts:441</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/atomicTx.ts#L309">src/atomicTx.ts:309</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -175,7 +178,6 @@
 <div class="tsd-accordion-details">
 <ul>
 <li><a href="#constructor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a></li>
-<li><a href="#ongoingTransactions_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>ongoing<wbr/>Transactions_</span></a></li>
 <li><a href="#web3_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>web3_</span></a></li>
 <li><a href="#provider" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>provider</span></a></li>
 <li><a href="#addTransaction" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>add<wbr/>Transaction</span></a></li>
@@ -192,6 +194,7 @@
 <li><a href="AtomicTx.Transaction.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Transaction</span></a></li>
 <li><a href="../interfaces/AtomicTx.IAtomicTx.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-256"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)"></path></g></svg><span>IAtomic<wbr/>Tx</span></a></li>
 <li><a href="../functions/AtomicTx.getAceImmediateTxTypedData.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-64"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)"></path></g></svg><span>get<wbr/>Ace<wbr/>Immediate<wbr/>Tx<wbr/>Typed<wbr/>Data</span></a></li></ul></div></details></li>
+<li><a href="../modules/Auth.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Auth</span></a></li>
 <li><a href="../modules/Contracts.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Contracts</span></a></li>
 <li><a href="../modules/Exceptions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Exceptions</span></a></li>
 <li><a href="../modules/FlashLiquidity.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Flash<wbr/>Liquidity</span></a></li>
@@ -203,7 +206,7 @@
 <li><a href="../modules/Tokens.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Tokens</span></a></li>
 <li><a href="../modules/Uniswap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Uniswap</span></a></li>
 <li><a href="../modules/Utils.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Utils</span></a></li>
-<li><a href="AAve.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>AAve</span></a></li>
+<li><a href="Aave.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Aave</span></a></li>
 <li><a href="FlashLiquidity-1.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Flash<wbr/>Liquidity</span></a></li>
 <li><a href="KMSSigner.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>KMSSigner</span></a></li>
 <li><a href="Provider.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Provider</span></a></li>

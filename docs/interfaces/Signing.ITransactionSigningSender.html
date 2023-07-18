@@ -17,11 +17,7 @@
 <li><a href="Signing.ITransactionSigningSender.html">ITransactionSigningSender</a></li></ul>
 <h1>Interface ITransactionSigningSender</h1></div>
 <section class="tsd-panel tsd-comment">
-<div class="tsd-comment tsd-typography"><p>Eulith.Signing.ITransactionSigningSender combines the sign and send functionality.</p>
-<p> Sadly, some provider sources like WAGMI, don&#39;t allow direct signing of a transaction, but only
- a combined sign and send.</p>
-<p> NOTE - WAGMI doesn&#39;t support this API, so you will need to use the &#39;similar&#39; ITransactionSigningSender</p>
-<p> This function returns txHash - not the txReceiept.</p>
+<div class="tsd-comment tsd-typography"><p>Combines signing and sending for compatibility with some browser based wallets</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></section>
 <section class="tsd-panel tsd-hierarchy">
@@ -29,7 +25,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">ITransactionSigningSender</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/signing.ts#L303">src/signing.ts:303</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/signing.ts#L281">src/signing.ts:281</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -48,11 +44,11 @@
 <section class="tsd-panel tsd-member"><a id="address" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>address</span><a href="#address" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" id="icon-anchor"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></g></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">address</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-<div class="tsd-comment tsd-typography"><p>signer address gauranteed a valid checksum address (len=66, hex characters, etc) - 0x3341....</p>
+<div class="tsd-comment tsd-typography"><p>signer address guaranteed a valid checksum address (len=66, hex characters, etc) - 0x3341....</p>
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/signing.ts#L307">src/signing.ts:307</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/signing.ts#L285">src/signing.ts:285</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="sendTransaction" class="tsd-anchor"></a>
@@ -60,9 +56,7 @@
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="sendTransaction.sendTransaction-1"><span class="tsd-kind-call-signature">send<wbr/>Transaction</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">transactionConfig</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#sendTransaction.sendTransaction-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>This has a builtin provider, and returns a (promise of) txHash - not the txReceipt</p>
-<p> Though it will throw on obvious problems, its success - a txHash - does not imply the
- transaction itself has completed.</p>
+<div class="tsd-comment tsd-typography"><p>This has a builtin provider and sends the signed transaction through that provider</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -72,7 +66,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/signing.ts#L315">src/signing.ts:315</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/signing.ts#L290">src/signing.ts:290</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -98,6 +92,7 @@
 <nav class="tsd-navigation"><a href="../modules.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>eulith-<wbr/>web3js</span></a>
 <ul class="tsd-small-nested-navigation">
 <li><a href="../modules/AtomicTx.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Atomic<wbr/>Tx</span></a></li>
+<li><a href="../modules/Auth.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Auth</span></a></li>
 <li><a href="../modules/Contracts.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Contracts</span></a></li>
 <li><a href="../modules/Exceptions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Exceptions</span></a></li>
 <li><a href="../modules/FlashLiquidity.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Flash<wbr/>Liquidity</span></a></li>
@@ -127,7 +122,7 @@
 <li><a href="../modules/Tokens.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Tokens</span></a></li>
 <li><a href="../modules/Uniswap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Uniswap</span></a></li>
 <li><a href="../modules/Utils.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Utils</span></a></li>
-<li><a href="../classes/AAve.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>AAve</span></a></li>
+<li><a href="../classes/Aave.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Aave</span></a></li>
 <li><a href="../classes/FlashLiquidity-1.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Flash<wbr/>Liquidity</span></a></li>
 <li><a href="../classes/KMSSigner.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>KMSSigner</span></a></li>
 <li><a href="../classes/Provider.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Provider</span></a></li>

@@ -16,30 +16,14 @@
 <li><a href="FlashLiquidity-1.html">FlashLiquidity</a></li></ul>
 <h1>Class FlashLiquidity</h1></div>
 <section class="tsd-panel tsd-comment">
-<div class="tsd-comment tsd-typography"><p>typedef Eulith.FlashLiquidity</p>
-<p> Create a loan or swap for the extent of a transacation.</p>
+<div class="tsd-comment tsd-typography"><p>Create a loan or swap available for the duration of a transaction.</p>
 <p>What is a flash (loan/swap)?</p>
-<pre><code><span class="hl-0"> </span><span class="hl-2">Put</span><span class="hl-0"> </span><span class="hl-2">simply</span><span class="hl-0">, </span><span class="hl-2">a</span><span class="hl-0"> </span><span class="hl-2">flash</span><span class="hl-0"> </span><span class="hl-2">loan</span><span class="hl-0">/</span><span class="hl-2">swap</span><span class="hl-0"> </span><span class="hl-2">gives</span><span class="hl-0"> </span><span class="hl-2">you</span><span class="hl-0"> </span><span class="hl-2">access</span><span class="hl-0"> </span><span class="hl-2">to</span><span class="hl-0"> </span><span class="hl-2">liquidity</span><span class="hl-0"> </span><span class="hl-2">at</span><span class="hl-0"> </span><span class="hl-2">the</span><span class="hl-0"> </span><span class="hl-8">START</span><span class="hl-0"> </span><span class="hl-4">of</span><span class="hl-0"> </span><span class="hl-2">a</span><span class="hl-0"> </span><span class="hl-2">transaction</span><br/><span class="hl-0"> </span><span class="hl-2">provided</span><span class="hl-0"> </span><span class="hl-2">you</span><span class="hl-0"> </span><span class="hl-2">pay</span><span class="hl-0"> </span><span class="hl-2">it</span><span class="hl-0"> </span><span class="hl-2">back</span><span class="hl-0"> </span><span class="hl-2">at</span><span class="hl-0"> </span><span class="hl-2">the</span><span class="hl-0"> </span><span class="hl-2">end</span><span class="hl-0">. </span><span class="hl-2">Otherwise</span><span class="hl-0">, </span><span class="hl-2">the</span><span class="hl-0"> </span><span class="hl-2">whole</span><span class="hl-0"> </span><span class="hl-2">transaction</span><span class="hl-0"> </span><span class="hl-2">reverts</span><span class="hl-0">.</span><br/><br/><span class="hl-0"> </span><span class="hl-2">Eulith</span><span class="hl-0"> </span><span class="hl-2">supports</span><span class="hl-0"> </span><span class="hl-2">flash</span><span class="hl-0"> </span><span class="hl-2">loans</span><span class="hl-0"> &amp; </span><span class="hl-2">swaps</span><span class="hl-0"> </span><span class="hl-2">from</span><span class="hl-0"> </span><span class="hl-2">Aave</span><span class="hl-0"> </span><span class="hl-2">and</span><span class="hl-0"> </span><span class="hl-2">Uniswap</span><span class="hl-0">. </span><span class="hl-2">The</span><span class="hl-0"> </span><span class="hl-2">fee</span><span class="hl-0"> </span><span class="hl-2">for</span><span class="hl-0"> </span><span class="hl-2">the</span><span class="hl-0"> </span><span class="hl-2">loan</span><span class="hl-0"> </span><span class="hl-2">depends</span><span class="hl-0"> </span><span class="hl-2">on</span><span class="hl-0"> </span><span class="hl-2">the</span><span class="hl-0"> </span><span class="hl-7">provider</span><span class="hl-0">:</span><br/><span class="hl-0">     </span><span class="hl-2">o</span><span class="hl-0">   </span><span class="hl-7">Uniswap</span><span class="hl-0">: </span><span class="hl-1">0.05</span><span class="hl-0">%, </span><span class="hl-1">0.3</span><span class="hl-0">% </span><span class="hl-2">or</span><span class="hl-0"> </span><span class="hl-1">1</span><span class="hl-0">% (</span><span class="hl-2">depending</span><span class="hl-0"> </span><span class="hl-2">on</span><span class="hl-0"> </span><span class="hl-2">which</span><span class="hl-0"> </span><span class="hl-2">fee</span><span class="hl-0"> </span><span class="hl-2">the</span><span class="hl-0"> </span><span class="hl-2">specific</span><span class="hl-0"> </span><span class="hl-2">pool</span><span class="hl-0"> </span><span class="hl-2">is</span><span class="hl-0"> </span><span class="hl-2">using</span><span class="hl-0">)</span><br/><span class="hl-0">     </span><span class="hl-2">o</span><span class="hl-0">   </span><span class="hl-7">Aave</span><span class="hl-0">: </span><span class="hl-1">0.09</span><span class="hl-0">%</span>
-</code><button>Copy</button></pre>
+<p>Put simply, a flash loan/swap gives you access to liquidity at the START of a transaction
+provided you pay it back at the end. Otherwise, the whole transaction reverts.</p>
+<p>Eulith supports flash loans &amp; swaps from Aave and Uniswap. The fee for the loan depends on the provider:
+     o   Uniswap: 0.05%, 0.3% or 1% (depending on which fee the specific pool is using)
+     o   Aave: 0.09%</p>
 <p> It acts as a nested transaction.</p>
-<p> Example Usage:
-     ~~~
-         // in the context of an AtomicTx - which must be commited
-         const flashPay: Eulith.FlashLiquidity = await Eulith.FlashLiquidity.start({
-             parentTx: atomicTx,
-             paymentDef: {
-                 take: takeTokenContract,
-                 pay: payTokenContract,
-                 takeAmount: takeAmount,
-                 payTransferFrom: acct.address,
-                 recipient: acct.address
-             }
-         });
-         console.log(
-             <code>The price was ${flashPay.price}, and the fee was: ${flashPay.feePct}% - aka ${flashPay.feeAmt                  .map((a) =&gt; a.asDisplayString)                  .join(&quot;,&quot;)}</code>
-         );
-         await flashPay.commit();
-     ~~~</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></section>
 <section class="tsd-panel tsd-hierarchy">
@@ -49,8 +33,8 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">FlashLiquidity</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/flashLiquidity.ts#L64">src/flashLiquidity.ts:64</a></li>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/flashLiquidity.ts#L179">src/flashLiquidity.ts:179</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/flashLiquidity.ts#L44">src/flashLiquidity.ts:44</a></li>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/flashLiquidity.ts#L148">src/flashLiquidity.ts:148</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -65,7 +49,6 @@
 <div class="tsd-index-list"><a href="FlashLiquidity-1.html#feeAmt_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>fee<wbr/>Amt_</span></a>
 <a href="FlashLiquidity-1.html#feePct_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>fee<wbr/>Pct_</span></a>
 <a href="FlashLiquidity-1.html#price_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>price_</span></a>
-<a href="FlashLiquidity-1.html#PayDefinition" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>Pay<wbr/>Definition</span></a>
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Accessors</h3>
@@ -99,32 +82,24 @@
 <h4 class="tsd-returns-title">Returns <a href="FlashLiquidity-1.html" class="tsd-signature-type tsd-kind-class">FlashLiquidity</a></h4><aside class="tsd-sources">
 <p>Overrides <a href="AtomicTx.NestedTransaction.html">NestedTransaction</a>.<a href="AtomicTx.NestedTransaction.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/flashLiquidity.ts#L70">src/flashLiquidity.ts:70</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/flashLiquidity.ts#L45">src/flashLiquidity.ts:45</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="feeAmt_" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>fee<wbr/>Amt_</span><a href="#feeAmt_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">fee<wbr/>Amt_</span><span class="tsd-signature-symbol">:</span> <a href="../interfaces/Tokens.Value.ITokenValue.html" class="tsd-signature-type tsd-kind-interface">ITokenValue</a><span class="tsd-signature-symbol">[]</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/flashLiquidity.ts#L176">src/flashLiquidity.ts:176</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/flashLiquidity.ts#L145">src/flashLiquidity.ts:145</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="feePct_" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>fee<wbr/>Pct_</span><a href="#feePct_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">fee<wbr/>Pct_</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/flashLiquidity.ts#L175">src/flashLiquidity.ts:175</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/flashLiquidity.ts#L144">src/flashLiquidity.ts:144</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="price_" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>price_</span><a href="#price_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">price_</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/flashLiquidity.ts#L174">src/flashLiquidity.ts:174</a></li></ul></aside></section>
-<section class="tsd-panel tsd-member"><a id="PayDefinition" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>Pay<wbr/>Definition</span><a href="#PayDefinition" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">Pay<wbr/>Definition</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">typeof </span><span class="tsd-signature-type ">PayDefinition</span><span class="tsd-signature-symbol"> = PayDefinition</span></div>
-<div class="tsd-comment tsd-typography"><p>This maps to the python API FlashRequest</p>
-</div>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/flashLiquidity.ts#L68">src/flashLiquidity.ts:68</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/flashLiquidity.ts#L143">src/flashLiquidity.ts:143</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Accessors</h2>
 <section class="tsd-panel tsd-member"><a id="feeAmt" class="tsd-anchor"></a>
@@ -137,7 +112,7 @@
 <h4 class="tsd-returns-title">Returns <a href="../interfaces/Tokens.Value.ITokenValue.html" class="tsd-signature-type tsd-kind-interface">ITokenValue</a><span class="tsd-signature-symbol">[]</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/flashLiquidity.ts#L86">src/flashLiquidity.ts:86</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/flashLiquidity.ts#L61">src/flashLiquidity.ts:61</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="feePct" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>fee<wbr/>Pct</span><a href="#feePct" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -150,28 +125,30 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/flashLiquidity.ts#L79">src/flashLiquidity.ts:79</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/flashLiquidity.ts#L54">src/flashLiquidity.ts:54</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="price" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>price</span><a href="#price" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature" id="price.price-1"><span class="tsd-signature-symbol">get</span> price<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>In the case of swap, returns the exchange price</p>
+</div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/flashLiquidity.ts#L92">src/flashLiquidity.ts:92</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/flashLiquidity.ts#L68">src/flashLiquidity.ts:68</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="provider" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>provider</span><a href="#provider" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature" id="provider.provider-1"><span class="tsd-signature-symbol">get</span> provider<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>\see IAtomicTx.provider</p>
+<div class="tsd-comment tsd-typography"><p>The provider managing this NestedTransaction</p>
 </div>
 <h4 class="tsd-returns-title">Returns <a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from Eulith.AtomicTx.NestedTransaction.provider</p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L393">src/atomicTx.ts:393</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/atomicTx.ts#L273">src/atomicTx.ts:273</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="addTransaction" class="tsd-anchor"></a>
@@ -182,32 +159,26 @@
 <div class="tsd-comment tsd-typography"><p>Accumulate the argument transactionConfig into a server-side object which,
  when this.commit() is called, will produce a single transaction which combines
  the added sub-transactions.</p>
+<p> Within the scope of a NestedTransaction, the single transaction resulting from this.commit()
+ will not be returned immediately; it will be added to the outer transaction scope and eventually
+ returned when you commit the root level Atomic Transaction</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">transactionConfig</span>: <span class="tsd-signature-type ">TransactionConfig</span></h5>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h5><span class="tsd-kind-parameter">transactionConfig</span>: <span class="tsd-signature-type ">TransactionConfig</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-<div class="tsd-comment tsd-typography">
-<h4>Todo</h4><p>SINCE we don&#39;t implement any (much) server side logic to react to partially
- completed transactions (like in a database) - I wonder why this is useful todo
- server side. That&#39;s probably worth DOCUMENTING. Otherwise, we could just accumulate
- an array client side and send that.</p>
-</div><aside class="tsd-sources">
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="AtomicTx.NestedTransaction.html">NestedTransaction</a>.<a href="AtomicTx.NestedTransaction.html#addTransaction">addTransaction</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L410">src/atomicTx.ts:410</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/atomicTx.ts#L286">src/atomicTx.ts:286</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="addTransactions" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>add<wbr/>Transactions</span><a href="#addTransactions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="addTransactions.addTransactions-1"><span class="tsd-kind-call-signature">add<wbr/>Transactions</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">txs</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#addTransactions.addTransactions-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Adds multiple transactions, and returns all their hashed txHash results.
- Equivilent to a series sof calls to addTransaction, but waiting for each in turn.</p>
-<p> \note - this means that order is preserved between the transactions added, even
- if the caller fails to wait on this promise.</p>
+<div class="tsd-comment tsd-typography"><p>Convenience method for adding multiple transactions at once</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -218,7 +189,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="AtomicTx.NestedTransaction.html">NestedTransaction</a>.<a href="AtomicTx.NestedTransaction.html#addTransactions">addTransactions</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L423">src/atomicTx.ts:423</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/atomicTx.ts#L294">src/atomicTx.ts:294</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="commit" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>commit</span><a href="#commit" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
@@ -227,37 +198,40 @@
 <div class="tsd-comment tsd-typography"><p>Complete (atomically) this sub-step of the parent atomic transaction.</p>
 <p> This doesn&#39;t actually do the step, but marks as completed the sequence of operations
  and returns the (1-based) index of this step in the parent atomic transaction.</p>
-<p> Note: that returned index is not generally useful, but can be used to help diagnose problems
- in advanced applications.</p>
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="AtomicTx.NestedTransaction.html">NestedTransaction</a>.<a href="AtomicTx.NestedTransaction.html#commit">commit</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/atomicTx.ts#L441">src/atomicTx.ts:441</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/atomicTx.ts#L309">src/atomicTx.ts:309</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="start" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>start</span><a href="#start" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="start.start-1"><span class="tsd-kind-call-signature">start</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">__namedParameters</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="FlashLiquidity-1.html" class="tsd-signature-type tsd-kind-class">FlashLiquidity</a><span class="tsd-signature-symbol">&gt;</span><a href="#start.start-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Start the argument &#39;loan&#39; flashloan, nested inside the argument &#39;parentTx&#39; transaction</p>
+<div class="tsd-comment tsd-typography"><p>Start a flash liquidity transaction.</p>
+<p>You can either pass a loan or a takePay definition.</p>
+<p>In the case of a loan, the resulting tx is clear: you will originate a flash loan.</p>
+<p>In the case of a takePay, you will either originate a flash loan or a swap depending
+on the take and pay tokens. If you&#39;re taking and paying the same thing, that&#39;s a loan.
+Otherwise, it&#39;s a swap.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">__namedParameters</span>: <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">loan</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type ">IFlashLoanableX</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">parentTx</span><span class="tsd-signature-symbol">: </span><a href="AtomicTx.Transaction.html" class="tsd-signature-type tsd-kind-class">Transaction</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">paymentDef</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type ">PayDefinition</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></h5>
+<h5><span class="tsd-kind-parameter">__namedParameters</span>: <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">loan</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type ">IFlashLoanableX</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">parentTx</span><span class="tsd-signature-symbol">: </span><a href="AtomicTx.Transaction.html" class="tsd-signature-type tsd-kind-class">Transaction</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">takePay</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type ">TakePayDefinition</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></h5>
 <ul class="tsd-parameters">
 <li class="tsd-parameter">
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">loan</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type ">IFlashLoanableX</span></h5></li>
 <li class="tsd-parameter">
 <h5><span class="tsd-kind-property">parent<wbr/>Tx</span><span class="tsd-signature-symbol">: </span><a href="AtomicTx.Transaction.html" class="tsd-signature-type tsd-kind-class">Transaction</a></h5></li>
 <li class="tsd-parameter">
-<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">payment<wbr/>Def</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type ">PayDefinition</span></h5></li></ul></li></ul></div>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">take<wbr/>Pay</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type ">TakePayDefinition</span></h5></li></ul></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="FlashLiquidity-1.html" class="tsd-signature-type tsd-kind-class">FlashLiquidity</a><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/flashLiquidity.ts#L99">src/flashLiquidity.ts:99</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/flashLiquidity.ts#L83">src/flashLiquidity.ts:83</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -281,7 +255,6 @@
 <li><a href="#feeAmt_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>fee<wbr/>Amt_</span></a></li>
 <li><a href="#feePct_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>fee<wbr/>Pct_</span></a></li>
 <li><a href="#price_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>price_</span></a></li>
-<li><a href="#PayDefinition" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>Pay<wbr/>Definition</span></a></li>
 <li><a href="#feeAmt" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>fee<wbr/>Amt</span></a></li>
 <li><a href="#feePct" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>fee<wbr/>Pct</span></a></li>
 <li><a href="#price" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>price</span></a></li>
@@ -294,6 +267,7 @@
 <nav class="tsd-navigation"><a href="../modules.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>eulith-<wbr/>web3js</span></a>
 <ul class="tsd-small-nested-navigation">
 <li><a href="../modules/AtomicTx.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Atomic<wbr/>Tx</span></a></li>
+<li><a href="../modules/Auth.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Auth</span></a></li>
 <li><a href="../modules/Contracts.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Contracts</span></a></li>
 <li><a href="../modules/Exceptions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Exceptions</span></a></li>
 <li><a href="../modules/FlashLiquidity.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Flash<wbr/>Liquidity</span></a></li>
@@ -305,7 +279,7 @@
 <li><a href="../modules/Tokens.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Tokens</span></a></li>
 <li><a href="../modules/Uniswap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Uniswap</span></a></li>
 <li><a href="../modules/Utils.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Utils</span></a></li>
-<li><a href="AAve.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-128"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>AAve</span></a></li>
+<li><a href="Aave.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-128"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>Aave</span></a></li>
 <li><a href="FlashLiquidity-1.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Flash<wbr/>Liquidity</span></a></li>
 <li><a href="KMSSigner.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>KMSSigner</span></a></li>
 <li><a href="Provider.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Provider</span></a></li>

@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-samples",
-  "version": "0.5.0-beta.4",
+  "version": "0.5.0-beta.6",
   "description": "Common samples of eulith-web3js usage",
   "files": [
     "/build"
@@ -14,7 +14,7 @@
   "author": "Eulith Support <support@eulith.com>",
   "license": "CC BY-NC-ND 4.0",
   "dependencies": {
-    "eulith-web3js": "0.5.0-beta.2",
+    "eulith-web3js": "0.5.0-beta.5",
     "web3": "^1.9.0",
     "pino": "^8.14.1",
     "pino-pretty": "^9.4.0",

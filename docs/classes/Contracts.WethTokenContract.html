@@ -16,6 +16,10 @@
 <li><a href="../modules/Contracts.html">Contracts</a></li>
 <li><a href="Contracts.WethTokenContract.html">WethTokenContract</a></li></ul>
 <h1>Class WethTokenContract</h1></div>
+<section class="tsd-panel tsd-comment">
+<div class="tsd-comment tsd-typography"><p>The WETH contract is special because it allows for deposit/withdraw of native ETH</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></section>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
@@ -23,7 +27,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">WethTokenContract</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L259">src/contracts.ts:259</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L228">src/contracts.ts:228</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -59,7 +63,7 @@
 <a href="Contracts.WethTokenContract.html#transferFrom" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>transfer<wbr/>From</span></a>
 <a href="Contracts.WethTokenContract.html#withProvider" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>with<wbr/>Provider</span></a>
 <a href="Contracts.WethTokenContract.html#withdraw" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>withdraw</span></a>
-<a href="Contracts.WethTokenContract.html#mk" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>mk</span></a>
+<a href="Contracts.WethTokenContract.html#new" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>new</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Constructors</h2>
@@ -68,6 +72,9 @@
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="constructor.new_WethTokenContract"><span class="tsd-kind-constructor-signature">new <wbr/>Weth<wbr/>Token<wbr/>Contract</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">provider</span>, <span class="tsd-kind-parameter">nativeContract</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Contracts.WethTokenContract.html" class="tsd-signature-type tsd-kind-class">WethTokenContract</a><a href="#constructor.new_WethTokenContract" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Typically use WethTokenContract::new API (since its async) but you can use this API if you have a pre-constructed
+ contract object, and know the # of decimals.</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
@@ -75,10 +82,11 @@
 <h5><span class="tsd-kind-parameter">provider</span>: <a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a></h5></li>
 <li>
 <h5><span class="tsd-kind-parameter">nativeContract</span>: <span class="tsd-signature-type">any</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="Contracts.WethTokenContract.html" class="tsd-signature-type tsd-kind-class">WethTokenContract</a></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <a href="Contracts.WethTokenContract.html" class="tsd-signature-type tsd-kind-class">WethTokenContract</a></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Overrides <a href="Contracts.ERC20TokenContract.html">ERC20TokenContract</a>.<a href="Contracts.ERC20TokenContract.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L276">src/contracts.ts:276</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L246">src/contracts.ts:246</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="_contract" class="tsd-anchor"></a>
@@ -86,7 +94,7 @@
 <div class="tsd-signature"><span class="tsd-kind-property">_contract</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">Contract</span></div><aside class="tsd-sources">
 <p>Inherited from <a href="Contracts.ERC20TokenContract.html">ERC20TokenContract</a>.<a href="Contracts.ERC20TokenContract.html#_contract">_contract</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L58">src/contracts.ts:58</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L47">src/contracts.ts:47</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Accessors</h2>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="address" class="tsd-anchor"></a>
@@ -94,10 +102,13 @@
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature" id="address.address-1"><span class="tsd-signature-symbol">get</span> address<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 <li class="tsd-description">
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
+<div class="tsd-comment tsd-typography"><p>The address of this contract</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from ERC20TokenContract.address</p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L54">src/contracts.ts:54</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L43">src/contracts.ts:43</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="decimals" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>decimals</span><a href="#decimals" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
@@ -110,7 +121,7 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from ERC20TokenContract.decimals</p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L135">src/contracts.ts:135</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L116">src/contracts.ts:116</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="native" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>native</span><a href="#native" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
@@ -119,7 +130,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">BaseContract</span></h4><aside class="tsd-sources">
 <p>Inherited from ERC20TokenContract.native</p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L40">src/contracts.ts:40</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L29">src/contracts.ts:29</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="nativeERC20" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>nativeERC20</span><a href="#nativeERC20" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
@@ -128,47 +139,54 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">IERCDetailed</span></h4><aside class="tsd-sources">
 <p>Inherited from ERC20TokenContract.nativeERC20</p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L127">src/contracts.ts:127</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L108">src/contracts.ts:108</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="nativeWETH" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>nativeWETH</span><a href="#nativeWETH" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature" id="nativeWETH.nativeWETH-1"><span class="tsd-signature-symbol">get</span> nativeWETH<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">WETHInterface</span></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Returns the native contract binding</p>
+</div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">WETHInterface</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L282">src/contracts.ts:282</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L253">src/contracts.ts:253</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="options" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>options</span><a href="#options" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature" id="options.options-1"><span class="tsd-signature-symbol">get</span> options<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Options</span></li>
 <li class="tsd-description">
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Options</span></h4><aside class="tsd-sources">
+<div class="tsd-comment tsd-typography"><p>The Web3js options object, containing the address and ABI</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Options</span></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from ERC20TokenContract.options</p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L47">src/contracts.ts:47</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L36">src/contracts.ts:36</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="provider" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>provider</span><a href="#provider" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature" id="provider.provider-1"><span class="tsd-signature-symbol">get</span> provider<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>The Eulith provider managing the contract interactions</p>
+</div>
 <h4 class="tsd-returns-title">Returns <a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from ERC20TokenContract.provider</p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L141">src/contracts.ts:141</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L123">src/contracts.ts:123</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="symbol" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>symbol</span><a href="#symbol" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature" id="symbol.symbol-1"><span class="tsd-signature-symbol">get</span> symbol<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>This symbol associated with an ERC20 contract is handy to use in printed messages.</p>
+<div class="tsd-comment tsd-typography"><p>This symbol associated with an ERC20 contract</p>
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from ERC20TokenContract.symbol</p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L148">src/contracts.ts:148</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L130">src/contracts.ts:130</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="allowance" class="tsd-anchor"></a>
@@ -176,6 +194,8 @@
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="allowance.allowance-1"><span class="tsd-kind-call-signature">allowance</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">owner</span>, <span class="tsd-kind-parameter">spender</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Tokens.Value.ERC20.html" class="tsd-signature-type tsd-kind-class">ERC20</a><span class="tsd-signature-symbol">&gt;</span><a href="#allowance.allowance-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Convenience wrapper around ERC20.allowance</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
@@ -183,19 +203,17 @@
 <h5><span class="tsd-kind-parameter">owner</span>: <span class="tsd-signature-type">string</span></h5></li>
 <li>
 <h5><span class="tsd-kind-parameter">spender</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Tokens.Value.ERC20.html" class="tsd-signature-type tsd-kind-class">ERC20</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Tokens.Value.ERC20.html" class="tsd-signature-type tsd-kind-class">ERC20</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Contracts.ERC20TokenContract.html">ERC20TokenContract</a>.<a href="Contracts.ERC20TokenContract.html#allowance">allowance</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L247">src/contracts.ts:247</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L216">src/contracts.ts:216</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="approve" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>approve</span><a href="#approve" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="approve.approve-1"><span class="tsd-kind-call-signature">approve</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">spender</span>, <span class="tsd-kind-parameter">amount</span>, <span class="tsd-kind-parameter">txOpts</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Signing.UnsignedTransaction.html" class="tsd-signature-type tsd-kind-class">UnsignedTransaction</a><a href="#approve.approve-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>The owner of the contract authorizes, or approves, the given spender to withdraw
- instances of the token from the (contract) owner’s address.</p>
-<p> WARNING: ERC20TokenContract.approval does NOT initiate the actual approval. It must be chained together with
- signAndSendAndWait (or otherwise signed and sent along).</p>
+<div class="tsd-comment tsd-typography"><p>Convenience wrapper around ERC20.approve</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -210,57 +228,51 @@
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Contracts.ERC20TokenContract.html">ERC20TokenContract</a>.<a href="Contracts.ERC20TokenContract.html#approve">approve</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L186">src/contracts.ts:186</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L161">src/contracts.ts:161</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="asTokenValue" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>as<wbr/>Token<wbr/>Value</span><a href="#asTokenValue" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="asTokenValue.asTokenValue-1"><span class="tsd-kind-call-signature">as<wbr/>Token<wbr/>Value</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">v</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Tokens.Value.ERC20.html" class="tsd-signature-type tsd-kind-class">ERC20</a><a href="#asTokenValue.asTokenValue-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Argument &#39;v&#39; - is a number (either in float, or wire-format) - interpreted as being in the native contract
+units. It&#39;s converted to an object that knows this, and the native number of decimals, so it can be rendered properly
+automatically in wire format.</p>
+<p>if v is a number, it&#39;s interpreted in ERC20 token units
+if v is a string, it&#39;s interpreted as being in fundamental units.</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">v</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="Tokens.Value.ERC20.html" class="tsd-signature-type tsd-kind-class">ERC20</a></h4>
-<div class="tsd-comment tsd-typography">
-<h4>Todo</h4><p>add overload taking string and ITokenValue
- Argument &#39;v&#39; - is a number (either in float, or wire-format) - interpretted as being in the native contract
- units. Its converted to an object that knows this, and the native number of decimals, so it can be rendeded properly
- automatically in wire format.</p>
-<p>if v is a number, its interpretted in ERC20 token units
-if v is a string, its interpretted as being in fundamental units.</p>
-</div><aside class="tsd-sources">
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Contracts.ERC20TokenContract.html">ERC20TokenContract</a>.<a href="Contracts.ERC20TokenContract.html#asTokenValue">asTokenValue</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L175">src/contracts.ts:175</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L154">src/contracts.ts:154</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="balanceOf" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>balance<wbr/>Of</span><a href="#balanceOf" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="balanceOf.balanceOf-1"><span class="tsd-kind-call-signature">balance<wbr/>Of</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">address</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Tokens.Value.ERC20.html" class="tsd-signature-type tsd-kind-class">ERC20</a><span class="tsd-signature-symbol">&gt;</span><a href="#balanceOf.balanceOf-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Convenience wrapper around ERC20.balanceOf</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">address</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Tokens.Value.ERC20.html" class="tsd-signature-type tsd-kind-class">ERC20</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Tokens.Value.ERC20.html" class="tsd-signature-type tsd-kind-class">ERC20</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Overrides <a href="Contracts.ERC20TokenContract.html">ERC20TokenContract</a>.<a href="Contracts.ERC20TokenContract.html#balanceOf">balanceOf</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L304">src/contracts.ts:304</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L272">src/contracts.ts:272</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="deposit" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>deposit</span><a href="#deposit" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="deposit.deposit-1"><span class="tsd-kind-call-signature">deposit</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">v</span>, <span class="tsd-kind-parameter">txOpts</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Signing.UnsignedTransaction.html" class="tsd-signature-type tsd-kind-class">UnsignedTransaction</a><a href="#deposit.deposit-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>This transfers v ETH from the ETH blockchain to the WETH account.</p>
-<p> WARNING: WethTokenContract.deposit does NOT initiate the actual deposit. It must be chained together with
- signAndSendAndWait (or otherwise signed and sent along).</p>
-<p> Example Usage:
-     ~~~
-         await wethContract.deposit(new Eulith.Tokens.Value.ETH(1.0), {
-             from: acct.address,
-         }).signAndSendAndWait (acct, provider);
-     ~~~</p>
+<div class="tsd-comment tsd-typography"><p>Convenience wrapper around ERC20.deposit</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -272,14 +284,13 @@ if v is a string, its interpretted as being in fundamental units.</p>
 <h4 class="tsd-returns-title">Returns <a href="Signing.UnsignedTransaction.html" class="tsd-signature-type tsd-kind-class">UnsignedTransaction</a></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L321">src/contracts.ts:321</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L279">src/contracts.ts:279</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="transfer" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>transfer</span><a href="#transfer" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="transfer.transfer-1"><span class="tsd-kind-call-signature">transfer</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">to</span>, <span class="tsd-kind-parameter">amount</span>, <span class="tsd-kind-parameter">txOpts</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Signing.UnsignedTransaction.html" class="tsd-signature-type tsd-kind-class">UnsignedTransaction</a><a href="#transfer.transfer-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>WARNING: ERC20TokenContract.transfer does NOT initiate the actual transfer. It must be chained together with
- signAndSendAndWait (or otherwise signed and sent along).</p>
+<div class="tsd-comment tsd-typography"><p>Convenience wrapper around ERC20.transfer</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -294,12 +305,14 @@ if v is a string, its interpretted as being in fundamental units.</p>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Contracts.ERC20TokenContract.html">ERC20TokenContract</a>.<a href="Contracts.ERC20TokenContract.html#transfer">transfer</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L203">src/contracts.ts:203</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L177">src/contracts.ts:177</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="transferFrom" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>transfer<wbr/>From</span><a href="#transferFrom" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="transferFrom.transferFrom-1"><span class="tsd-kind-call-signature">transfer<wbr/>From</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">from</span>, <span class="tsd-kind-parameter">to</span>, <span class="tsd-kind-parameter">amount</span>, <span class="tsd-kind-parameter">txOpts</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Signing.UnsignedTransaction.html" class="tsd-signature-type tsd-kind-class">UnsignedTransaction</a><a href="#transferFrom.transferFrom-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Convenience wrapper around ERC20.transferFrom</p>
+</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
@@ -315,13 +328,13 @@ if v is a string, its interpretted as being in fundamental units.</p>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Contracts.ERC20TokenContract.html">ERC20TokenContract</a>.<a href="Contracts.ERC20TokenContract.html#transferFrom">transferFrom</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L218">src/contracts.ts:218</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L193">src/contracts.ts:193</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="withProvider" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>with<wbr/>Provider</span><a href="#withProvider" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="withProvider.withProvider-1"><span class="tsd-kind-call-signature">with<wbr/>Provider</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">provider</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Contracts.WethTokenContract.html" class="tsd-signature-type tsd-kind-class">WethTokenContract</a><a href="#withProvider.withProvider-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Clone the contract object, but using the argument provider. Can be used with atomicTx</p>
+<div class="tsd-comment tsd-typography"><p>Clone the contract object, but using the argument provider</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -332,21 +345,13 @@ if v is a string, its interpretted as being in fundamental units.</p>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Overrides <a href="Contracts.ERC20TokenContract.html">ERC20TokenContract</a>.<a href="Contracts.ERC20TokenContract.html#withProvider">withProvider</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L289">src/contracts.ts:289</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L260">src/contracts.ts:260</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="withdraw" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>withdraw</span><a href="#withdraw" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="withdraw.withdraw-1"><span class="tsd-kind-call-signature">withdraw</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">v</span>, <span class="tsd-kind-parameter">txOpts</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Signing.UnsignedTransaction.html" class="tsd-signature-type tsd-kind-class">UnsignedTransaction</a><a href="#withdraw.withdraw-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>This transfers v ETH from the WETH account to the ETH blockchain.</p>
-<p> WARNING: WethTokenContract.withdraw does NOT initiate the actual withdrawal. It must be chained together with
- signAndSendAndWait (or otherwise signed and sent along).</p>
-<p> Example Usage:
-     ~~~
-         await wethContract.withdraw(new Eulith.Tokens.Value.ETH(1.0), {
-             from: acct.address,
-         }).signAndSendAndWait(acct, provider);
-     ~~~</p>
+<div class="tsd-comment tsd-typography"><p>Convenience wrapper around ERC20.withdraw</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -358,11 +363,11 @@ if v is a string, its interpretted as being in fundamental units.</p>
 <h4 class="tsd-returns-title">Returns <a href="Signing.UnsignedTransaction.html" class="tsd-signature-type tsd-kind-class">UnsignedTransaction</a></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L350">src/contracts.ts:350</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="mk" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>mk</span><a href="#mk" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L298">src/contracts.ts:298</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="new" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>new</span><a href="#new" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="mk.mk-1"><span class="tsd-kind-call-signature">mk</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">__namedParameters</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Contracts.WethTokenContract.html" class="tsd-signature-type tsd-kind-class">WethTokenContract</a><span class="tsd-signature-symbol">&gt;</span><a href="#mk.mk-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="new.new-1"><span class="tsd-kind-call-signature">new</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">__namedParameters</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Contracts.WethTokenContract.html" class="tsd-signature-type tsd-kind-class">WethTokenContract</a><span class="tsd-signature-symbol">&gt;</span><a href="#new.new-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -376,9 +381,9 @@ if v is a string, its interpretted as being in fundamental units.</p>
 <h5><span class="tsd-kind-property">provider</span><span class="tsd-signature-symbol">: </span><a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a></h5></li></ul></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Contracts.WethTokenContract.html" class="tsd-signature-type tsd-kind-class">WethTokenContract</a><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Overrides <a href="Contracts.ERC20TokenContract.html">ERC20TokenContract</a>.<a href="Contracts.ERC20TokenContract.html#mk">mk</a></p>
+<p>Overrides <a href="Contracts.ERC20TokenContract.html">ERC20TokenContract</a>.<a href="Contracts.ERC20TokenContract.html#new">new</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/ab2a4b10/client/js/library-web3js/src/contracts.ts#L262">src/contracts.ts:262</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/ec873c00/client/js/library-web3js/src/contracts.ts#L231">src/contracts.ts:231</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -417,19 +422,19 @@ if v is a string, its interpretted as being in fundamental units.</p>
 <li><a href="#transferFrom" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>transfer<wbr/>From</span></a></li>
 <li><a href="#withProvider" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>with<wbr/>Provider</span></a></li>
 <li><a href="#withdraw" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>withdraw</span></a></li>
-<li><a href="#mk" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>mk</span></a></li></ul></div></details></div>
+<li><a href="#new" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>new</span></a></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="../modules.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>eulith-<wbr/>web3js</span></a>
 <ul class="tsd-small-nested-navigation">
 <li><a href="../modules/AtomicTx.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Atomic<wbr/>Tx</span></a></li>
+<li><a href="../modules/Auth.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Auth</span></a></li>
 <li>
 <details class="tsd-index-accordion" open data-key="Contracts"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg><a href="../modules/Contracts.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Contracts</span></a></summary>
 <div class="tsd-accordion-details">
 <ul class="tsd-nested-navigation">
 <li><a href="Contracts.Contract.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-128"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>Contract</span></a></li>
 <li><a href="Contracts.ERC20TokenContract.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>ERC20<wbr/>Token<wbr/>Contract</span></a></li>
-<li><a href="Contracts.WethTokenContract.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Weth<wbr/>Token<wbr/>Contract</span></a></li>
-<li><a href="../variables/Contracts.Interfaces.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-32"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-variable)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.106 16L8.85 7.24H9.966L11.454 13.192C11.558 13.608 11.646 13.996 11.718 14.356C11.79 14.708 11.842 14.976 11.874 15.16C11.906 14.976 11.954 14.708 12.018 14.356C12.09 13.996 12.178 13.608 12.282 13.192L13.758 7.24H14.85L12.582 16H11.106Z" fill="var(--color-text)"></path></g></svg><span>Interfaces</span></a></li></ul></div></details></li>
+<li><a href="Contracts.WethTokenContract.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Weth<wbr/>Token<wbr/>Contract</span></a></li></ul></div></details></li>
 <li><a href="../modules/Exceptions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Exceptions</span></a></li>
 <li><a href="../modules/FlashLiquidity.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Flash<wbr/>Liquidity</span></a></li>
 <li><a href="../modules/Logging.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Logging</span></a></li>
@@ -440,7 +445,7 @@ if v is a string, its interpretted as being in fundamental units.</p>
 <li><a href="../modules/Tokens.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Tokens</span></a></li>
 <li><a href="../modules/Uniswap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Uniswap</span></a></li>
 <li><a href="../modules/Utils.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Utils</span></a></li>
-<li><a href="AAve.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>AAve</span></a></li>
+<li><a href="Aave.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Aave</span></a></li>
 <li><a href="FlashLiquidity-1.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Flash<wbr/>Liquidity</span></a></li>
 <li><a href="KMSSigner.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>KMSSigner</span></a></li>
 <li><a href="Provider.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Provider</span></a></li>
