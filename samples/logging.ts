@@ -7,6 +7,7 @@ import { printBanner } from "./banner";
  *  Configure a pino logger, with trace level 'trace', so all the trace stuff goes to tracelog.txt.
  *  And run everything info level or higher through a pretty printer and dump to standard output (file descriptor 1).
  */
+
 const logger = pino.pino({
     level: "trace",
     transport: {
@@ -29,9 +30,10 @@ const logger = pino.pino({
  *  Construct a Eulith.Provider with the appropriate server and refresh token configuration, and hand it
  *  a logger wrapping the pino logger.
  */
+const eulithAuth = Eulith.Auth.fromRefreshToken(config.refreshToken);
 const provider = new Eulith.Provider({
     network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
-    refreshToken: config.refreshToken,
+    auth: eulithAuth,
     logger: new Eulith.Logging.PinoLogger(logger)
 });
 

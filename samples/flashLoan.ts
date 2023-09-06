@@ -3,11 +3,13 @@ import * as Eulith from "eulith-web3js";
 import config from "./commonConfiguration";
 import { printBanner } from "./banner";
 
+const eulithAuth = Eulith.Auth.fromRefreshToken(config.refreshToken);
+
 // Start creating a Eulith provider (like web3js provider) object, which can be used with web3js (and
 // Eulith APIs to communicate with the ethereum network. This handles authentication, and networking
 const provider = new Eulith.Provider({
     network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
-    refreshToken: config.refreshToken
+    auth: eulithAuth
 });
 
 // DO NOT use a plain text private key in production. Use KMS instead.
@@ -38,7 +40,7 @@ async function exampleFlash() {
 
     const flashPay: Eulith.FlashLiquidity = await Eulith.FlashLiquidity.start({
         parentTx: atomicTx,
-        paymentDef: {
+        takePay: {
             take: takeTokenContract,
             pay: payTokenContract,
             takeAmount: takeAmount,

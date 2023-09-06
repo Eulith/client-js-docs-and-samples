@@ -3,9 +3,10 @@ import * as Eulith from "eulith-web3js";
 import config from "./commonConfiguration";
 import { printBanner } from "./banner";
 
+const eulithAuth = Eulith.Auth.fromRefreshToken(config.refreshToken);
 const provider = new Eulith.Provider({
     network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
-    refreshToken: config.refreshToken
+    auth: eulithAuth,
 });
 
 // DO NOT use a plain text private key in production. Use KMS instead.
