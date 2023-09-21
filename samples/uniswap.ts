@@ -3,7 +3,7 @@ import * as Eulith from "eulith-web3js";
 import config from "./commonConfiguration";
 import { printBanner } from "./banner";
 
-const eulithAuth = Eulith.Auth.fromRefreshToken(config.refreshToken);
+const eulithAuth = Eulith.Auth.fromToken(config.refreshToken);
 const provider = new Eulith.Provider({
     network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
     auth: eulithAuth,

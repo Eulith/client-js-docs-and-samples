@@ -21,7 +21,7 @@ const main = async () => {
 
     const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
 
-    const eulithAuth = Eulith.Auth.fromRefreshToken(config.refreshToken);
+    const eulithAuth = Eulith.Auth.fromToken(config.refreshToken);
     const provider = new Eulith.Provider({
         network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
         auth: eulithAuth

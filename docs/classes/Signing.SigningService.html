@@ -26,10 +26,9 @@
 <p> Eulith provides abstract APIs for each kind of signing:
      &gt;   ICryptographicSigner
      &gt;   ITransactionSigner
-     &gt;   IPersonalMessageSigner
      &gt;   ITypedDataSigner</p>
-<p> Some services support one or more of these. For example, Metamask (generally) supports ITransactionSigner,
- IPersonalMessageSigner, and ITypedDataSigner (so ALL but ICryptographicSigner).</p>
+<p> Some services support one or more of these. For example, Metamask (generally) supports ITransactionSigner
+ and ITypedDataSigner (so ALL but ICryptographicSigner).</p>
 <p> But different &#39;wallets&#39; might support any subset of them.</p>
 <p> SigningService is an abstraction that allows you to easily peform whatever KIND of signing you might want to
  do, given whatever kind of building block signing functionality you might start with. SOMETIMES, there may
@@ -72,7 +71,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">SigningService</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L507">src/signing.ts:507</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L456">src/signing.ts:456</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -86,7 +85,6 @@
 <h3 class="tsd-index-heading">Properties</h3>
 <div class="tsd-index-list"><a href="Signing.SigningService.html#address_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>address_</span></a>
 <a href="Signing.SigningService.html#cryptographicSigner_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>cryptographic<wbr/>Signer_?</span></a>
-<a href="Signing.SigningService.html#personalMessageSigner_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>personal<wbr/>Message<wbr/>Signer_?</span></a>
 <a href="Signing.SigningService.html#provider_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>provider_</span></a>
 <a href="Signing.SigningService.html#transactionSigner_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>transaction<wbr/>Signer_?</span></a>
 <a href="Signing.SigningService.html#transactionSigningSender_" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>transaction<wbr/>Signing<wbr/>Sender_?</span></a>
@@ -96,7 +94,6 @@
 <h3 class="tsd-index-heading">Accessors</h3>
 <div class="tsd-index-list"><a href="Signing.SigningService.html#address" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-262144"><rect fill="var(--color-icon-background)" stroke="#FF4D4D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M8.85 16L11.13 7.24H12.582L14.85 16H13.758L13.182 13.672H10.53L9.954 16H8.85ZM10.746 12.76H12.954L12.282 10.06C12.154 9.548 12.054 9.12 11.982 8.776C11.91 8.432 11.866 8.208 11.85 8.104C11.834 8.208 11.79 8.432 11.718 8.776C11.646 9.12 11.546 9.544 11.418 10.048L10.746 12.76Z" fill="var(--color-text)"></path></g></svg><span>address</span></a>
 <a href="Signing.SigningService.html#cryptographicSigner" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>cryptographic<wbr/>Signer</span></a>
-<a href="Signing.SigningService.html#personalMessageSigner" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>personal<wbr/>Message<wbr/>Signer</span></a>
 <a href="Signing.SigningService.html#transactionSigner" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>transaction<wbr/>Signer</span></a>
 <a href="Signing.SigningService.html#transactionSigningSender" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>transaction<wbr/>Signing<wbr/>Sender</span></a>
 <a href="Signing.SigningService.html#typedDataSigner" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>typed<wbr/>Data<wbr/>Signer</span></a>
@@ -106,7 +103,6 @@
 <div class="tsd-index-list"><a href="Signing.SigningService.html#sendTransaction" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-2048"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)"></path></g></svg><span>send<wbr/>Transaction</span></a>
 <a href="Signing.SigningService.html#sendTransactionAndWait" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>send<wbr/>Transaction<wbr/>And<wbr/>Wait</span></a>
 <a href="Signing.SigningService.html#signHash" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>sign<wbr/>Hash</span></a>
-<a href="Signing.SigningService.html#signMessage" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>sign<wbr/>Message</span></a>
 <a href="Signing.SigningService.html#signTransaction" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>sign<wbr/>Transaction</span></a>
 <a href="Signing.SigningService.html#signTypedData" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>sign<wbr/>Typed<wbr/>Data</span></a>
 <a href="Signing.SigningService.html#assure" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>assure</span></a>
@@ -118,7 +114,7 @@
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="constructor.new_SigningService"><span class="tsd-kind-constructor-signature">new <wbr/>Signing<wbr/>Service</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">__namedParameters</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Signing.SigningService.html" class="tsd-signature-type tsd-kind-class">SigningService</a><a href="#constructor.new_SigningService" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>At least one of transactionSigner, personalMessageSigner, cryptographicSigner, and typedDataSigner MUST be provided.
+<div class="tsd-comment tsd-typography"><p>At least one of transactionSigner, cryptographicSigner, and typedDataSigner MUST be provided.
  More MAY be provided, but if so, they must agree on the &#39;address&#39; property.</p>
 <p> Provider argument is optional. But - if provided, along with cryptographicSigner, and missing other signers, it can be used
  to implement transactionSigner functionality.</p>
@@ -127,12 +123,10 @@
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">__namedParameters</span>: <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">cryptographicSigner</span><span class="tsd-signature-symbol">?: </span><a href="../interfaces/Signing.ICryptographicSigner.html" class="tsd-signature-type tsd-kind-interface">ICryptographicSigner</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">personalMessageSigner</span><span class="tsd-signature-symbol">?: </span><a href="../interfaces/Signing.IPersonalMessageSigner.html" class="tsd-signature-type tsd-kind-interface">IPersonalMessageSigner</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">provider</span><span class="tsd-signature-symbol">?: </span><a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a><span class="tsd-signature-symbol"> | </span><a href="Web3.html" class="tsd-signature-type tsd-kind-class">Web3</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">transactionSigner</span><span class="tsd-signature-symbol">?: </span><a href="../interfaces/Signing.ITransactionSigner.html" class="tsd-signature-type tsd-kind-interface">ITransactionSigner</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">transactionSigningSender</span><span class="tsd-signature-symbol">?: </span><a href="../interfaces/Signing.ITransactionSigningSender.html" class="tsd-signature-type tsd-kind-interface">ITransactionSigningSender</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">typedDataSigner</span><span class="tsd-signature-symbol">?: </span><a href="../interfaces/Signing.ITypedDataSigner.html" class="tsd-signature-type tsd-kind-interface">ITypedDataSigner</a><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></h5>
+<h5><span class="tsd-kind-parameter">__namedParameters</span>: <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">cryptographicSigner</span><span class="tsd-signature-symbol">?: </span><a href="../interfaces/Signing.ICryptographicSigner.html" class="tsd-signature-type tsd-kind-interface">ICryptographicSigner</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">provider</span><span class="tsd-signature-symbol">?: </span><a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a><span class="tsd-signature-symbol"> | </span><a href="Web3.html" class="tsd-signature-type tsd-kind-class">Web3</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">transactionSigner</span><span class="tsd-signature-symbol">?: </span><a href="../interfaces/Signing.ITransactionSigner.html" class="tsd-signature-type tsd-kind-interface">ITransactionSigner</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">transactionSigningSender</span><span class="tsd-signature-symbol">?: </span><a href="../interfaces/Signing.ITransactionSigningSender.html" class="tsd-signature-type tsd-kind-interface">ITransactionSigningSender</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">typedDataSigner</span><span class="tsd-signature-symbol">?: </span><a href="../interfaces/Signing.ITypedDataSigner.html" class="tsd-signature-type tsd-kind-interface">ITypedDataSigner</a><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></h5>
 <ul class="tsd-parameters">
 <li class="tsd-parameter">
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">cryptographic<wbr/>Signer</span><span class="tsd-signature-symbol">?: </span><a href="../interfaces/Signing.ICryptographicSigner.html" class="tsd-signature-type tsd-kind-interface">ICryptographicSigner</a></h5></li>
-<li class="tsd-parameter">
-<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">personal<wbr/>Message<wbr/>Signer</span><span class="tsd-signature-symbol">?: </span><a href="../interfaces/Signing.IPersonalMessageSigner.html" class="tsd-signature-type tsd-kind-interface">IPersonalMessageSigner</a></h5></li>
 <li class="tsd-parameter">
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">provider</span><span class="tsd-signature-symbol">?: </span><a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a><span class="tsd-signature-symbol"> | </span><a href="Web3.html" class="tsd-signature-type tsd-kind-class">Web3</a></h5></li>
 <li class="tsd-parameter">
@@ -144,44 +138,39 @@
 <h4 class="tsd-returns-title">Returns <a href="Signing.SigningService.html" class="tsd-signature-type tsd-kind-class">SigningService</a></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L551">src/signing.ts:551</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L482">src/signing.ts:482</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="address_" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>address_</span><a href="#address_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">address_</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L508">src/signing.ts:508</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L457">src/signing.ts:457</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="cryptographicSigner_" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagOptional">Optional</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>cryptographic<wbr/>Signer_</span><a href="#cryptographicSigner_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">cryptographic<wbr/>Signer_</span><span class="tsd-signature-symbol">?:</span> <a href="../interfaces/Signing.ICryptographicSigner.html" class="tsd-signature-type tsd-kind-interface">ICryptographicSigner</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L512">src/signing.ts:512</a></li></ul></aside></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="personalMessageSigner_" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagOptional">Optional</code> <span>personal<wbr/>Message<wbr/>Signer_</span><a href="#personalMessageSigner_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">personal<wbr/>Message<wbr/>Signer_</span><span class="tsd-signature-symbol">?:</span> <a href="../interfaces/Signing.IPersonalMessageSigner.html" class="tsd-signature-type tsd-kind-interface">IPersonalMessageSigner</a></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L511">src/signing.ts:511</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L460">src/signing.ts:460</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="provider_" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>provider_</span><a href="#provider_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">provider_</span><span class="tsd-signature-symbol">:</span> <a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L514">src/signing.ts:514</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L462">src/signing.ts:462</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="transactionSigner_" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagOptional">Optional</code> <span>transaction<wbr/>Signer_</span><a href="#transactionSigner_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">transaction<wbr/>Signer_</span><span class="tsd-signature-symbol">?:</span> <a href="../interfaces/Signing.ITransactionSigner.html" class="tsd-signature-type tsd-kind-interface">ITransactionSigner</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L509">src/signing.ts:509</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L458">src/signing.ts:458</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="transactionSigningSender_" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagOptional">Optional</code> <span>transaction<wbr/>Signing<wbr/>Sender_</span><a href="#transactionSigningSender_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">transaction<wbr/>Signing<wbr/>Sender_</span><span class="tsd-signature-symbol">?:</span> <a href="../interfaces/Signing.ITransactionSigningSender.html" class="tsd-signature-type tsd-kind-interface">ITransactionSigningSender</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L510">src/signing.ts:510</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L459">src/signing.ts:459</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="typedDataSigner_" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagOptional">Optional</code> <span>typed<wbr/>Data<wbr/>Signer_</span><a href="#typedDataSigner_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">typed<wbr/>Data<wbr/>Signer_</span><span class="tsd-signature-symbol">?:</span> <a href="../interfaces/Signing.ITypedDataSigner.html" class="tsd-signature-type tsd-kind-interface">ITypedDataSigner</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L513">src/signing.ts:513</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L461">src/signing.ts:461</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Accessors</h2>
 <section class="tsd-panel tsd-member"><a id="address" class="tsd-anchor"></a>
@@ -191,7 +180,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L619">src/signing.ts:619</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L541">src/signing.ts:541</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="cryptographicSigner" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>cryptographic<wbr/>Signer</span><a href="#cryptographicSigner" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -199,15 +188,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <a href="../interfaces/Signing.ICryptographicSigner.html" class="tsd-signature-type tsd-kind-interface">ICryptographicSigner</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L649">src/signing.ts:649</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="personalMessageSigner" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>personal<wbr/>Message<wbr/>Signer</span><a href="#personalMessageSigner" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures">
-<li class="tsd-signature" id="personalMessageSigner.personalMessageSigner-1"><span class="tsd-signature-symbol">get</span> personalMessageSigner<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/Signing.IPersonalMessageSigner.html" class="tsd-signature-type tsd-kind-interface">IPersonalMessageSigner</a></li>
-<li class="tsd-description">
-<h4 class="tsd-returns-title">Returns <a href="../interfaces/Signing.IPersonalMessageSigner.html" class="tsd-signature-type tsd-kind-interface">IPersonalMessageSigner</a></h4><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L640">src/signing.ts:640</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L565">src/signing.ts:565</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="transactionSigner" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>transaction<wbr/>Signer</span><a href="#transactionSigner" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -215,7 +196,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <a href="../interfaces/Signing.ITransactionSigner.html" class="tsd-signature-type tsd-kind-interface">ITransactionSigner</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L622">src/signing.ts:622</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L545">src/signing.ts:545</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="transactionSigningSender" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>transaction<wbr/>Signing<wbr/>Sender</span><a href="#transactionSigningSender" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -223,7 +204,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <a href="../interfaces/Signing.ITransactionSigningSender.html" class="tsd-signature-type tsd-kind-interface">ITransactionSigningSender</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L631">src/signing.ts:631</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L555">src/signing.ts:555</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="typedDataSigner" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>typed<wbr/>Data<wbr/>Signer</span><a href="#typedDataSigner" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -231,7 +212,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <a href="../interfaces/Signing.ITypedDataSigner.html" class="tsd-signature-type tsd-kind-interface">ITypedDataSigner</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L652">src/signing.ts:652</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L569">src/signing.ts:569</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="sendTransaction" class="tsd-anchor"></a>
@@ -250,7 +231,7 @@ and then sends the message on the associated provider with this signer</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L678">src/signing.ts:678</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L595">src/signing.ts:595</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="sendTransactionAndWait" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>send<wbr/>Transaction<wbr/>And<wbr/>Wait</span><a href="#sendTransactionAndWait" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -268,7 +249,7 @@ and then sends the message on the associated provider with this signer</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">TransactionReceipt</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L688">src/signing.ts:688</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L605">src/signing.ts:605</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="signHash" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>sign<wbr/>Hash</span><a href="#signHash" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -281,23 +262,7 @@ and then sends the message on the associated provider with this signer</p>
 <h5><span class="tsd-kind-parameter">hash</span>: <span class="tsd-signature-type ">Buffer</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Signing.ECDSASignature.html" class="tsd-signature-type tsd-kind-class">ECDSASignature</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L660">src/signing.ts:660</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="signMessage" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>sign<wbr/>Message</span><a href="#signMessage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="signMessage.signMessage-1"><span class="tsd-kind-call-signature">sign<wbr/>Message</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">message</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">Sign</span><span class="tsd-signature-symbol">&gt;</span><a href="#signMessage.signMessage-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Signs a personal message</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">message</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">Buffer</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">Sign</span><span class="tsd-signature-symbol">&gt;</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L701">src/signing.ts:701</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L577">src/signing.ts:577</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="signTransaction" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>sign<wbr/>Transaction</span><a href="#signTransaction" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -310,7 +275,7 @@ and then sends the message on the associated provider with this signer</p>
 <h5><span class="tsd-kind-parameter">transactionConfig</span>: <span class="tsd-signature-type ">TransactionConfig</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">SignedTransaction</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L667">src/signing.ts:667</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L584">src/signing.ts:584</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="signTypedData" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>sign<wbr/>Typed<wbr/>Data</span><a href="#signTypedData" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -326,27 +291,25 @@ and then sends the message on the associated provider with this signer</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Signing.ECDSASignature.html" class="tsd-signature-type tsd-kind-class">ECDSASignature</a><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L711">src/signing.ts:711</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L618">src/signing.ts:618</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="assure" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>assure</span><a href="#assure" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="assure.assure-1"><span class="tsd-kind-call-signature">assure</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">signer</span>, <span class="tsd-kind-parameter">provider</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Signing.SigningService.html" class="tsd-signature-type tsd-kind-class">SigningService</a><a href="#assure.assure-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Eulith.Signing.SigningService.assure</p>
-<p>Handy utility used mostly internally within ts-client API to assure you are working with a SigningService
-when given a bunch of things that MIGHT be a signing service or which you can use to construct a signing service from.</p>
+<div class="tsd-comment tsd-typography"><p>Thin wrapper around constructor, for backwards compatibility.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">signer</span>: <a href="Web3.html" class="tsd-signature-type tsd-kind-class">Web3</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/Signing.ICryptographicSigner.html" class="tsd-signature-type tsd-kind-interface">ICryptographicSigner</a><span class="tsd-signature-symbol"> | </span><a href="Signing.SigningService.html" class="tsd-signature-type tsd-kind-class">SigningService</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/Signing.ITransactionSigner.html" class="tsd-signature-type tsd-kind-interface">ITransactionSigner</a></h5></li>
+<h5><span class="tsd-kind-parameter">signer</span>: <a href="../interfaces/Signing.ICryptographicSigner.html" class="tsd-signature-type tsd-kind-interface">ICryptographicSigner</a></h5></li>
 <li>
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">provider</span>: <a href="Provider.html" class="tsd-signature-type tsd-kind-class">Provider</a><span class="tsd-signature-symbol"> | </span><a href="Web3.html" class="tsd-signature-type tsd-kind-class">Web3</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="Signing.SigningService.html" class="tsd-signature-type tsd-kind-class">SigningService</a></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/42a95b96/client/js/library-web3js/src/signing.ts#L522">src/signing.ts:522</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/869697c4/client/js/library-web3js/src/signing.ts#L467">src/signing.ts:467</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -369,21 +332,18 @@ when given a bunch of things that MIGHT be a signing service or which you can us
 <li><a href="#constructor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a></li>
 <li><a href="#address_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>address_</span></a></li>
 <li><a href="#cryptographicSigner_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>cryptographic<wbr/>Signer_</span></a></li>
-<li><a href="#personalMessageSigner_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>personal<wbr/>Message<wbr/>Signer_</span></a></li>
 <li><a href="#provider_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>provider_</span></a></li>
 <li><a href="#transactionSigner_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>transaction<wbr/>Signer_</span></a></li>
 <li><a href="#transactionSigningSender_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>transaction<wbr/>Signing<wbr/>Sender_</span></a></li>
 <li><a href="#typedDataSigner_" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>typed<wbr/>Data<wbr/>Signer_</span></a></li>
 <li><a href="#address" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>address</span></a></li>
 <li><a href="#cryptographicSigner" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>cryptographic<wbr/>Signer</span></a></li>
-<li><a href="#personalMessageSigner" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>personal<wbr/>Message<wbr/>Signer</span></a></li>
 <li><a href="#transactionSigner" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>transaction<wbr/>Signer</span></a></li>
 <li><a href="#transactionSigningSender" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>transaction<wbr/>Signing<wbr/>Sender</span></a></li>
 <li><a href="#typedDataSigner" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>typed<wbr/>Data<wbr/>Signer</span></a></li>
 <li><a href="#sendTransaction" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>send<wbr/>Transaction</span></a></li>
 <li><a href="#sendTransactionAndWait" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>send<wbr/>Transaction<wbr/>And<wbr/>Wait</span></a></li>
 <li><a href="#signHash" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>sign<wbr/>Hash</span></a></li>
-<li><a href="#signMessage" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>sign<wbr/>Message</span></a></li>
 <li><a href="#signTransaction" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>sign<wbr/>Transaction</span></a></li>
 <li><a href="#signTypedData" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>sign<wbr/>Typed<wbr/>Data</span></a></li>
 <li><a href="#assure" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>assure</span></a></li></ul></div></details></div>
@@ -409,12 +369,10 @@ when given a bunch of things that MIGHT be a signing service or which you can us
 <li><a href="Signing.SigningService.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Signing<wbr/>Service</span></a></li>
 <li><a href="Signing.UnsignedTransaction.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Unsigned<wbr/>Transaction</span></a></li>
 <li><a href="../interfaces/Signing.ICryptographicSigner.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-256"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)"></path></g></svg><span>ICryptographic<wbr/>Signer</span></a></li>
-<li><a href="../interfaces/Signing.IPersonalMessageSigner.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>IPersonal<wbr/>Message<wbr/>Signer</span></a></li>
 <li><a href="../interfaces/Signing.ITransactionSigner.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>ITransaction<wbr/>Signer</span></a></li>
 <li><a href="../interfaces/Signing.ITransactionSigningSender.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>ITransaction<wbr/>Signing<wbr/>Sender</span></a></li>
 <li><a href="../interfaces/Signing.ITypedDataSigner.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg><span>ITyped<wbr/>Data<wbr/>Signer</span></a></li>
-<li><a href="../types/Signing.PersonalMessageSignature.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4194304"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-type-alias)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.31 16V8.224H8.91V7.24H14.79V8.224H12.39V16H11.31Z" fill="var(--color-text)"></path></g></svg><span>Personal<wbr/>Message<wbr/>Signature</span></a></li>
-<li><a href="../types/Signing.TypedData.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4194304"></use></svg><span>Typed<wbr/>Data</span></a></li>
+<li><a href="../types/Signing.TypedData.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4194304"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-type-alias)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.31 16V8.224H8.91V7.24H14.79V8.224H12.39V16H11.31Z" fill="var(--color-text)"></path></g></svg><span>Typed<wbr/>Data</span></a></li>
 <li><a href="../functions/Signing.hashMessage.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-64"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)"></path></g></svg><span>hash<wbr/>Message</span></a></li>
 <li><a href="../functions/Signing.recoverSignerAddress.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>recover<wbr/>Signer<wbr/>Address</span></a></li>
 <li><a href="../functions/Signing.recoverTransactionSigner.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>recover<wbr/>Transaction<wbr/>Signer</span></a></li>
