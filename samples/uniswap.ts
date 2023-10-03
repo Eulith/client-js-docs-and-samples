@@ -10,6 +10,7 @@ const provider = new Eulith.Provider({
 });
 
 const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
+const signer = Eulith.Signing.SigningService.assure(acct, provider);
 
 async function bestPrice() {
     const sellToken = await Eulith.Tokens.getTokenContract({
@@ -26,7 +27,7 @@ async function bestPrice() {
 
     const agentContractAddress = await Eulith.OnChainAgents.contractAddress({
         provider,
-        authorizedSigner: acct
+        authorizedSigner: signer
     });
 
     const fundingContractBalance = await sellToken.balanceOf(acct.address);
@@ -50,7 +51,7 @@ async function bestPrice() {
         `Fees for this tranaction will be ${quote.feeAmt.asDisplayString}, and the price is ${quote.price} ${sellToken.symbol} per ${buyToken.symbol}`
     );
 
-    const atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: acct });
+    const atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: signer });
 
     const swapAtomicTx: Eulith.AtomicTx.NestedTransaction = await Eulith.Uniswap.startSwap({
         request: quote.swapRequest,

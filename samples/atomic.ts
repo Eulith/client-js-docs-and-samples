@@ -16,17 +16,15 @@ const provider = new Eulith.Provider({
 // Sample account/signer to test with
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
+const signer =  Eulith.Signing.SigningService.assure(acct, provider);
 
 async function exampleAtomicTransaction() {
     printBanner();
 
     console.log("Starting sample atomic transaction...");
 
-    // Web3 object generally not needed, but maybe handy for some apis (like to access web3.eth apis directly)
-    const ew3 = new Eulith.Web3({ provider, signer: acct });
-
     // Start Atomic Tx (or could pass CTOR {web3: ew3, accountAddress: acct.address})
-    const atomicTransaction = new Eulith.AtomicTx.Transaction({ provider, signer: acct });
+    const atomicTransaction = new Eulith.AtomicTx.Transaction({ provider, signer });
 
     // Append
     await atomicTransaction.addTransaction({

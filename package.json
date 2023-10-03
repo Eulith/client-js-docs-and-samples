@@ -1,6 +1,6 @@
 {
   "name": "eulith-web3js-samples",
-  "version": "0.16.3",
+  "version": "0.17.6-beta.2",
   "description": "Common samples of eulith-web3js usage",
   "files": [
     "/build"
@@ -15,7 +15,7 @@
   "license": "CC BY-NC-ND 4.0",
   "dependencies": {
     "@aws-sdk/client-kms": "^3.398.0",
-    "eulith-web3js": "0.16.0",
+    "eulith-web3js": "0.17.6-beta.2",
     "pino": "^8.15.0",
     "pino-pretty": "^9.4.0",
     "web3": "^1.9.0"

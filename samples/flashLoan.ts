@@ -14,6 +14,7 @@ const provider = new Eulith.Provider({
 
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
+const signer = Eulith.Signing.SigningService.assure(acct, provider);
 
 async function exampleFlash() {
     console.log(`Running from wallet: ${acct.address}`);
@@ -30,13 +31,13 @@ async function exampleFlash() {
     const takeAmount = 0.1;
     const payAmount = takeAmount * 2000 + 600; // Assume $2,000 per WETH + plenty extra for fees (just for this example, real fees are not that high!)
 
-    const agentContractAddress = await Eulith.OnChainAgents.contractAddress({ provider, authorizedSigner: acct });
+    const agentContractAddress = await Eulith.OnChainAgents.contractAddress({ provider, authorizedSigner: signer });
 
     await payTokenContract
         .approve(agentContractAddress, payTokenContract.asTokenValue(payAmount * 1.2), { from: acct.address })
         .signAndSendAndWait(acct, provider);
 
-    const atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: acct });
+    const atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: signer });
 
     const flashPay: Eulith.FlashLiquidity = await Eulith.FlashLiquidity.start({
         parentTx: atomicTx,

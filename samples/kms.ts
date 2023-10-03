@@ -20,12 +20,12 @@ const main = async () => {
     console.log(`AWS-KMS KeyID: ${awsKMSKeyID}`);
 
     const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
-
     const eulithAuth = Eulith.Auth.fromToken(config.refreshToken);
     const provider = new Eulith.Provider({
         network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
         auth: eulithAuth
     });
+    const signer = Eulith.Signing.SigningService.assure(acct, provider);
 
     const kmsSigner = await Eulith.KMSSigner.mk(client, awsKMSKeyID);
     const kmsWallet = new Eulith.Signing.SigningService({ provider, cryptographicSigner: kmsSigner });
@@ -42,7 +42,7 @@ const main = async () => {
             to: kmsWallet.address,
             value: 1213141500000000
         },
-        acct
+      signer
     );
     await ew3.eth.getTransactionReceipt(txReceiptHash);
 

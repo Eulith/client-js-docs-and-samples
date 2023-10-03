@@ -39,7 +39,8 @@ const provider = new Eulith.Provider({
 
 async function createContract() {
     const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
-    const contractAddress: string = await Eulith.OnChainAgents.contractAddress({ provider, authorizedSigner: acct });
+    const signer = Eulith.Signing.SigningService.assure(acct, provider);
+    const contractAddress: string = await Eulith.OnChainAgents.contractAddress({ provider, authorizedSigner: signer });
     logger.info(`Contract address: ${contractAddress}`);
 }
 

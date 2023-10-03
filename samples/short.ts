@@ -11,9 +11,10 @@ const provider = new Eulith.Provider({
 
 // DO NOT use a plain text private key in production. Use KMS instead.
 const acct = new Eulith.Signing.LocalSigner({ privateKey: config.Wallet1 });
+const signer = Eulith.Signing.SigningService.assure(acct, provider);
 
 async function shortOn() {
-    const agentContractAddress = await Eulith.OnChainAgents.contractAddress({ provider, authorizedSigner: acct });
+    const agentContractAddress = await Eulith.OnChainAgents.contractAddress({ provider, authorizedSigner: signer });
 
     const collateralToken = await Eulith.Tokens.getTokenContract({ provider, symbol: Eulith.Tokens.Symbols.USDC });
     const shortToken = await Eulith.Tokens.getTokenContract({ provider, symbol: Eulith.Tokens.Symbols.WETH });
@@ -30,7 +31,7 @@ async function shortOn() {
         .signAndSendAndWait(acct, provider);
 
     // Start atomic tx
-    const atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: acct });
+    const atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: signer });
 
     // Get short quote (leverage)
     const eulithShortAPI = new Eulith.Shorts({ atomicTx: atomicTx });
@@ -51,7 +52,7 @@ async function shortOff() {
     const collateralToken = await Eulith.Tokens.getTokenContract({ provider, symbol: Eulith.Tokens.Symbols.USDC });
     const shortToken = await Eulith.Tokens.getTokenContract({ provider, symbol: Eulith.Tokens.Symbols.WETH });
 
-    const atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: acct });
+    const atomicTx = new Eulith.AtomicTx.Transaction({ provider, signer: signer });
 
     const eulithShortAPI = new Eulith.Shorts({ atomicTx: atomicTx });
     const releasedCollateral = await eulithShortAPI.shortOff({
