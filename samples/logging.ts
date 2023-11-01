@@ -30,7 +30,7 @@ const logger = pino.pino({
  *  Construct a Eulith.Provider with the appropriate server and refresh token configuration, and hand it
  *  a logger wrapping the pino logger.
  */
-const eulithAuth = Eulith.Auth.fromToken(config.refreshToken);
+const eulithAuth = Eulith.Auth.fromToken(config.token);
 const provider = new Eulith.Provider({
     network: Eulith.Networks.Predefined.mainnet.with({ eulithURL: config.serverURL }),
     auth: eulithAuth,

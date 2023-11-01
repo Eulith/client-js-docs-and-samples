@@ -4,7 +4,7 @@ import { printBanner } from "./banner";
 
 import config from "./commonConfiguration";
 
-const eulithAuth = Eulith.Auth.fromToken(config.refreshToken);
+const eulithAuth = Eulith.Auth.fromToken(config.token);
 
 // Start creating a Eulith provider (like web3js provider) object, which can be used with web3js (and
 // Eulith APIs to communicate with the ethereum network. This handles authentication, and networking
