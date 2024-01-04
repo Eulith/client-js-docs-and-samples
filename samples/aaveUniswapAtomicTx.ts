@@ -44,7 +44,7 @@ async function exampleAaveUniswapAtomicTx() {
   const usdc = await Eulith.Tokens.getTokenContract({ provider, symbol: Eulith.Tokens.Symbols.USDC });
 
   // You need to have DeFi Armor set up ahead of time to run this sample.
-  const armorAgent = await Eulith.OnChainAgents.armorAgent({ provider, authorizedAddress: acct.address });
+  const armorAgent = await Eulith.OnChainAgents.getArmorAgent({ provider, tradingKeyAddress: acct.address });
   if (armorAgent === undefined) {
     throw new Error(`could not find armor agent for authorized trading key ${acct.address}`);
   }

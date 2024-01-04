@@ -23,12 +23,10 @@
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>A Uniswap pool contains exactly two different token Contracts, and allows the user
  to exchange currency in one, for the other. Each pool also has exactly one fee associated (as a percent of exchange amount).</p>
-<p> This method fetches the Uniswap pool which contains both these two argument Contracts.</p>
+<p> This method looks up the pool details from its constituent token contracts, and the fee.</p>
 <p> Note the order of the request.tokenContracts is meaningless for fetching the pool</p>
 <p> The fee is a required parameter for looking up a pool - see Eulith.Uniswap.PoolFee for details.
  If you don&#39;t know what fee to use, don&#39;t use getSwapPool, but use Eulith.Uniswap.getBestPriceQuote instead</p>
-<p> Note that the returned Eulith.Uniswap.Pool object can generally be used directly (as the examples below),
- but also can be used to access the underlying contract: IUniswapV3Pool accessor.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -48,7 +46,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Uniswap.html" class="tsd-signature-type tsd-kind-namespace">Uniswap</a><span class="tsd-signature-symbol">.</span><a href="../modules/Uniswap.V3.html" class="tsd-signature-type tsd-kind-namespace">V3</a><span class="tsd-signature-symbol">.</span><a href="../classes/Uniswap.V3.Pool.html" class="tsd-signature-type tsd-kind-class">Pool</a><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/886868fc/client/js/library-web3js/src/uniswap.ts#L427">src/uniswap.ts:427</a></li></ul></aside></li></ul></section></div>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/0f0112aa/client/js/library-web3js/src/uniswap.ts#L426">src/uniswap.ts:426</a></li></ul></aside></li></ul></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -107,6 +105,7 @@
 <li><a href="Uniswap.V3.getBestPriceQuote.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Best<wbr/>Price<wbr/>Quote</span></a></li>
 <li><a href="Uniswap.V3.getLimitOrders.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Limit<wbr/>Orders</span></a></li>
 <li><a href="Uniswap.V3.getPool.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Pool</span></a></li>
+<li><a href="Uniswap.V3.getPoolFromAddress.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Pool<wbr/>From<wbr/>Address</span></a></li>
 <li><a href="Uniswap.V3.startSwap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>start<wbr/>Swap</span></a></li>
 <li><a href="Uniswap.V3.submitMintHash.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>submit<wbr/>Mint<wbr/>Hash</span></a></li></ul></div></details></li>
 <li><a href="../types/Uniswap.LoanRequest.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4194304"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-type-alias)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.31 16V8.224H8.91V7.24H14.79V8.224H12.39V16H11.31Z" fill="var(--color-text)"></path></g></svg><span>Loan<wbr/>Request</span></a></li>
@@ -121,6 +120,8 @@
 <li><a href="../variables/Uniswap.SwapRequest-1.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-32"></use></svg><span>Swap<wbr/>Request</span></a></li>
 <li><a href="Uniswap.getBestPriceQuote.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Best<wbr/>Price<wbr/>Quote</span></a></li>
 <li><a href="Uniswap.getSwapPool.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Swap<wbr/>Pool</span></a></li>
+<li><a href="Uniswap.getSwapPoolFromAddress.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Swap<wbr/>Pool<wbr/>From<wbr/>Address</span></a></li>
+<li><a href="Uniswap.parsePoolFee.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>parse<wbr/>Pool<wbr/>Fee</span></a></li>
 <li><a href="Uniswap.startSwap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>start<wbr/>Swap</span></a></li></ul></div></details></li>
 <li><a href="../modules/Utils.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Utils</span></a></li>
 <li><a href="../modules/Whitelists.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Whitelists</span></a></li>

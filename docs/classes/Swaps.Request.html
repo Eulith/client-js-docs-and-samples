@@ -25,7 +25,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">Request</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/886868fc/client/js/library-web3js/src/swap.ts#L48">src/swap.ts:48</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/0f0112aa/client/js/library-web3js/src/swap.ts#L48">src/swap.ts:48</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -38,6 +38,7 @@
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Properties</h3>
 <div class="tsd-index-list"><a href="Swaps.Request.html#buyToken" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>buy<wbr/>Token</span></a>
+<a href="Swaps.Request.html#fromAddress" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>from<wbr/>Address?</span></a>
 <a href="Swaps.Request.html#liquiditySource" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>liquidity<wbr/>Source?</span></a>
 <a href="Swaps.Request.html#recipient" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>recipient?</span></a>
 <a href="Swaps.Request.html#routeThrough" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>route<wbr/>Through?</span></a>
@@ -56,10 +57,12 @@
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">__namedParameters</span>: <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">buyToken</span><span class="tsd-signature-symbol">: </span><a href="Contracts.ERC20TokenContract.html" class="tsd-signature-type tsd-kind-class">ERC20TokenContract</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">liquiditySource</span><span class="tsd-signature-symbol">?: </span><a href="../enums/Swaps.LiquiditySource.html" class="tsd-signature-type tsd-kind-enum">LiquiditySource</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">recipient</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">routeThrough</span><span class="tsd-signature-symbol">?: </span><a href="../modules/Swaps.html" class="tsd-signature-type tsd-kind-namespace">Swaps</a><span class="tsd-signature-symbol">.</span><a href="../enums/Swaps.Provider.html" class="tsd-signature-type tsd-kind-enum">Provider</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">sellAmount</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">sellToken</span><span class="tsd-signature-symbol">: </span><a href="Contracts.ERC20TokenContract.html" class="tsd-signature-type tsd-kind-class">ERC20TokenContract</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">slippageTolerance</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></h5>
+<h5><span class="tsd-kind-parameter">__namedParameters</span>: <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">buyToken</span><span class="tsd-signature-symbol">: </span><a href="Contracts.ERC20TokenContract.html" class="tsd-signature-type tsd-kind-class">ERC20TokenContract</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">fromAddress</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">liquiditySource</span><span class="tsd-signature-symbol">?: </span><a href="../enums/Swaps.LiquiditySource.html" class="tsd-signature-type tsd-kind-enum">LiquiditySource</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">recipient</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">routeThrough</span><span class="tsd-signature-symbol">?: </span><a href="../modules/Swaps.html" class="tsd-signature-type tsd-kind-namespace">Swaps</a><span class="tsd-signature-symbol">.</span><a href="../enums/Swaps.Provider.html" class="tsd-signature-type tsd-kind-enum">Provider</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">sellAmount</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">sellToken</span><span class="tsd-signature-symbol">: </span><a href="Contracts.ERC20TokenContract.html" class="tsd-signature-type tsd-kind-class">ERC20TokenContract</a><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">slippageTolerance</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></h5>
 <ul class="tsd-parameters">
 <li class="tsd-parameter">
 <h5><span class="tsd-kind-property">buy<wbr/>Token</span><span class="tsd-signature-symbol">: </span><a href="Contracts.ERC20TokenContract.html" class="tsd-signature-type tsd-kind-class">ERC20TokenContract</a></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">from<wbr/>Address</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5></li>
 <li class="tsd-parameter">
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">liquidity<wbr/>Source</span><span class="tsd-signature-symbol">?: </span><a href="../enums/Swaps.LiquiditySource.html" class="tsd-signature-type tsd-kind-enum">LiquiditySource</a></h5></li>
 <li class="tsd-parameter">
@@ -74,7 +77,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-property">slippage<wbr/>Tolerance</span><span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li></ul></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="Swaps.Request.html" class="tsd-signature-type tsd-kind-class">Request</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/886868fc/client/js/library-web3js/src/swap.ts#L64">src/swap.ts:64</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/0f0112aa/client/js/library-web3js/src/swap.ts#L66">src/swap.ts:66</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member"><a id="buyToken" class="tsd-anchor"></a>
@@ -84,7 +87,15 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/886868fc/client/js/library-web3js/src/swap.ts#L52">src/swap.ts:52</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/0f0112aa/client/js/library-web3js/src/swap.ts#L52">src/swap.ts:52</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member"><a id="fromAddress" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>from<wbr/>Address</span><a href="#fromAddress" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">from<wbr/>Address</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div>
+<div class="tsd-comment tsd-typography"><p>The originating wallet, NOTE: ONLY necessary if NOT executing through an atomic tx</p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/0f0112aa/client/js/library-web3js/src/swap.ts#L64">src/swap.ts:64</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="liquiditySource" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>liquidity<wbr/>Source</span><a href="#liquiditySource" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">liquidity<wbr/>Source</span><span class="tsd-signature-symbol">?:</span> <a href="../enums/Swaps.LiquiditySource.html" class="tsd-signature-type tsd-kind-enum">LiquiditySource</a></div>
@@ -92,7 +103,7 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/886868fc/client/js/library-web3js/src/swap.ts#L62">src/swap.ts:62</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/0f0112aa/client/js/library-web3js/src/swap.ts#L62">src/swap.ts:62</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="recipient" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>recipient</span><a href="#recipient" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">recipient</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div>
@@ -100,7 +111,7 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/886868fc/client/js/library-web3js/src/swap.ts#L56">src/swap.ts:56</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/0f0112aa/client/js/library-web3js/src/swap.ts#L56">src/swap.ts:56</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="routeThrough" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>route<wbr/>Through</span><a href="#routeThrough" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">route<wbr/>Through</span><span class="tsd-signature-symbol">?:</span> <a href="../modules/Swaps.html" class="tsd-signature-type tsd-kind-namespace">Swaps</a><span class="tsd-signature-symbol">.</span><a href="../enums/Swaps.Provider.html" class="tsd-signature-type tsd-kind-enum">Provider</a></div>
@@ -108,7 +119,7 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/886868fc/client/js/library-web3js/src/swap.ts#L58">src/swap.ts:58</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/0f0112aa/client/js/library-web3js/src/swap.ts#L58">src/swap.ts:58</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="sellAmount" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>sell<wbr/>Amount</span><a href="#sellAmount" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">sell<wbr/>Amount</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
@@ -116,7 +127,7 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/886868fc/client/js/library-web3js/src/swap.ts#L54">src/swap.ts:54</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/0f0112aa/client/js/library-web3js/src/swap.ts#L54">src/swap.ts:54</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="sellToken" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>sell<wbr/>Token</span><a href="#sellToken" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">sell<wbr/>Token</span><span class="tsd-signature-symbol">:</span> <a href="Contracts.ERC20TokenContract.html" class="tsd-signature-type tsd-kind-class">ERC20TokenContract</a></div>
@@ -124,7 +135,7 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/886868fc/client/js/library-web3js/src/swap.ts#L50">src/swap.ts:50</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/0f0112aa/client/js/library-web3js/src/swap.ts#L50">src/swap.ts:50</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="slippageTolerance" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>slippage<wbr/>Tolerance</span><a href="#slippageTolerance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">slippage<wbr/>Tolerance</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span></div>
@@ -132,7 +143,7 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kristian1108/call/blob/886868fc/client/js/library-web3js/src/swap.ts#L60">src/swap.ts:60</a></li></ul></aside></section></section></div>
+<li>Defined in <a href="https://github.com/kristian1108/call/blob/0f0112aa/client/js/library-web3js/src/swap.ts#L60">src/swap.ts:60</a></li></ul></aside></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -154,6 +165,7 @@
 <ul>
 <li><a href="#constructor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a></li>
 <li><a href="#buyToken" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>buy<wbr/>Token</span></a></li>
+<li><a href="#fromAddress" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>from<wbr/>Address</span></a></li>
 <li><a href="#liquiditySource" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>liquidity<wbr/>Source</span></a></li>
 <li><a href="#recipient" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>recipient</span></a></li>
 <li><a href="#routeThrough" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>route<wbr/>Through</span></a></li>

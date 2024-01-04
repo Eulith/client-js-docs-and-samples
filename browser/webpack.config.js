@@ -32,7 +32,6 @@ module.exports = {
     },
     resolve: {
         extensions: [".tsx", ".ts", ".js"],
-
         fallback: {
             // Fallbacks required to use web3-js, and therefore Eulith-web3js-core
             path: require.resolve("path-browserify"),
